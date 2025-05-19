@@ -1,11 +1,11 @@
 export default function BreadPage() {
   return (
-    <div className="w-full h-screen flex flex-col box-border">
+    <div className="w-full min-h-screen flex flex-col box-border">
       <header className="w-full h-[90px] shadow-md bg-white"></header>
       <div
         id="main"
         // className="px-[17px] flex flex-col flex-1"
-        className="px-[17px] flex flex-col flex-1 overflow-y-auto scrollbar-hide"
+        className="px-[17px] flex flex-col flex-1"
         style={{
           background: `linear-gradient(
       to bottom,

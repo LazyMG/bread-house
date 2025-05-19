@@ -12,10 +12,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full scrollbar-hide">
       <body className="h-full">
-        {/* <div className="mx-auto my-0 w-[390px] h-full">{children}</div> */}
-        <div className="w-full h-full mx-auto max-w-[430px]">{children}</div>
+        {/* <div className="w-full h-full mx-auto">{children}</div> */}
+
+        <div className="w-full h-full mx-auto max-w-[430px] scrollbar-hide">
+          {children}
+        </div>
       </body>
     </html>
   );
