@@ -1,0 +1,7 @@
+.collapse-animation {
+  height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  opacity: 0;
+  transform: translateY(-20px);
+}
