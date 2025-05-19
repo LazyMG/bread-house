@@ -77,7 +77,13 @@ export default function BreadPage() {
           </div>
           <div className="mt-[39px] px-[7px] flex justify-between h-[48px] items-center gap-[18px]">
             <div>{"<"}</div>
-            <div className="flex-grow max-w-[296px] font-wanted text-[14px] leading-[24px] text-center break-words">
+            <div
+              className="flex-grow max-w-[296px] font-wanted text-[14px] leading-[24px] text-center break-words"
+              style={{
+                wordBreak: "keep-all",
+                overflowWrap: "break-word",
+              }}
+            >
               야곱이 버드나무와 살구나무와 신풍나무의 푸른 가지를 그것들의
               껍질을 벗겨 흰 무늬를 내기를 기도합니다.
             </div>
