@@ -75,9 +75,9 @@ export default function BreadPage() {
           <div className="pt-[22px] ml-[7px] font-bold text-[20px] font-wanted leading-[22px]">
             기도제목
           </div>
-          <div className="mt-[39px] px-[7px] flex justify-between h-[48px] items-center gap-[18px]">
+          <div className="mt-[39px] px-[7px] flex justify-between h-[48px] items-center gap-[14px]">
             <div>{"<"}</div>
-            <div
+            {/* <div
               className="flex-grow max-w-[296px] font-wanted text-[14px] leading-[24px] text-center break-words"
               style={{
                 wordBreak: "keep-all",
@@ -86,6 +86,19 @@ export default function BreadPage() {
             >
               야곱이 버드나무와 살구나무와 신풍나무의 푸른 가지를 그것들의
               껍질을 벗겨 흰 무늬를 내기를 기도합니다.
+            </div> */}
+            <div className="flex-grow">
+              <div
+                className="max-w-[296px] text-[14px] leading-[24px] font-wanted text-center break-words"
+                style={{
+                  wordBreak: "keep-all",
+                  overflowWrap: "break-word",
+                  display: "inline-block", // 핵심
+                }}
+              >
+                야곱이 버드나무와 살구나무와 신풍나무의 푸른 가지를 그것들의
+                껍질을 벗겨 흰 무늬를 내기를 기도합니다.
+              </div>
             </div>
             <div>{">"}</div>
           </div>
