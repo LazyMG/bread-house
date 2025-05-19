@@ -4,7 +4,8 @@ export default function BreadPage() {
       <header className="w-full h-[90px] shadow-md bg-white"></header>
       <div
         id="main"
-        className="px-[17px] flex flex-col flex-1"
+        // className="px-[17px] flex flex-col flex-1"
+        className="px-[17px] flex flex-col flex-1 overflow-y-auto scrollbar-hide"
         style={{
           background: `linear-gradient(
       to bottom,
@@ -13,7 +14,7 @@ export default function BreadPage() {
     )`,
         }}
       >
-        <div className="w-full h-[333px] border-b-[1px] border-b-black">
+        <div className="w-full min-h-[333px] border-b-[1px] border-b-black">
           <div className="pt-[35px] ml-[7px] font-bold text-[20px] font-wanted">
             오늘의 양식
           </div>
@@ -25,20 +26,17 @@ export default function BreadPage() {
               Tue
             </div>
           </div>
-          <div className="pt-[4px] ml-[9px] flex items-start gap-[54px]">
-            <div className="w-[232px] h-[72px] text-[28px] leading-[36px] font-bold font-wanted break-all">
+          <div className="pt-[4px] ml-[9px] flex items-start pr-[16px]">
+            <div className="w-[232px] min-h-[72px] text-[28px] leading-[36px] font-bold font-wanted break-words">
               야곱의 노력과 승리는 어디로부터 나오나
             </div>
-            {/* <div className="w-[58px] h-[32px] pt-[6px] text-[12px] leading-[16px] font-wanted">
-              창세기 30 : 25-43
-            </div> */}
-            <div className="h-[32px] pt-[6px] text-[12px] leading-[16px] font-wanted text-left">
+            <div className="ml-auto h-[32px] pt-[6px] text-[12px] leading-[16px] font-wanted text-left flex-shrink-0">
               <div>창세기</div>
               <div>30 : 25-43</div>
             </div>
           </div>
         </div>
-        <div className="w-full h-[155px] border-b-[1px] border-b-black">
+        <div className="w-full min-h-[155px] border-b-[1px] border-b-black">
           <div className="pt-[22px] ml-[7px] font-bold text-[20px] font-wanted leading-[22px]">
             일주일의 기록
           </div>
@@ -73,7 +71,7 @@ export default function BreadPage() {
             </div>
           </div>
         </div>
-        <div className="flex-1 w-full">
+        <div className="flex-1 w-full min-h-[208px]">
           <div className="pt-[22px] ml-[7px] font-bold text-[20px] font-wanted leading-[22px]">
             기도제목
           </div>
