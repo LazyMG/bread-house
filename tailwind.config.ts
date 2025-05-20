@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         wanted: ['"Wanted Sans"', "sans-serif"],
         alte: ['"Alte Haas Grotesk"', "sans-serif"],
+        localWanted: "var(--wanted-bold-text)",
       },
     },
   },

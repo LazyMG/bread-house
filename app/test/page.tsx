@@ -14,7 +14,7 @@ export default function BreadPage() {
         }}
       >
         <div className="w-full min-h-[333px] border-b-[1px] border-b-black">
-          <div className="pt-[35px] ml-[7px] font-bold text-[20px] font-wanted">
+          <div className="pt-[35px] ml-[7px] font-bold text-[20px] font-localWanted">
             오늘의 양식
           </div>
           <div className="pt-[18px] ml-[10px] flex items-start">
