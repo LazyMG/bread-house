@@ -1,10 +1,9 @@
 export default function BreadPage() {
   return (
     <div className="w-full min-h-screen flex flex-col box-border">
-      <header className="w-full h-[90px] shadow-md bg-white"></header>
+      {/* <header className="w-full h-[90px] shadow-md bg-white"></header> */}
       <div
         id="main"
-        // className="px-[17px] flex flex-col flex-1"
         className="px-[17px] flex flex-col flex-1"
         style={{
           background: `linear-gradient(
@@ -42,31 +41,45 @@ export default function BreadPage() {
           </div>
           <div className="w-full flex pl-[16px] pr-[16px] mt-[24px] justify-between">
             <div className="flex flex-col gap-[3px] items-center">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF]  border-[#333333] border" />
+              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border-[#333333] border text-[13px] font-alte font-bold flex justify-center items-center">
+                11
+              </div>
               <div className="text-[14px] font-wanted leading-[24px]">일</div>
             </div>
             <div className="flex flex-col gap-[3px] items-center">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border border-[#333333]" />
+              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border-[#333333] border text-[13px] font-alte font-bold flex justify-center items-center">
+                12
+              </div>
               <div className="text-[14px] font-wanted leading-[24px]">월</div>
             </div>
             <div className="flex flex-col gap-[3px] items-center">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border border-[#333333]" />
+              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border-[#333333] border text-[13px] font-alte font-bold flex justify-center items-center">
+                13
+              </div>
               <div className="text-[14px] font-wanted leading-[24px]">화</div>
             </div>
             <div className="flex flex-col gap-[3px] items-center">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border border-[#333333]" />
+              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border-[#333333] border text-[13px] font-alte font-bold flex justify-center items-center">
+                14
+              </div>
               <div className="text-[14px] font-wanted leading-[24px]">수</div>
             </div>
             <div className="flex flex-col gap-[3px] items-center">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border border-[#333333]" />
+              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border-[#333333] border text-[13px] font-alte font-bold flex justify-center items-center">
+                15
+              </div>
               <div className="text-[14px] font-wanted leading-[24px]">목</div>
             </div>
             <div className="flex flex-col gap-[3px] items-center">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border border-[#333333]" />
+              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border-[#333333] border text-[13px] font-alte font-bold flex justify-center items-center">
+                16
+              </div>
               <div className="text-[14px] font-wanted leading-[24px]">금</div>
             </div>
             <div className="flex flex-col gap-[3px] items-center">
-              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border border-[#333333]" />
+              <div className="w-[36px] h-[36px] rounded-full bg-[#E3F0FF] border-[#333333] border text-[13px] font-alte font-bold flex justify-center items-center">
+                17
+              </div>
               <div className="text-[14px] font-wanted leading-[24px]">토</div>
             </div>
           </div>
@@ -75,7 +88,7 @@ export default function BreadPage() {
           <div className="pt-[22px] ml-[7px] font-bold text-[20px] font-wanted leading-[22px]">
             기도제목
           </div>
-          <div className="mt-[39px] px-[7px] flex justify-between h-[48px] items-center gap-[14px]">
+          <div className="mt-[39px] px-[7px] flex justify-between h-[48px] items-center gap-[12px]">
             <div>{"<"}</div>
             {/* <div
               className="flex-grow max-w-[296px] font-wanted text-[14px] leading-[24px] text-center break-words"
@@ -87,7 +100,7 @@ export default function BreadPage() {
               야곱이 버드나무와 살구나무와 신풍나무의 푸른 가지를 그것들의
               껍질을 벗겨 흰 무늬를 내기를 기도합니다.
             </div> */}
-            <div className="flex-grow">
+            <div className="flex-grow text-center">
               <div
                 className="max-w-[296px] text-[14px] leading-[24px] font-wanted text-center break-words"
                 style={{

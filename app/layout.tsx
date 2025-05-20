@@ -16,9 +16,7 @@ export default function RootLayout({
       <body className="h-full">
         {/* <div className="w-full h-full mx-auto">{children}</div> */}
 
-        <div className="w-full h-full mx-auto max-w-[430px] scrollbar-hide">
-          {children}
-        </div>
+        <div className="w-full h-full mx-auto max-w-[430px]">{children}</div>
       </body>
     </html>
   );
