@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`h-full ${localWanted.variable}`}>
         {/* <div className="w-full h-full mx-auto">{children}</div> */}
 
-        <div className="w-full h-full mx-auto max-w-[430px]">{children}</div>
+        <div className="w-full h-full mx-auto ">{children}</div>
       </body>
     </html>
   );
