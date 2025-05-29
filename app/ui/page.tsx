@@ -1,37 +1,20 @@
-export default function BreadPage() {
+// import BreadSection from "@/components/home-bread-section";
+import dynamic from "next/dynamic";
+
+const BreadSection = dynamic(() => import("@/components/home-bread-section"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[322px] flex justify-center items-center">
+      Loading...
+    </div>
+  ),
+});
+
+export default function NewPage() {
   return (
     <div className="w-full flex flex-col box-border bg-white">
       <div id="main" className="flex flex-col flex-1">
-        <div
-          className={`w-full h-[322px] pl-[24px] relative overflow-hidden bg-[#E2F4FF]`}
-        >
-          <div
-            id="circle"
-            className={`absolute w-[300px] h-[300px] rounded-full left-0 right-0 mx-auto top-[108px] blur-2xl z-0 animate-circle-rise bg-[#FFF5C5]`}
-          />
-          <div className="relative z-10">
-            <div className="mt-[32px] font-wanted font-bold text-[16px] leading-[22px]">
-              일용할 양식
-            </div>
-            <div className="mt-[19px] ml-[1px] flex items-start">
-              <span className="font-alte font-bold text-[60px] h-[78px] flex items-center w-[156px]">
-                05/15
-              </span>
-              <span className="font-alte font-bold text-[20px] mt-[13px] ml-[9px] w-[36px]">
-                Thu
-              </span>
-            </div>
-            <div className="mt-[4px] flex items-start pr-[31px]">
-              <div className="font-wanted font-bold text-[24px] leading-[32px] w-[199px] break-words">
-                야곱의 노력과 승리는 어디로부터 나오나
-              </div>
-              <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0">
-                <div>창세기</div>
-                <div>30 : 25-43</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BreadSection />
         <div className="w-full h-[156px] bg-[#FFFDFD] pl-[24px]">
           <div className="mt-[22px] font-wanted font-bold text-[16px] leading-[22px]">
             일주일의 기록
