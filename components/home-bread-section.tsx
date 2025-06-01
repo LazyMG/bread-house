@@ -50,7 +50,7 @@ export default function BreadSection() {
       <div
         id="circle"
         style={{ backgroundColor: `${color.circleColor}` }}
-        className={`absolute w-[300px] h-[300px] rounded-full left-0 right-0 mx-auto top-[108px] blur-2xl z-0 animate-circle-rise`}
+        className={`absolute w-[300px] h-[300px] rounded-full left-0 right-0 mx-auto top-[108px] blur-xl z-0 animate-circle-rise`}
       />
       <div className="relative z-10">
         <div className="mt-[32px] font-wanted font-bold text-[16px] leading-[22px]">
