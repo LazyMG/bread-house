@@ -21,7 +21,7 @@ const config: Config = {
         },
       },
       animation: {
-        "circle-rise": "rise 2s cubic-bezier(0.25, 0.8, 0.5, 1) forwards",
+        "circle-rise": "rise 1.2s cubic-bezier(0.25, 0.8, 0.5, 1) forwards",
       },
     },
   },
