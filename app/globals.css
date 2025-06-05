@@ -26,6 +26,14 @@ body {
 }
 
 @font-face {
+  font-family: "Wanted Sans";
+  src: url("/fonts/WantedSans-ExtraBold.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Alte Haas Grotesk";
   src: url("/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
   font-weight: 400;
