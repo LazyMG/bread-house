@@ -87,8 +87,15 @@ export default function BreadSection() {
           id="bread-section__title-info"
           className="mt-[4px] flex items-start pr-[31px] sm:pr-0 sm:relative sm:w-full sm:justify-center"
         >
-          <div className="font-wanted font-bold text-[24px] leading-[32px] w-[199px] break-words sm:font-extrabold lg:text-[42px] sm:w-[658px] sm:text-[30px] md:text-[36px] md:text-center">
-            야곱의 노력과 승리는 어디로부터 나오나
+          <div
+            className="font-wanted font-bold text-[24px] leading-[32px] w-[250px] break-words sm:font-extrabold lg:text-[42px] sm:w-[658px] sm:text-[30px] md:text-[36px] md:text-center md:leading-[40px]"
+            style={{
+              wordBreak: "keep-all",
+              overflowWrap: "break-word",
+            }}
+          >
+            {/* 야곱의 노력과 승리는 어디로부터 나오나 */}
+            담대히 하나님의 말씀을 전하게 하옵소서
           </div>
           <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0 sm:text-[16px] sm:absolute sm:right-[4%]">
             <div>창세기</div>
