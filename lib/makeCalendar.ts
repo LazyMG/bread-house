@@ -48,7 +48,7 @@ function makeCalendarRow(
     }
   }
 
-  console.log("totalRow", totalRow);
+  // console.log("totalRow", totalRow);
 
   return totalRow;
 }
