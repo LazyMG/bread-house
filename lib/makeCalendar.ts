@@ -37,7 +37,6 @@ function makeCalendarRow(
   }
 
   let totalRow = [...prevDateArr, columnDate, ...nextDateArr];
-  console.log("totalRow", totalRow);
 
   if (totalRow.length < 7) {
     const lessCount = 7 - totalRow.length;
@@ -48,6 +47,9 @@ function makeCalendarRow(
       totalRow = [...totalRow, ...empty];
     }
   }
+
+  console.log("totalRow", totalRow);
+
   return totalRow;
 }
 
