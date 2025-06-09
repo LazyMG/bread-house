@@ -434,8 +434,8 @@ const CalendarSection = () => {
                     week[i] === dateInfo?.date ? "text-[#333333]" : ""
                   }`}
                 >
-                  {week[i] === 8 && (
-                    <div className="absolute sm:w-[30px] sm:h-[30px] bg-[#CBECFF] rounded-full top-[-2px] mx-auto" />
+                  {week[i] === 2 && (
+                    <div className="absolute lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]  bg-[#CBECFF] rounded-full top-[-2px] mx-auto" />
                   )}
                   <div className="z-[2]">
                     {week[i] && week[i] !== 0

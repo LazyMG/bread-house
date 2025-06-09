@@ -47,7 +47,7 @@ export default function BreadSection() {
   ) : (
     <div
       style={{ backgroundColor: `${color.bgColor}` }}
-      className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-280px)] lg:px-[10%] 2xl:px-[20%]`}
+      className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)] lg:px-[10%] 2xl:px-[20%]`}
     >
       <div
         id="circle"
@@ -56,10 +56,11 @@ export default function BreadSection() {
             absolute aspect-square rounded-full blur-md z-0 animate-circle-rise 
             top-[120px] 2xl:top-[150px] 
             inset-x-0 mx-auto
-            w-[calc(100%-0px)] 
+            w-[340px] 
             sm:w-[calc(100%-5%)] 
             lg:w-[calc(100%-20%)] 
             2xl:w-[calc(100%-40%)]
+            sm:blur-lg
           "
       />
       <div
@@ -97,7 +98,7 @@ export default function BreadSection() {
             {/* 야곱의 노력과 승리는 어디로부터 나오나 */}
             담대히 하나님의 말씀을 전하게 하옵소서
           </div>
-          <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0 sm:text-[16px] sm:absolute sm:right-[4%]">
+          <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0 sm:text-[16px] sm:absolute sm:right-[4%] sm:leading-[20px]">
             <div>창세기</div>
             <div>30 : 25-43</div>
           </div>
@@ -106,11 +107,11 @@ export default function BreadSection() {
           id="bread-section__key-verse"
           className="hidden sm:flex sm:flex-col items-center w-[489px] mt-[40px] md:mt-[60px]"
         >
-          <div className="text-[20px] leading-[36px] font-wanted font-bold text-center sm:text-[18px]">
+          <div className="text-[20px] leading-[28px] font-wanted font-bold text-center sm:text-[18px]">
             주여 이제도 그들의 위협함을 굽어보시옵고 또 종들로 하여금 담대히
             하나님의 말씀을 전하게 하여 주시오며
           </div>
-          <div className="text-[16px] font-wanted font-bold leading-[42px] mt-[24px] sm:text-[14px]">
+          <div className="text-[16px] font-wanted font-bold leading-[42px] mt-[16px] sm:text-[14px]">
             열왕기하 23:3
           </div>
         </div>

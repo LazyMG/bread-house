@@ -21,7 +21,7 @@ export default function NewPage() {
         </div>
         <div
           id="bottom-container"
-          className="flex flex-col sm:flex-row sm:justify-between sm:h-[280px] sm:pt-[40px] sm:px-[5%] lg:px-[10%] 2xl:px-[20%] lg:gap-0 sm:gap-[24px]"
+          className="flex flex-col sm:flex-row sm:justify-between sm:items-center sm:h-[320px]  sm:px-[5%] lg:px-[10%] 2xl:px-[20%] lg:gap-0 sm:gap-[24px]"
         >
           <CalendarSection />
           <PraySection />

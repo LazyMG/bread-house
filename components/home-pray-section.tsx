@@ -5,7 +5,7 @@ const PraySection = () => {
         기도제목
       </div>
       <div
-        className="mt-[39px] pl-[28px] pr-[54px] font-wanted lg:text-[14px] leading-[24px] text-center sm:hidden"
+        className="mt-[32px] pl-[24px] pr-[50px] font-wanted text-[14px] leading-[24px] text-center sm:hidden"
         style={{
           wordBreak: "keep-all",
           overflowWrap: "break-word",
