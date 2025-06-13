@@ -47,9 +47,10 @@ export default function BreadSection() {
   ) : (
     <div
       style={{ backgroundColor: `${color.bgColor}` }}
-      className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)] lg:px-[10%] 2xl:px-[20%]`}
+      className={`mt-[64px] sm:mt-0 w-full h-[313px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)] mx-auto sm:px-[30px]`}
+      // className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)]`}
     >
-      <div
+      {/* <div
         id="circle"
         style={{ backgroundColor: color.circleColor }}
         className="
@@ -61,15 +62,30 @@ export default function BreadSection() {
             lg:w-[calc(100%-20%)] 
             2xl:w-[calc(100%-40%)]
             sm:blur-lg
+            lg:max-w-[1240px]
+          "
+      /> */}
+      <div
+        id="circle"
+        style={{ backgroundColor: color.circleColor }}
+        className="
+            absolute aspect-square rounded-full blur-md z-0 animate-circle-rise 
+            top-[120px] xl:top-[150px] 
+            inset-x-0 mx-auto
+            w-[340px] 
+            
+            sm:w-full
+            sm:blur-lg
+            lg:max-w-[calc(1240px-60px)]
           "
       />
       <div
         id="bread-section"
-        className="relative z-10 sm:flex sm:flex-col sm:items-center sm:justify-center sm:h-full sm:mt-[80px]"
+        className="relative z-2 sm:flex sm:flex-col sm:items-center sm:justify-center sm:h-full sm:mt-[80px] lg:max-w-[1240px] sm:mx-auto sm:pb-[180px]"
       >
         <div
           id="bread-section__header"
-          className="mt-[32px] font-wanted font-bold text-[16px] leading-[22px] sm:hidden"
+          className="mt-[32px] font-wanted font-bold text-[16px] leading-[22px] sm:hidden hidden"
         >
           일용할 양식
         </div>
@@ -86,10 +102,10 @@ export default function BreadSection() {
         </div>
         <div
           id="bread-section__title-info"
-          className="mt-[4px] flex items-start pr-[31px] sm:pr-0 sm:relative sm:w-full sm:justify-center"
+          className="mt-[4px] flex items-start pr-[31px] sm:pr-0 sm:relative sm:w-full sm:justify-center "
         >
           <div
-            className="font-wanted font-bold text-[24px] leading-[32px] w-[250px] break-words sm:font-extrabold lg:text-[42px] sm:w-[658px] sm:text-[30px] md:text-[36px] md:text-center md:leading-[40px]"
+            className="font-wanted font-bold text-[24px] leading-[32px] w-[250px] break-words sm:font-extrabold lg:text-[42px] sm:w-[658px] sm:text-[30px] md:text-[36px] sm:text-center md:leading-[40px] "
             style={{
               wordBreak: "keep-all",
               overflowWrap: "break-word",
@@ -98,20 +114,21 @@ export default function BreadSection() {
             {/* 야곱의 노력과 승리는 어디로부터 나오나 */}
             담대히 하나님의 말씀을 전하게 하옵소서
           </div>
-          <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0 sm:text-[16px] sm:absolute sm:right-[4%] sm:leading-[20px]">
+          <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0 sm:text-[16px] sm:absolute sm:right-0 lg:right-[40px] sm:leading-[20px]">
             <div>창세기</div>
             <div>30 : 25-43</div>
           </div>
         </div>
+        <div className="sm:w-[240px] sm:block h-[1px] bg-black mt-[80px] hidden" />
         <div
           id="bread-section__key-verse"
-          className="hidden sm:flex sm:flex-col items-center w-[489px] mt-[40px] md:mt-[60px]"
+          className="hidden sm:flex sm:flex-col items-center w-[489px] mt-[80px]"
         >
           <div className="text-[20px] leading-[28px] font-wanted font-bold text-center sm:text-[18px]">
             주여 이제도 그들의 위협함을 굽어보시옵고 또 종들로 하여금 담대히
             하나님의 말씀을 전하게 하여 주시오며
           </div>
-          <div className="text-[16px] font-wanted font-bold leading-[42px] mt-[16px] sm:text-[14px]">
+          <div className="text-[16px] font-wanted font-bold leading-[42px] mt-[28px] sm:text-[14px]">
             열왕기하 23:3
           </div>
         </div>

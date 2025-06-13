@@ -116,7 +116,7 @@ const CalendarSection = () => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         id="calendar-section__calendar-state__web"
         className="hidden sm:flex lg:mt-[8px] w-[266px] flex-col sm:w-[240px] sm:mt-[16px]"
       >
@@ -174,248 +174,6 @@ const CalendarSection = () => {
             SAT
           </span>
         </div>
-        {/* <div
-          id="calendar-section__calendar-state-dates"
-          className="flex flex-col lg:gap-[8px] sm:gap-[4px]"
-        >
-          {calendarInfo ? calendarInfo : <div>Set</div>}
-          <div
-            id="calendar-section__calendar-state-dates__row"
-            className="grid grid-cols-7 lg:gap-[22px] text-center lg:text-[16px] font-alte font-bold text-[rgba(51,51,51,0.5)] sm:text-[12px] sm:gap-[16px]"
-          >
-            <span
-              id="calendar-section__calendar-state-date-item "
-              className="flex justify-center items-center text-[#333333] relative"
-            >
-              <div className="absolute sm:w-[30px] sm:h-[30px] bg-[#CBECFF] rounded-full top-[-2px] mx-auto" />
-              <div className="z-[2]">01</div>
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              02
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              03
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              04
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              05
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              06
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              07
-            </span>
-          </div>
-          <div
-            id="calendar-section__calendar-state-dates__row"
-            className="grid grid-cols-7 lg:gap-[22px] text-center lg:text-[16px] font-alte font-bold text-[rgba(51,51,51,0.5)] sm:text-[12px] sm:gap-[16px]"
-          >
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              01
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              02
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              03
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              04
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              05
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              06
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              07
-            </span>
-          </div>
-          <div
-            id="calendar-section__calendar-state-dates__row"
-            className="grid grid-cols-7 lg:gap-[22px] text-center lg:text-[16px] font-alte font-bold text-[rgba(51,51,51,0.5)] sm:text-[12px] sm:gap-[16px]"
-          >
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              01
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              02
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              03
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              04
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              05
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              06
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              07
-            </span>
-          </div>
-          <div
-            id="calendar-section__calendar-state-dates__row"
-            className="grid grid-cols-7 lg:gap-[22px] text-center lg:text-[16px] font-alte font-bold text-[rgba(51,51,51,0.5)] sm:text-[12px] sm:gap-[16px]"
-          >
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              01
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              02
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              03
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              04
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              05
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              06
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              07
-            </span>
-          </div>
-          <div
-            id="calendar-section__calendar-state-dates__row"
-            className="grid grid-cols-7 lg:gap-[22px] text-center lg:text-[16px] font-alte font-bold text-[rgba(51,51,51,0.5)] sm:text-[12px] sm:gap-[16px]"
-          >
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              01
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              02
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              03
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              04
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              05
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              06
-            </span>
-            <span
-              id="calendar-section__calendar-state-date-item"
-              className="flex justify-center"
-            >
-              07
-            </span>
-          </div>
-        </div> */}
         <div
           id="calendar-section__calendar-state-dates"
           className="flex flex-col lg:gap-[8px] sm:gap-[4px]"
@@ -436,6 +194,96 @@ const CalendarSection = () => {
                 >
                   {week[i] === 2 && (
                     <div className="absolute lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]  bg-[#CBECFF] rounded-full top-[-2px] mx-auto" />
+                  )}
+                  <div className="z-[2]">
+                    {week[i] && week[i] !== 0
+                      ? week[i].toString().padStart(2, "0")
+                      : ""}
+                  </div>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div> */}
+      <div
+        id="calendar-section__calendar-state__web"
+        className="hidden sm:flex mt-[8px] w-[266px] flex-col"
+      >
+        <div
+          id="calendar-section__calendar-state-week"
+          className="grid grid-cols-7 gap-[22px] text-center text-[rgba(51,51,51,0.5)] text-[12px] font-alte font-bold mb-[16px]"
+        >
+          <span
+            className={`flex justify-center ${
+              dateInfo?.day === 0 && "text-[#333333]"
+            }`}
+          >
+            SUN
+          </span>
+          <span
+            className={`flex justify-center ${
+              dateInfo?.day === 1 && "text-[#333333]"
+            }`}
+          >
+            MON
+          </span>
+          <span
+            className={`flex justify-center ${
+              dateInfo?.day === 2 && "text-[#333333]"
+            }`}
+          >
+            TUE
+          </span>
+          <span
+            className={`flex justify-center ${
+              dateInfo?.day === 3 && "text-[#333333]"
+            }`}
+          >
+            WED
+          </span>
+          <span
+            className={`flex justify-center ${
+              dateInfo?.day === 4 && "text-[#333333]"
+            }`}
+          >
+            THU
+          </span>
+          <span
+            className={`flex justify-center ${
+              dateInfo?.day === 5 && "text-[#333333]"
+            }`}
+          >
+            FRI
+          </span>
+          <span
+            className={`flex justify-center ${
+              dateInfo?.day === 6 && "text-[#333333]"
+            }`}
+          >
+            SAT
+          </span>
+        </div>
+        <div
+          id="calendar-section__calendar-state-dates"
+          className="flex flex-col gap-[8px]"
+        >
+          {calendarInfo?.map((week, weekIndex) => (
+            <div
+              key={weekIndex}
+              id="calendar-section__calendar-state-dates__row"
+              className="grid grid-cols-7 gap-[22px] text-center text-[16px] font-alte font-bold text-[rgba(51,51,51,0.5)]"
+            >
+              {Array.from({ length: 7 }).map((_, i) => (
+                <span
+                  key={i}
+                  id="calendar-section__calendar-state-date-item"
+                  className={`flex justify-center relative ${
+                    week[i] === dateInfo?.date ? "text-[#333333]" : ""
+                  }`}
+                >
+                  {week[i] === 2 && (
+                    <div className="absolute w-[30px] h-[30px] bg-[#CBECFF] rounded-full top-[-2px] mx-auto" />
                   )}
                   <div className="z-[2]">
                     {week[i] && week[i] !== 0
