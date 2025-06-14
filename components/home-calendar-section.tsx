@@ -49,11 +49,11 @@ const CalendarSection = () => {
       </div>
       <div
         id="calendar-section__date-info"
-        className="hidden sm:block lg:text-[32px] font-alte font-bold leading-[36px] lg:w-[72px] sm:text-[28px] sm:w-[48px] sm:mt-[8px] lg:mt-0"
+        className="hidden sm:block lg:text-[32px] font-alte font-bold leading-[36px] lg:w-[72px] sm:text-[28px] sm:w-[48px]"
       >
         {dateInfo
           ? `${dateInfo.year} ${dateInfo.month.toString().padStart(2, "0")}`
-          : "2025 06"}
+          : ""}
       </div>
       <div
         id="calendar-section__calendar-state__mobile"
@@ -208,7 +208,7 @@ const CalendarSection = () => {
       </div> */}
       <div
         id="calendar-section__calendar-state__web"
-        className="hidden sm:flex mt-[8px] w-[266px] flex-col"
+        className="hidden sm:flex w-[266px] flex-col"
       >
         <div
           id="calendar-section__calendar-state-week"
