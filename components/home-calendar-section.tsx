@@ -266,7 +266,7 @@ const CalendarSection = () => {
         </div>
         <div
           id="calendar-section__calendar-state-dates"
-          className="flex flex-col gap-[8px]"
+          className="flex flex-col gap-[10px]"
         >
           {calendarInfo?.map((week, weekIndex) => (
             <div

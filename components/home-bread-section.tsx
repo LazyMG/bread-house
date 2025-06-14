@@ -42,7 +42,7 @@ export default function BreadSection() {
 
   return isLoading ? (
     <div
-      className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-280px)]`}
+      className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)]`}
     />
   ) : (
     <div
@@ -70,10 +70,9 @@ export default function BreadSection() {
         style={{ backgroundColor: color.circleColor }}
         className="
             absolute aspect-square rounded-full blur-md z-0 animate-circle-rise 
-            top-[120px] xl:top-[150px] 
+            top-[120px] lg:top-[20%] sm:top-[30%]
             inset-x-0 mx-auto
             w-[340px] 
-            
             sm:w-full
             sm:blur-lg
             lg:max-w-[calc(1240px-60px)]
@@ -81,7 +80,7 @@ export default function BreadSection() {
       />
       <div
         id="bread-section"
-        className="relative z-2 sm:flex sm:flex-col sm:items-center sm:justify-center sm:h-full sm:mt-[80px] lg:max-w-[1240px] sm:mx-auto sm:pb-[180px]"
+        className="relative z-2 sm:flex sm:flex-col sm:items-center sm:justify-center sm:h-full sm:mt-[80px] lg:max-w-[1240px] sm:mx-auto lg:pb-[5%]"
       >
         <div
           id="bread-section__header"
@@ -119,10 +118,11 @@ export default function BreadSection() {
             <div>30 : 25-43</div>
           </div>
         </div>
-        <div className="sm:w-[240px] sm:block h-[1px] bg-black mt-[80px] hidden" />
+        <div className="sm:w-[240px] sm:block h-[1px] bg-black xl:mt-[4%] mt-[40px] hidden" />
+
         <div
           id="bread-section__key-verse"
-          className="hidden sm:flex sm:flex-col items-center w-[489px] mt-[80px]"
+          className="hidden sm:flex sm:flex-col items-center w-[489px] xl:mt-[4%] mt-[40px]"
         >
           <div className="text-[20px] leading-[28px] font-wanted font-bold text-center sm:text-[18px]">
             주여 이제도 그들의 위협함을 굽어보시옵고 또 종들로 하여금 담대히

@@ -17,7 +17,7 @@ export default function NewPage() {
   return (
     <div className="flex flex-col box-border bg-white">
       <div id="main" className="flex flex-col flex-1">
-        <div id="top-container" className="h-full relative">
+        <div id="top-container" className="w=full h-full relative">
           <Navigation />
           <BreadSection />
         </div>

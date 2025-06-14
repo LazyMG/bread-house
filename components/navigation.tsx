@@ -2,7 +2,7 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <nav className="w-full h-[64px] sm:h-[82px] bg-[#C9EAFF] absolute top-0 left-0 right-0 z-[1] flex items-center justify-center">
+    <nav className="w-full h-[64px] sm:h-[72px] bg-[#C9EAFF] absolute top-0 left-0 right-0 z-[1] flex items-center justify-center">
       <div className="w-full lg:max-w-[1240px] flex items-center justify-between sm:px-[30px] xl:px-0 relative h-full">
         <span className="pl-[24px] sm:pl-0 font-bold font-alte text-[18px] sm:text-[24px] tracking-tighter">
           BREAD HAUS
