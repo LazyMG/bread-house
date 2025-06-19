@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Navigation = () => {
@@ -12,9 +13,7 @@ const Navigation = () => {
         <div className="sm:hidden pr-[24px]">
           <input type="checkbox" id="menu-toggle" className="hidden peer" />
           <label htmlFor="menu-toggle" className="cursor-pointer z-50">
-            <div className="w-6 h-0.5 bg-black mb-1" />
-            <div className="w-6 h-0.5 bg-black mb-1" />
-            <div className="w-6 h-0.5 bg-black" />
+            <div className="w-6 h-6 bg-black rounded-full" />
           </label>
 
           {/* 오버레이 */}
@@ -37,33 +36,25 @@ const Navigation = () => {
               <span className="group-hover:text-[rgba(43,43,43,1)]">
                 마이페이지
               </span>
-              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#FFFBE6] font-thin">
-                {">"}
-              </div>
+              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#FFFBE6] font-thin"></div>
             </div>
             <div className="group  h-[62px] w-full flex items-center px-[26px] justify-between">
               <span className="group-hover:text-[rgba(43,43,43,1)]">
                 오늘의 양식
               </span>
-              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-white font-thin">
-                {">"}
-              </div>
+              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-white font-thin"></div>
             </div>
             <div className="group  h-[62px] w-full flex items-center px-[26px] justify-between bg-[#E2F4FF]">
               <span className="group-hover:text-[rgba(43,43,43,1)]">
                 일주일의 기록
               </span>
-              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#E2F4FF] font-thin">
-                {">"}
-              </div>
+              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#E2F4FF] font-thin"></div>
             </div>
             <div className="group  h-[62px] w-full flex items-center px-[26px] justify-between bg-[#F8FFF6]">
               <span className="group-hover:text-[rgba(43,43,43,1)]">
                 기도제목
               </span>
-              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#F8FFF6] font-thin">
-                {">"}
-              </div>
+              <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#F8FFF6] font-thin"></div>
             </div>
             <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px]">
               BREAD HAUS
@@ -74,7 +65,9 @@ const Navigation = () => {
         {/* PC 메뉴 */}
         <div className="sm:flex gap-[49px] hidden items-center">
           <div className="flex gap-[32px] font-wanted text-[16px]">
-            <span>페이지</span>
+            <span>
+              <Link href={`/breads`}>오늘의 양식</Link>
+            </span>
             <span>페이지</span>
             <span>페이지</span>
           </div>
