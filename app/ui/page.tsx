@@ -1,24 +1,12 @@
 import BreadSection from "@/components/home-bread-section";
 import CalendarSection from "@/components/home-calendar-section";
 import PraySection from "@/components/home-pray-section";
-import Navigation from "@/components/navigation";
-import dynamic from "next/dynamic";
-
-// const BreadSection = dynamic(() => import("@/components/home-bread-section"), {
-//   ssr: false,
-//   loading: () => (
-//     <div className="w-full h-[322px] flex justify-center items-center sm:h-[calc(100vh-280px)]">
-//       Loading...
-//     </div>
-//   ),
-// });
 
 export default function NewPage() {
   return (
     <div className="flex flex-col box-border bg-white">
       <div id="main" className="flex flex-col flex-1">
         <div id="top-container" className="w=full h-full relative">
-          <Navigation />
           <BreadSection />
         </div>
         <div

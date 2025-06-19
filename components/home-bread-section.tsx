@@ -42,29 +42,13 @@ export default function BreadSection() {
 
   return isLoading ? (
     <div
-      className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)]`}
+      className={`mt-[64px] w-full h-[313px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)]`}
     />
   ) : (
     <div
       style={{ backgroundColor: `${color.bgColor}` }}
       className={`mt-[64px] sm:mt-0 w-full h-[313px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)] mx-auto sm:px-[30px]`}
-      // className={`w-full h-[322px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)]`}
     >
-      {/* <div
-        id="circle"
-        style={{ backgroundColor: color.circleColor }}
-        className="
-            absolute aspect-square rounded-full blur-md z-0 animate-circle-rise 
-            top-[120px] 2xl:top-[150px] 
-            inset-x-0 mx-auto
-            w-[340px] 
-            sm:w-[calc(100%-5%)] 
-            lg:w-[calc(100%-20%)] 
-            2xl:w-[calc(100%-40%)]
-            sm:blur-lg
-            lg:max-w-[1240px]
-          "
-      /> */}
       <div
         id="circle"
         style={{ backgroundColor: color.circleColor }}

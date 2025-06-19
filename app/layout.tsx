@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navigation from "@/components/navigation/navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,8 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scrollbar-hide">
       <body className={`h-full ${localWanted.variable}`}>
-        {/* <div className="w-full h-full mx-auto">{children}</div> */}
-
+        <Navigation />
         <div className="h-full mx-auto w-full">{children}</div>
       </body>
     </html>
