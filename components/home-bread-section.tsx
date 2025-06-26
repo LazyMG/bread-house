@@ -42,7 +42,7 @@ export default function BreadSection() {
 
   return isLoading ? (
     <div
-      className={`mt-[64px] w-full h-[313px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)]`}
+      className={`mt-[64px] w-full h-[313px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)] sm:mt-0`}
     />
   ) : (
     <div

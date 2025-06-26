@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { DATA, EXAMPLE } from "../db/data";
+import { DATA, EXAMPLE } from "../../db/data";
 
 import "./style.css";
 
