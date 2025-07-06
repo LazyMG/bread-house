@@ -2,6 +2,7 @@
 
 import { Dispatch, SetStateAction, useState } from "react";
 import VerseContainer from "../bread/verse-container";
+import MobileBreadHeader from "../bread/bread-header-mobile";
 
 type Bread = {
   date: string;
@@ -39,7 +40,7 @@ const VerseDescriptionContainer = ({
     <>
       <div
         id="present-section__header"
-        className="flex flex-col h-[73px] sm:h-fit bg-slate-300 pl-[25px] sm:pl-0 justify-center"
+        className="flex-col h-[73px] sm:h-fit pl-[25px] sm:pl-0 justify-center hidden sm:flex"
       >
         <div className="flex items-start gap-0 sm:gap-[10px]">
           <h2 className="text-[20px] sm:text-[36px] font-alte font-bold">
@@ -56,6 +57,7 @@ const VerseDescriptionContainer = ({
           {bread.range}
         </p>
       </div>
+      <MobileBreadHeader title={bread.title} date={bread.date} />
       <div
         id="present-section__content-container"
         className="px-[27px] sm:px-0 mt-[29px] sm:mt-0"
