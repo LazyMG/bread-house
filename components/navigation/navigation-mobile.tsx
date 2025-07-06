@@ -48,7 +48,7 @@ const MobileNavigation = () => {
           <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#FFFBE6] font-thin"></div>
         </div>
         <Link
-          href="/breads"
+          href="/breads/123"
           onClick={closeNav}
           className="group h-[62px] w-full flex items-center px-[26px] justify-between"
         >

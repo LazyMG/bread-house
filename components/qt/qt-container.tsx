@@ -23,7 +23,7 @@ const QtContainer = ({ bread }: { bread: Bread }) => {
 
   return (
     <>
-      <div id="left-section" className="w-full flex flex-col gap-[4px]">
+      <div id="present-section" className="w-full flex flex-col gap-[4px]">
         <VerseDescriptionContainer
           bread={bread}
           setSelectedVerse={setSelectedVerse}
