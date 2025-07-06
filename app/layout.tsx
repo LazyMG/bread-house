@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scrollbar-hide h-svh">
+    <html lang="en" className="scrollbar-hide h-svh overscroll-none">
       <body className={`h-full ${localWanted.variable}`}>
         <Navigation />
         <div className="h-full mx-auto w-full">{children}</div>
