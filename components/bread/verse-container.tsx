@@ -23,7 +23,7 @@ const VerseContainer = ({
     <>
       <div
         id="left-section__content"
-        className="mt-[16px] w-full h-fit sm:h-[480px] flex flex-col gap-[12px] sm:scrollbar-hide sm:overflow-y-scroll cursor-pointer mb-[200px] sm:mb-0"
+        className="mt-[16px] w-full sm:h-[480px] flex flex-col gap-[12px] sm:scrollbar-hide sm:overflow-y-scroll cursor-pointer mb-[50px] sm:mb-0"
       >
         {verses.map((verse, index) => (
           <div
