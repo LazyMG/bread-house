@@ -90,8 +90,6 @@ const NavigationStylingContainer = ({ children }: Props) => {
           />
         )}
       </div>
-
-      {/* 일반 children, 메뉴 등 */}
       {children}
     </div>
   );
