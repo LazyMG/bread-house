@@ -95,9 +95,12 @@ const BreadPage = () => {
   return (
     <div
       id="bread-page__container"
-      className="flex flex-col box-border bg-white sm:pt-[72px] text-black lg:max-w-[1240px] w-full mx-auto "
+      className="flex flex-col box-border bg-white sm:pt-[72px] text-black lg:max-w-[1240px] w-full mx-auto"
     >
-      <main id="main" className="w-full flex justify-between mt-[50px] gap-10">
+      <main
+        id="main"
+        className="w-full flex justify-between mt-[64px] sm:mt-[50px] gap-10"
+      >
         <QtContainer bread={bread} />
       </main>
     </div>

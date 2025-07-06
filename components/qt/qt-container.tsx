@@ -29,7 +29,7 @@ const QtContainer = ({ bread }: { bread: Bread }) => {
           setSelectedVerse={setSelectedVerse}
         />
       </div>
-      <div id="right-section" className="w-full">
+      <div id="right-section" className="w-full hidden sm:block">
         <WritingContainer selectedVerse={selectedVerse} />
       </div>
     </>
