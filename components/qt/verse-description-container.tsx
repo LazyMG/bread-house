@@ -56,36 +56,42 @@ const VerseDescriptionContainer = ({
         <p className="w-full text-end font-wanted text-[15px] text-black mt-[18px] hidden sm:inline">
           {bread.range}
         </p>
+        <div className="flex items-center gap-[10px] font-wanted font-extrabold text-[14px] pb-[41px] sm:pb-0 relative">
+          <button
+            className={`${
+              view === "VERSE" ? "text-black" : "text-[rgba(0,0,0,0.5)]"
+            }`}
+            onClick={() => setView("VERSE")}
+          >
+            본문
+          </button>
+          <div className="w-[1px] h-[18px] bg-black" />
+          <button
+            className={`${
+              view === "DESCRIPTION" ? "text-black" : "text-[rgba(0,0,0,0.5)]"
+            }`}
+            onClick={() => setView("DESCRIPTION")}
+          >
+            해설
+          </button>
+          <div className="absolute right-[50px] text-[12px] font-normal top-0 flex flex-col sm:hidden">
+            <span>{first}</span>
+            <span>{rest.join(" ")}</span>
+          </div>
+        </div>
       </div>
-      <MobileBreadHeader title={bread.title} date={bread.date} />
+      <MobileBreadHeader
+        title={bread.title}
+        date={bread.date}
+        range={bread.range}
+        view={view}
+        setView={setView}
+      />
       <div
         id="present-section__content-container"
-        className="px-[27px] sm:px-0 mt-[29px] sm:mt-0"
+        className="px-[27px] sm:px-0 sm:mt-0 mt-[200px]"
       >
         <>
-          <div className="flex items-center gap-[10px] font-wanted font-extrabold text-[14px] pb-[41px] sm:pb-0 relative">
-            <button
-              className={`${
-                view === "VERSE" ? "text-black" : "text-[rgba(0,0,0,0.5)]"
-              }`}
-              onClick={() => setView("VERSE")}
-            >
-              본문
-            </button>
-            <div className="w-[1px] h-[18px] bg-black" />
-            <button
-              className={`${
-                view === "DESCRIPTION" ? "text-black" : "text-[rgba(0,0,0,0.5)]"
-              }`}
-              onClick={() => setView("DESCRIPTION")}
-            >
-              해설
-            </button>
-            <div className="absolute right-[50px] text-[12px] font-normal top-0 flex flex-col sm:hidden">
-              <span>{first}</span>
-              <span>{rest.join(" ")}</span>
-            </div>
-          </div>
           {view === "VERSE" && (
             <VerseContainer
               verses={bread.verses}
