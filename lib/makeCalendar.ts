@@ -5,52 +5,75 @@ interface DateInfo {
   day: number;
 }
 
+// function makeCalendarRow(
+//   columnDate: number,
+//   columnDay: number,
+//   monthMax: number
+// ) {
+//   const lastRowDateDiff = 6 - columnDay;
+
+//   let prevDateArr = [];
+
+//   let prevDateDiff = columnDate - 1;
+//   let prevDayDiff = columnDay - 1;
+
+//   // while (prevDateDiff >= 1 && prevDayDiff > -1) {
+//   //   prevDateArr.push(prevDateDiff);
+//   //   prevDateDiff -= 1;
+//   //   prevDayDiff -= 1;
+//   // }
+
+//   while (prevDayDiff > -1) {
+//     prevDateArr.push(prevDateDiff >= 1 ? prevDateDiff : 0);
+//     prevDateDiff -= 1;
+//     prevDayDiff -= 1;
+//   }
+
+//   prevDateArr = prevDateArr.reverse();
+
+//   let nextDateArr = [];
+
+//   let nextDateDiff = columnDate + 1;
+//   let nextDayDiff = columnDay + 1;
+
+//   while (monthMax >= nextDateDiff && nextDayDiff <= 6) {
+//     nextDateArr.push(nextDateDiff);
+//     nextDateDiff += 1;
+//     nextDayDiff += 1;
+//   }
+
+//   let totalRow = [...prevDateArr, columnDate, ...nextDateArr];
+
+//   if (totalRow.length < 7) {
+//     const lessCount = 7 - totalRow.length;
+//     const empty = Array.from({ length: lessCount }, () => 0);
+//     if (totalRow[0] === 1) {
+//       totalRow = [...empty, ...totalRow];
+//     } else if (totalRow[totalRow.length - 1] === monthMax) {
+//       totalRow = [...totalRow, ...empty];
+//     }
+//   }
+
+//   // console.log("totalRow", totalRow);
+
+//   return totalRow;
+// }
+
 function makeCalendarRow(
   columnDate: number,
   columnDay: number,
   monthMax: number
 ) {
-  const lastRowDateDiff = 6 - columnDay;
+  const row: number[] = [];
 
-  let prevDateArr = [];
+  const start = columnDate - columnDay;
 
-  let prevDateDiff = columnDate - 1;
-  let prevDayDiff = columnDay - 1;
-
-  while (prevDateDiff >= 1 && prevDayDiff > -1) {
-    prevDateArr.push(prevDateDiff);
-    prevDateDiff -= 1;
-    prevDayDiff -= 1;
+  for (let i = 0; i < 7; i++) {
+    const value = start + i;
+    row.push(value >= 1 && value <= monthMax ? value : 0);
   }
 
-  prevDateArr = prevDateArr.reverse();
-
-  let nextDateArr = [];
-
-  let nextDateDiff = columnDate + 1;
-  let nextDayDiff = columnDay + 1;
-
-  while (monthMax >= nextDateDiff && nextDayDiff <= 6) {
-    nextDateArr.push(nextDateDiff);
-    nextDateDiff += 1;
-    nextDayDiff += 1;
-  }
-
-  let totalRow = [...prevDateArr, columnDate, ...nextDateArr];
-
-  if (totalRow.length < 7) {
-    const lessCount = 7 - totalRow.length;
-    const empty = Array.from({ length: lessCount }, () => 0);
-    if (totalRow[0] === 1) {
-      totalRow = [...empty, ...totalRow];
-    } else if (totalRow[totalRow.length - 1] === monthMax) {
-      totalRow = [...totalRow, ...empty];
-    }
-  }
-
-  // console.log("totalRow", totalRow);
-
-  return totalRow;
+  return row;
 }
 
 function getCalendarData(
@@ -64,15 +87,31 @@ function getCalendarData(
 
   let prevDiff = todayDate - 7;
 
-  let firstCount = 0;
+  // let firstCount = 0;
 
-  if (prevDiff < 1) {
-    firstCount += 1;
-  } else {
-    while (prevDiff >= 1) {
-      prevCount += 1;
-      prevDiff -= 7;
-    }
+  // if (prevDiff < 1) {
+  //   firstCount += 1;
+  // } else {
+  //   while (prevDiff >= 1) {
+  //     prevCount += 1;
+  //     prevDiff -= 7;
+  //   }
+  // }
+
+  if (todayDay === 0) {
+    // ✅ 일요일일 경우, 그 주도 하나로 계산해야 하므로 추가
+    prevCount += 1;
+    prevDiff -= 7;
+  }
+
+  while (prevDiff >= 1) {
+    prevCount += 1;
+    prevDiff -= 7;
+  }
+
+  let firstCount = 0;
+  if (todayDay !== 0 && todayDate <= 7) {
+    firstCount = 1;
   }
 
   let nextCount = 0;
