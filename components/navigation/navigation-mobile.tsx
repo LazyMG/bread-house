@@ -1,21 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import React, {
+  ChangeEvent,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState,
+} from "react";
 
 const MobileNavigation = ({
   isNavOpen,
   setIsNavOpen,
+  children,
 }: {
-  isNavOpen: boolean;
-  setIsNavOpen: Dispatch<SetStateAction<boolean>>;
+  isNavOpen?: boolean;
+  setIsNavOpen?: Dispatch<SetStateAction<boolean>>;
+  children?: ReactNode;
 }) => {
   const toggleNav = (event: ChangeEvent<HTMLInputElement>) => {
-    setIsNavOpen(event.currentTarget.checked);
+    if (setIsNavOpen) setIsNavOpen(event.currentTarget.checked);
   };
 
   const closeNav = () => {
-    setIsNavOpen(false);
+    if (setIsNavOpen) setIsNavOpen(false);
   };
 
   return (
@@ -81,6 +89,7 @@ const MobileNavigation = ({
           </div>
         </div>
       </div>
+      {children}
     </>
   );
 };

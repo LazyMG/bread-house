@@ -5,6 +5,7 @@ import NavigationStylingContainer from "./navigation-styling-container";
 import MobileNavigation from "./navigation-mobile";
 import PCNavigation from "./navigation-pc";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Navigation = () => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
@@ -13,6 +14,8 @@ const Navigation = () => {
     false
   );
   const lastScrollY = useRef(0); // 이전 스크롤 위치를 저장
+
+  const pathname = usePathname();
 
   useEffect(() => {
     if (isNavOpen) return;
@@ -75,7 +78,7 @@ const Navigation = () => {
   return (
     <nav
       className={`w-full h-[64px] sm:h-[72px] fixed top-0 left-0 right-0 z-[990] flex items-center justify-center
-      ${navTransformClass()}`}
+      ${navTransformClass()} ${pathname !== "/ui" ? "hidden sm:block" : ""}`}
     >
       <NavigationStylingContainer>
         <div className="static w-full h-full lg:max-w-[1240px] flex items-center justify-between sm:px-[30px] xl:px-0 z-10">
