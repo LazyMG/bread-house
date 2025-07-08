@@ -1,44 +1,9 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
-
-interface HomeColor {
-  bgColor: string;
-  circleColor: string;
-}
+import { useThemeColor } from "@/lib/hook/useThemeColor";
 
 export default function BreadSection() {
-  const [color, setColor] = useState<HomeColor>({
-    bgColor: "#E2F4FF",
-    circleColor: "#FFF5C5",
-  });
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useLayoutEffect(() => {
-    const hour = new Date().getHours();
-
-    switch (true) {
-      case hour >= 5 && hour < 7:
-      case hour >= 17 && hour < 19:
-        setColor({
-          bgColor: "#FFE2E2",
-          circleColor: "#FF9D69",
-        });
-        break;
-      case hour >= 7 && hour < 17:
-        setColor({
-          bgColor: "#E2F4FF",
-          circleColor: "#FFF5C5",
-        });
-        break;
-      default:
-        setColor({
-          bgColor: "#E6E6E6",
-          circleColor: "#FFF6C6",
-        });
-    }
-    setIsLoading(false);
-  }, []);
+  const { color, isLoading } = useThemeColor();
 
   return isLoading ? (
     <div
