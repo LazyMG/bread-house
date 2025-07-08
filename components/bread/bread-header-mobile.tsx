@@ -45,7 +45,7 @@ const MobileBreadHeader = ({
           onClick={toggleNav}
           className={`
     transition-all duration-300 ease-in-out
-    z-[10] relative top-[25px]
+    z-[10] relative top-[18px]
     ${
       isNavHiddenByScroll
         ? "opacity-0 scale-90 -translate-y-2 pointer-events-none"
@@ -106,11 +106,21 @@ const MobileBreadHeader = ({
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         id="present-section__header-mobile"
         className={`flex flex-col justify-center pl-[25px] py-1 transition-all ease-in-out relative top-0 ${
           isNavHiddenByScroll ? "h-[46px]" : "h-[107px]"
         }`}
+        style={{ backgroundColor: color.bgColor }}
+      > */}
+      <div
+        className={`
+    flex flex-col justify-center pl-[25px] py-1
+    transition-[max-height] duration-500 ease-in-out
+    overflow-hidden
+    relative top-0
+    ${isNavHiddenByScroll ? "max-h-[50px]" : "max-h-[160px]"}
+  `}
         style={{ backgroundColor: color.bgColor }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
@@ -133,11 +143,32 @@ const MobileBreadHeader = ({
               MON
             </p>
           </div> */}
-          <div
+          {/* <div
             className={`
       overflow-hidden transition-all duration-300 ease-in-out
       ${isNavHiddenByScroll ? "max-h-0 opacity-0" : "max-h-[50px] opacity-100"}
     `}
+          >
+            <div className="flex items-start gap-0 sm:gap-[10px] transition-all duration-300 ease-in-out">
+              <h2 className="text-[33px] sm:text-[36px] font-alte font-bold">
+                06/30
+              </h2>
+              <p className="text-[14px] sm:text-[16px] font-alte font-bold pt-[9px] pl-[5px] sm:pt-[7px] sm:pl-0">
+                MON
+              </p>
+            </div>
+          </div> */}
+          <div
+            className={`
+    transition-all duration-300 ease-in-out overflow-hidden
+    transform-gpu
+    ${
+      isNavHiddenByScroll
+        ? "max-h-0 scale-y-95 opacity-0"
+        : "max-h-[50px] scale-y-100 opacity-100"
+    }
+  `}
+            style={{ transformOrigin: "top" }}
           >
             <div className="flex items-start gap-0 sm:gap-[10px] transition-all duration-300 ease-in-out">
               <h2 className="text-[33px] sm:text-[36px] font-alte font-bold">
