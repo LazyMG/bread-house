@@ -54,10 +54,10 @@ const MobileBreadHeader = ({
         <button
           onClick={toggleButtonNav}
           // htmlFor="menu-toggle1"
-          className={`cursor-pointer z-[999] relative top-[12px]
+          className={`cursor-pointer z-[10] relative top-[12px]
     transition-all duration-300 ease-in-out
     ${
-      isNavHiddenByScroll || isNavOpen
+      isNavHiddenByScroll
         ? "opacity-0 pointer-events-none scale-90"
         : "opacity-100 pointer-events-auto scale-100"
     }
