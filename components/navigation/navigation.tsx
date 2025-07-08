@@ -14,40 +14,78 @@ const Navigation = () => {
   );
   const lastScrollY = useRef(0); // 이전 스크롤 위치를 저장
 
+  // useEffect(() => {
+  //   if (isNavOpen) return;
+
+  //   const isMobile = window.innerWidth < 768;
+
+  //   if (!isMobile) {
+  //     setIsNavHiddenByScroll(false);
+  //     return;
+  //   }
+
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+  //     const navHeight = 72;
+
+  //     if (currentScrollY > lastScrollY.current && currentScrollY > navHeight) {
+  //       setIsNavHiddenByScroll(true);
+  //     } else if (currentScrollY < lastScrollY.current) {
+  //       setIsNavHiddenByScroll(false);
+  //     }
+
+  //     if (currentScrollY <= navHeight && lastScrollY.current > navHeight) {
+  //       setIsNavHiddenByScroll(false);
+  //     } else if (currentScrollY === 0) {
+  //       setIsNavHiddenByScroll(false);
+  //     }
+
+  //     lastScrollY.current = currentScrollY; // 현재 스크롤 위치 저장
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [isNavOpen]);
+
   useEffect(() => {
     if (isNavOpen) return;
 
     const isMobile = window.innerWidth < 768;
-
     if (!isMobile) {
       setIsNavHiddenByScroll(false);
       return;
     }
 
+    const threshold = 5; // 바운스 감지 방지용 감도 설정
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY.current;
+
       const navHeight = 72;
 
-      if (currentScrollY > lastScrollY.current && currentScrollY > navHeight) {
+      // 아래로 확실히 스크롤 했을 때만 숨김
+      if (delta > threshold && currentScrollY > navHeight) {
         setIsNavHiddenByScroll(true);
-      } else if (currentScrollY < lastScrollY.current) {
+      }
+      // 위로 확실히 스크롤 했을 때만 표시
+      else if (delta < -threshold) {
         setIsNavHiddenByScroll(false);
       }
 
-      if (currentScrollY <= navHeight && lastScrollY.current > navHeight) {
-        setIsNavHiddenByScroll(false);
-      } else if (currentScrollY === 0) {
+      // 맨 위에 있으면 무조건 표시
+      if (currentScrollY === 0) {
         setIsNavHiddenByScroll(false);
       }
 
-      lastScrollY.current = currentScrollY; // 현재 스크롤 위치 저장
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [isNavOpen]);
 
   const navTransformClass = () => {
