@@ -113,6 +113,7 @@ const MobileBreadHeader = ({
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
           <div
             id="circle"
+            key={color.circleColor}
             className="w-[250px] block sm:hidden h-[250px] rounded-full blur-lg transition-colors ease-in-out"
             style={{ backgroundColor: color.circleColor }}
           />
