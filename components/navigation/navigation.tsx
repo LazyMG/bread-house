@@ -59,7 +59,7 @@ const Navigation = () => {
       return;
     }
 
-    const threshold = 5; // 바운스 감지 방지용 감도 설정
+    const threshold = 8; // 바운스 감지 방지용 감도 설정
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
