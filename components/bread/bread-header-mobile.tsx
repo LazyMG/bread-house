@@ -28,6 +28,10 @@ const MobileBreadHeader = ({
     if (setIsNavOpen) setIsNavOpen(event.currentTarget.checked);
   };
 
+  const toggleButtonNav = () => {
+    if (setIsNavOpen) setIsNavOpen((prev) => !prev);
+  };
+
   const closeNav = () => {
     if (setIsNavOpen) setIsNavOpen(false);
   };
@@ -47,8 +51,9 @@ const MobileBreadHeader = ({
           onChange={toggleNav}
         />
 
-        <label
-          htmlFor="menu-toggle1"
+        <button
+          onClick={toggleButtonNav}
+          // htmlFor="menu-toggle1"
           className={`cursor-pointer z-[999] relative top-[12px]
     transition-all duration-300 ease-in-out
     ${
@@ -59,17 +64,18 @@ const MobileBreadHeader = ({
   `}
         >
           <div className="w-6 h-6 bg-black rounded-full" />
-        </label>
+        </button>
 
         {/* 오버레이 */}
-        <label
-          htmlFor="menu-toggle1"
+        <div
+          // htmlFor="menu-toggle1"
           className={`fixed w-screen h-dvh left-0 bg-black/50 z-[997] transition-opacity duration-300 ease-in-out ${
             isNavOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
           }`}
-        ></label>
+          onClick={toggleButtonNav}
+        ></div>
 
         <div
           className={`fixed top-0 left-0 w-full bg-white z-[998] transform -translate-y-full
@@ -114,10 +120,10 @@ const MobileBreadHeader = ({
         }`}
         style={{ backgroundColor: color.bgColor }}
       >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-50px] left-[-50px]">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
           <div
             id="circle"
-            className="w-[200px] block sm:hidden aspect-square rounded-full blur-lg transition-colors ease-in-out"
+            className="w-[250px] block sm:hidden aspect-square rounded-full blur-lg transition-colors ease-in-out"
             style={{ backgroundColor: color.circleColor }}
           />
         </div>
