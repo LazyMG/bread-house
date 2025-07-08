@@ -118,7 +118,7 @@ const MobileBreadHeader = ({
     flex flex-col justify-center pl-[25px] py-1
     transition-[max-height] duration-500 ease-in-out
     overflow-hidden
-    relative top-0
+    relative top-0 will-change-transform
     ${isNavHiddenByScroll ? "max-h-[50px]" : "max-h-[160px]"}
   `}
         style={{ backgroundColor: color.bgColor }}
@@ -161,7 +161,7 @@ const MobileBreadHeader = ({
           <div
             className={`
     transition-all duration-300 ease-in-out overflow-hidden
-    transform-gpu
+    transform-gpu will-change-transform
     ${
       isNavHiddenByScroll
         ? "max-h-0 scale-y-95 opacity-0"
