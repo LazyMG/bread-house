@@ -49,7 +49,7 @@ const MobileBreadHeader = ({
 
         <label
           htmlFor="menu-toggle1"
-          className={`cursor-pointer z-[999] relative top-[35px]
+          className={`cursor-pointer z-[999] relative top-[12px]
     transition-all duration-300 ease-in-out
     ${
       isNavHiddenByScroll || isNavOpen
@@ -58,10 +58,6 @@ const MobileBreadHeader = ({
     }
   `}
         >
-          {/* <label
-          htmlFor="menu-toggle1"
-          className="relative top-[35px] bg-red-500 z-[999] w-10 h-10"
-        > */}
           <div className="w-6 h-6 bg-black rounded-full" />
         </label>
 
