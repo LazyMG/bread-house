@@ -30,7 +30,9 @@ const MobileBreadHeader = ({
     >
       <div
         id="present-section__header-mobile"
-        className="flex flex-col pl-[25px] py-2 justify-center transition-colors ease-in-out relative top-0"
+        className={`flex flex-col pl-[25px] py-2 transition-all ease-in-out relative top-0 ${
+          isNavHiddenByScroll ? "h-[73px]" : "h-[107px]"
+        }`}
         style={{ backgroundColor: color.bgColor }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-50px] left-[-50px]">
@@ -52,14 +54,6 @@ const MobileBreadHeader = ({
           <h1 className="font-extrabold font-wanted text-[20px] sm:text-[36px] leading-[32px] sm:leading-[48px] w-[336px]">
             {title}
           </h1>
-          {!isNavHiddenByScroll && (
-            <div className="text-[12px] font-normal top-0 flex flex-col items-end sm:hidden">
-              <div className="flex flex-col right-[40px] relative">
-                <span>{first}</span>
-                <span>{rest.join(" ")}</span>
-              </div>
-            </div>
-          )}
         </div>
       </div>
       <div className="px-[27px] py-[30px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative bg-white">
@@ -82,10 +76,9 @@ const MobileBreadHeader = ({
         </button>
         {isNavHiddenByScroll && (
           <div className="absolute text-[12px] font-normal right-[40px] top-8 flex flex-col items-end">
-            <div className="flex flex-col">
-              <span>{first}</span>
-              <span>{rest.join(" ")}</span>
-            </div>
+            <span>
+              {first} {rest.join(" ")}
+            </span>
           </div>
         )}
       </div>

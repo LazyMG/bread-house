@@ -62,7 +62,7 @@ export default function BreadSection() {
             {/* 야곱의 노력과 승리는 어디로부터 나오나 */}
             담대히 하나님의 말씀을 전하게 하옵소서
           </div>
-          <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0 sm:text-[16px] sm:absolute sm:right-0 lg:right-[40px] sm:leading-[20px]">
+          <div className="ml-auto mt-[6px] text-[12px] leading-[16px] font-wanted text-left h-[32px] flex-shrink-0 sm:text-[16px] sm:absolute sm:right-0  sm:leading-[20px]">
             <div>창세기</div>
             <div>30 : 25-43</div>
           </div>

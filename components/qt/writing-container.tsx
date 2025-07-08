@@ -20,7 +20,13 @@ const WritingContainer = ({
           <span className="font-alte font-bold text-[17px] text-[#333333]">
             {selectedVerse.index}
           </span>
-          <span className="font-wanted font-bold text-[16px] text-black leading-[24px]">
+          <span
+            className="font-wanted font-bold text-[16px] text-black leading-[24px] pt-[1px]"
+            style={{
+              wordBreak: "keep-all",
+              overflowWrap: "break-word",
+            }}
+          >
             {selectedVerse.content}
           </span>
         </div>
