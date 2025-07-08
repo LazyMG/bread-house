@@ -135,7 +135,7 @@ const MobileBreadHeader = ({
           </h1>
         </div>
       </div>
-      <div className="px-[27px] py-[30px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative bg-white">
+      <div className="px-[27px] py-[20px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative bg-white">
         <button
           className={`${
             view === "VERSE" ? "text-black" : "text-[rgba(0,0,0,0.5)]"
@@ -154,7 +154,7 @@ const MobileBreadHeader = ({
           해설
         </button>
         {isNavHiddenByScroll && (
-          <div className="absolute text-[12px] font-normal right-[40px] top-8 flex flex-col items-end">
+          <div className="absolute text-[12px] font-normal right-[40px] top-5 flex flex-col items-end">
             <span>
               {first} {rest.join(" ")}
             </span>
