@@ -39,7 +39,7 @@ const MobileBreadHeader = ({
     //   }`}
     // >
     <div className={`fixed flex sm:hidden flex-col w-full top-0`}>
-      <div className="absolute right-[24px]">
+      <div className="right-[24px] z-[999] absolute">
         <input
           type="checkbox"
           id="menu-toggle1"
@@ -47,7 +47,7 @@ const MobileBreadHeader = ({
           onChange={toggleNav}
         />
 
-        {/* <label
+        <label
           htmlFor="menu-toggle1"
           className={`cursor-pointer z-[999] relative top-[35px]
     transition-all duration-300 ease-in-out
@@ -57,11 +57,11 @@ const MobileBreadHeader = ({
         : "opacity-100 pointer-events-auto scale-100"
     }
   `}
-        > */}
-        <label
+        >
+          {/* <label
           htmlFor="menu-toggle1"
           className="relative top-[35px] bg-red-500 z-[999] w-10 h-10"
-        >
+        > */}
           <div className="w-6 h-6 bg-black rounded-full" />
         </label>
 
