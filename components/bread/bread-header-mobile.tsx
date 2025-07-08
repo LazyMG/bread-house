@@ -43,12 +43,13 @@ const MobileBreadHeader = ({
       <div className="right-[24px] z-[999] absolute">
         <button
           onClick={toggleNav}
-          className={`cursor-pointer z-[10] relative top-[12px]
+          className={`
     transition-all duration-300 ease-in-out
+    z-[10] relative top-[25px]
     ${
       isNavHiddenByScroll
-        ? "opacity-0 pointer-events-none scale-90"
-        : "opacity-100 pointer-events-auto scale-100"
+        ? "opacity-0 scale-90 -translate-y-2 pointer-events-none"
+        : "opacity-100 scale-100 translate-y-0 pointer-events-auto"
     }
   `}
         >
@@ -72,20 +73,22 @@ const MobileBreadHeader = ({
             isNavOpen && "translate-y-0 shadow-md"
           }`}
         >
-          <div className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6]">
+          <Link
+            href="/ui"
+            onClick={closeNav}
+            className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6]"
+          >
+            <span className="group-hover:text-[rgba(43,43,43,1)]">
+              메인 페이지
+            </span>
+            <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-white font-thin"></div>
+          </Link>
+          <div className="group h-[62px] w-full flex items-center px-[26px] justify-between ">
             <span className="group-hover:text-[rgba(43,43,43,1)]">
               마이페이지
             </span>
             <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#FFFBE6] font-thin"></div>
           </div>
-          <Link
-            href="/ui"
-            onClick={closeNav}
-            className="group h-[62px] w-full flex items-center px-[26px] justify-between"
-          >
-            <span className="group-hover:text-[rgba(43,43,43,1)]">홈</span>
-            <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-white font-thin"></div>
-          </Link>
           <div className="group  h-[62px] w-full flex items-center px-[26px] justify-between bg-[#E2F4FF]">
             <span className="group-hover:text-[rgba(43,43,43,1)]">
               일주일의 기록
@@ -105,8 +108,8 @@ const MobileBreadHeader = ({
       </div>
       <div
         id="present-section__header-mobile"
-        className={`flex flex-col pl-[25px] py-2 transition-all ease-in-out relative top-0 ${
-          isNavHiddenByScroll ? "h-[73px]" : "h-[107px]"
+        className={`flex flex-col justify-center pl-[25px] py-1 transition-all ease-in-out relative top-0 ${
+          isNavHiddenByScroll ? "h-[46px]" : "h-[107px]"
         }`}
         style={{ backgroundColor: color.bgColor }}
       >
@@ -119,15 +122,34 @@ const MobileBreadHeader = ({
           />
         </div>
         <div className="relative z-[1]">
-          <div className="flex items-start gap-0 sm:gap-[10px]">
-            <h2 className="text-[20px] sm:text-[36px] font-alte font-bold">
+          {/* <div
+            className={`flex items-start gap-0 sm:gap-[10px] transition-all duration-300 ease-in-out
+    ${isNavHiddenByScroll ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
+          >
+            <h2 className="text-[33px] sm:text-[36px] font-alte font-bold">
               06/30
             </h2>
-            <p className="text-[10px] sm:text-[16px] font-alte font-bold pt-[3px] pl-[5px] sm:pt-[7px] sm:pl-0">
+            <p className="text-[14px] sm:text-[16px] font-alte font-bold pt-[9px] pl-[5px] sm:pt-[7px] sm:pl-0">
               MON
             </p>
+          </div> */}
+          <div
+            className={`
+      overflow-hidden transition-all duration-300 ease-in-out
+      ${isNavHiddenByScroll ? "max-h-0 opacity-0" : "max-h-[50px] opacity-100"}
+    `}
+          >
+            <div className="flex items-start gap-0 sm:gap-[10px] transition-all duration-300 ease-in-out">
+              <h2 className="text-[33px] sm:text-[36px] font-alte font-bold">
+                06/30
+              </h2>
+              <p className="text-[14px] sm:text-[16px] font-alte font-bold pt-[9px] pl-[5px] sm:pt-[7px] sm:pl-0">
+                MON
+              </p>
+            </div>
           </div>
-          <h1 className="font-extrabold font-wanted text-[20px] sm:text-[36px] leading-[32px] sm:leading-[48px] w-[336px]">
+
+          <h1 className="font-extrabold font-wanted text-[20px] sm:text-[36px] leading-[28px] sm:leading-[48px] w-[336px]">
             {title}
           </h1>
         </div>
@@ -150,13 +172,11 @@ const MobileBreadHeader = ({
         >
           해설
         </button>
-        {isNavHiddenByScroll && (
-          <div className="absolute text-[12px] font-normal right-[40px] top-5 flex flex-col items-end">
-            <span>
-              {first} {rest.join(" ")}
-            </span>
-          </div>
-        )}
+        <div className="absolute text-[12px] font-normal right-[40px] top-5 flex flex-col items-end">
+          <span>
+            {first} {rest.join(" ")}
+          </span>
+        </div>
       </div>
     </div>
   );
