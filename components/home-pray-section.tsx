@@ -1,11 +1,11 @@
 const PraySection = () => {
   return (
-    <div className="w-full h-[188px] bg-[#F8FFF6] pl-[24px] sm:w-[485px] sm:h-[198px] sm:bg-transparent sm:pl-0 lg:mt-0 sm:mt-[8px]">
+    <div className="w-full h-full min-h-[188px] bg-[#F8FFF6] pl-[24px] sm:w-[485px] sm:h-[198px] sm:bg-transparent sm:pl-0 lg:mt-0 sm:mt-[8px] flex flex-col sm:block">
       <div className="mt-[22px] font-wanted font-bold lg:text-[16px] leading-[22px] sm:hidden">
         기도제목
       </div>
       <div
-        className="mt-[32px] pl-[24px] pr-[50px] font-wanted text-[14px] leading-[24px] text-center sm:hidden"
+        className="h-full pl-[24px] pr-[50px] pb-[22px] flex justify-center items-center sm:hidden font-wanted text-[14px] leading-[24px] text-center "
         style={{
           wordBreak: "keep-all",
           overflowWrap: "break-word",

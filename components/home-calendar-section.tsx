@@ -39,7 +39,7 @@ const CalendarSection = () => {
   return (
     <div
       id="calendar-section"
-      className="w-full h-[156px] bg-[#FFFDFD] pl-[24px] sm:w-[384px] sm:h-[180px] sm:bg-transparent sm:pl-0 sm:flex sm:gap-[32px]"
+      className="w-full min-h-[156px] bg-[#FFFDFD] pl-[24px] sm:w-[384px] sm:h-[180px] sm:bg-transparent sm:pl-0 sm:flex sm:gap-[32px]"
     >
       <div
         id="calendar-section__header"
