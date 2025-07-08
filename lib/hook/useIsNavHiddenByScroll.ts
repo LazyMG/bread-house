@@ -15,7 +15,7 @@ export const useIsNavHiddenByScroll = () => {
       return;
     }
 
-    const threshold = 8;
+    const threshold = 6;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
