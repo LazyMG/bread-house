@@ -15,19 +15,25 @@ export const useIsNavHiddenByScroll = () => {
       return;
     }
 
+    const threshold = 5;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY.current;
+
       const navHeight = 72;
 
-      if (currentScrollY > lastScrollY.current && currentScrollY > navHeight) {
+      // 아래로 확실히 스크롤 했을 때만 숨김
+      if (delta > threshold && currentScrollY > navHeight) {
         setIsNavHiddenByScroll(true);
-      } else if (currentScrollY < lastScrollY.current) {
+      }
+      // 위로 확실히 스크롤 했을 때만 표시
+      else if (delta < -threshold) {
         setIsNavHiddenByScroll(false);
       }
 
-      if (currentScrollY <= navHeight && lastScrollY.current > navHeight) {
-        setIsNavHiddenByScroll(false);
-      } else if (currentScrollY === 0) {
+      // 맨 위에 있으면 무조건 표시
+      if (currentScrollY === 0) {
         setIsNavHiddenByScroll(false);
       }
 
