@@ -47,7 +47,7 @@ const MobileBreadHeader = ({
           onChange={toggleNav}
         />
 
-        <label
+        {/* <label
           htmlFor="menu-toggle1"
           className={`cursor-pointer z-[999] relative top-[35px]
     transition-all duration-300 ease-in-out
@@ -57,6 +57,10 @@ const MobileBreadHeader = ({
         : "opacity-100 pointer-events-auto scale-100"
     }
   `}
+        > */}
+        <label
+          htmlFor="menu-toggle1"
+          className="relative top-[35px] bg-red-500 z-[999] w-10 h-10"
         >
           <div className="w-6 h-6 bg-black rounded-full" />
         </label>
@@ -117,7 +121,7 @@ const MobileBreadHeader = ({
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-50px] left-[-50px]">
           <div
             id="circle"
-            className="w-[200px] sm:hidden aspect-square rounded-full blur-lg transition-colors ease-in-out"
+            className="w-[200px] block sm:hidden aspect-square rounded-full blur-lg transition-colors ease-in-out"
             style={{ backgroundColor: color.circleColor }}
           />
         </div>
