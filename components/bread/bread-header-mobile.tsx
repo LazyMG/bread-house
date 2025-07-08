@@ -2,6 +2,7 @@
 
 import { useIsNavHiddenByScroll } from "@/lib/hook/useIsNavHiddenByScroll";
 import { useThemeColor } from "@/lib/hook/useThemeColor";
+import Link from "next/link";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 
 const MobileBreadHeader = ({
@@ -24,16 +25,12 @@ const MobileBreadHeader = ({
 
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const toggleNav = (event: ChangeEvent<HTMLInputElement>) => {
-    if (setIsNavOpen) setIsNavOpen(event.currentTarget.checked);
-  };
-
-  const toggleButtonNav = () => {
-    if (setIsNavOpen) setIsNavOpen((prev) => !prev);
+  const toggleNav = () => {
+    setIsNavOpen((prev) => !prev);
   };
 
   const closeNav = () => {
-    if (setIsNavOpen) setIsNavOpen(false);
+    setIsNavOpen(false);
   };
 
   return (
@@ -44,16 +41,8 @@ const MobileBreadHeader = ({
     // >
     <div className={`fixed flex sm:hidden flex-col w-full top-0`}>
       <div className="right-[24px] z-[999] absolute">
-        <input
-          type="checkbox"
-          id="menu-toggle1"
-          className="hidden peer"
-          onChange={toggleNav}
-        />
-
         <button
-          onClick={toggleButtonNav}
-          // htmlFor="menu-toggle1"
+          onClick={toggleNav}
           className={`cursor-pointer z-[10] relative top-[12px]
     transition-all duration-300 ease-in-out
     ${
@@ -68,13 +57,12 @@ const MobileBreadHeader = ({
 
         {/* 오버레이 */}
         <div
-          // htmlFor="menu-toggle1"
           className={`fixed w-screen h-dvh left-0 bg-black/50 z-[997] transition-opacity duration-300 ease-in-out ${
             isNavOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
           }`}
-          onClick={toggleButtonNav}
+          onClick={toggleNav}
         ></div>
 
         <div
@@ -90,12 +78,14 @@ const MobileBreadHeader = ({
             </span>
             <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#FFFBE6] font-thin"></div>
           </div>
-          <div className="group h-[62px] w-full flex items-center px-[26px] justify-between">
-            <span className="group-hover:text-[rgba(43,43,43,1)]">
-              오늘의 양식
-            </span>
+          <Link
+            href="/ui"
+            onClick={closeNav}
+            className="group h-[62px] w-full flex items-center px-[26px] justify-between"
+          >
+            <span className="group-hover:text-[rgba(43,43,43,1)]">홈</span>
             <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-white font-thin"></div>
-          </div>
+          </Link>
           <div className="group  h-[62px] w-full flex items-center px-[26px] justify-between bg-[#E2F4FF]">
             <span className="group-hover:text-[rgba(43,43,43,1)]">
               일주일의 기록
