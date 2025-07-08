@@ -81,11 +81,25 @@ const NavigationStylingContainer = ({ children }: Props) => {
       className="relative w-full h-full flex items-center justify-center transition-colors ease-in-out"
       style={{ backgroundColor: color.bgColor }}
     >
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-120px] left-[-50px]">
+      {/* <div className="absolute w-full max-w-[1240px] h-full">
+        <div className="relative w-full h-full overflow-hidden ml-[-280px]">
+          <div className="absolute pointer-events-none z-0 inset-0 top-[-120px] left-[-50px]">
+            {pathname !== "/ui" && (
+              <div
+                id="circle"
+                className="hidden sm:block sm:w-[400px] sm:h-[400px] rounded-full blur-lg transition-colors ease-in-out"
+                style={{ backgroundColor: color.circleColor }}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+      {children} */}
+      <div className="absolute pointer-events-none z-0 inset-0 top-[-120px] left-[-50px] overflow-hidden">
         {pathname !== "/ui" && (
           <div
             id="circle"
-            className="hidden sm:block sm:w-[344px] sm:aspect-square rounded-full blur-lg transition-colors ease-in-out"
+            className="hidden sm:block sm:w-[400px] sm:h-[400px] rounded-full blur-lg transition-colors ease-in-out"
             style={{ backgroundColor: color.circleColor }}
           />
         )}

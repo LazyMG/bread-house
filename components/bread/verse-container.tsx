@@ -32,16 +32,20 @@ const VerseContainer = ({
             onClick={() => onVerseClick(verse)}
           >
             <span
-              className={`font-alte sm:text-[17px] text-[13px] text-[#333333] pt-[1px] ${
+              className={`font-alte sm:text-[17px] text-[14px] text-[#333333] pt-[2px] sm:pt-0 ${
                 verse.index === keyVerse.index && "font-bold"
               }`}
             >
               {verse.index}
             </span>
             <span
-              className={`font-wanted sm:text-[16px] text-black leading-[24px] text-[12px] ${
+              className={`font-wanted sm:text-[16px] text-black leading-[24px] text-[13px] sm:pt-[1px] ${
                 verse.index === keyVerse.index && "font-bold"
               }`}
+              style={{
+                wordBreak: "keep-all",
+                overflowWrap: "break-word",
+              }}
             >
               {verse.content}
             </span>

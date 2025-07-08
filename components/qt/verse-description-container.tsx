@@ -65,7 +65,7 @@ const VerseDescriptionContainer = ({
           >
             본문
           </button>
-          <div className="w-[1px] h-[18px] bg-black" />
+          <div className="w-[1px] h-[15px] bg-black" />
           <button
             className={`${
               view === "DESCRIPTION" ? "text-black" : "text-[rgba(0,0,0,0.5)]"

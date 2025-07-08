@@ -79,7 +79,7 @@ export default function BreadSection() {
           <span className="font-alte font-bold text-[60px] h-[78px] flex items-center justify-center w-[156px] sm:text-[52px]">
             05/15
           </span>
-          <span className="font-alte font-bold text-[20px] mt-[13px] ml-[9px] w-[36px] sm:ml-[4px] sm:text-[18px]">
+          <span className="font-alte font-bold text-[20px] mt-[15px] ml-[9px] w-[36px] sm:ml-[4px] sm:text-[18px]">
             Thu
           </span>
         </div>
