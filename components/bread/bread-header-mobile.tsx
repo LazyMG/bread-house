@@ -197,11 +197,19 @@ const MobileBreadHeader = ({
   `}
             style={{ transformOrigin: "top" }}
           >
-            <div className="flex items-start gap-0 sm:gap-[10px] transition-all duration-300 ease-in-out">
+            {/* <div className="flex items-start gap-0 sm:gap-[10px] transition-all duration-300 ease-in-out">
               <h2 className="text-[33px] sm:text-[36px] font-alte font-bold">
                 06/30
               </h2>
               <p className="text-[14px] sm:text-[16px] font-alte font-bold pt-[9px] pl-[5px] sm:pt-[7px] sm:pl-0">
+                MON
+              </p>
+            </div> */}
+            <div className="flex items-start gap-0">
+              <h2 className="text-[33px] sm:text-[36px] font-alte font-bold">
+                06/30
+              </h2>
+              <p className="text-[14px] font-alte font-bold pt-[9px] pl-[5px]">
                 MON
               </p>
             </div>
