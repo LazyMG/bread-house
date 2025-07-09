@@ -41,10 +41,21 @@ const MobileBreadHeader = ({
     // >
     <div className={`fixed flex sm:hidden flex-col w-full top-0`}>
       <div className="right-[24px] z-[999] absolute">
+        {/* <button
+          onClick={toggleNav}
+          className={`
+    z-[10] relative top-[18px]
+    transition-all duration-300 ease-in-out
+    ${
+      isNavHiddenByScroll
+        ? "opacity-0 scale-90 -translate-y-2 pointer-events-none"
+        : "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+    }
+  `}
+        > */}
         <button
           onClick={toggleNav}
           className={`
-    transition-all duration-300 ease-in-out
     z-[10] relative top-[18px]
     ${
       isNavHiddenByScroll
@@ -113,12 +124,17 @@ const MobileBreadHeader = ({
         }`}
         style={{ backgroundColor: color.bgColor }}
       > */}
+      {/* <div
+        className={`
+    flex flex-col justify-center pl-[25px] py-1 overflow-hidden relative top-0
+    transition-[max-height] duration-500 ease-in-out will-change-transform
+    ${isNavHiddenByScroll ? "max-h-[50px]" : "max-h-[160px]"}
+  `}
+        style={{ backgroundColor: color.bgColor }}
+      > */}
       <div
         className={`
-    flex flex-col justify-center pl-[25px] py-1
-    transition-[max-height] duration-500 ease-in-out
-    overflow-hidden
-    relative top-0 will-change-transform
+    flex flex-col justify-center pl-[25px] py-1 overflow-hidden relative top-0
     ${isNavHiddenByScroll ? "max-h-[50px]" : "max-h-[160px]"}
   `}
         style={{ backgroundColor: color.bgColor }}
@@ -158,10 +174,19 @@ const MobileBreadHeader = ({
               </p>
             </div>
           </div> */}
+          {/* <div
+            className={`overflow-hidden
+    transform-gpu will-change-transform transition-all duration-300 ease-in-out
+    ${
+      isNavHiddenByScroll
+        ? "max-h-0 scale-y-95 opacity-0"
+        : "max-h-[50px] scale-y-100 opacity-100"
+    }
+  `}
+            style={{ transformOrigin: "top" }}
+          > */}
           <div
-            className={`
-    transition-all duration-300 ease-in-out overflow-hidden
-    transform-gpu will-change-transform
+            className={`overflow-hidden
     ${
       isNavHiddenByScroll
         ? "max-h-0 scale-y-95 opacity-0"
