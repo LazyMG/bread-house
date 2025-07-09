@@ -59,7 +59,9 @@ const VerseContainer = ({
               {verse.content}
             </span> */}
             <span
-              className="font-wanted sm:text-[16px] text-[13px] leading-[24px] text-black pt-0 sm:pt-[2px]"
+              className={`font-wanted sm:text-[16px] text-[13px] leading-[24px] text-black pt-0 sm:pt-[2px] ${
+                verse.index === keyVerse.index && "font-bold"
+              }`}
               style={{
                 wordBreak: "keep-all",
                 overflowWrap: "break-word",
