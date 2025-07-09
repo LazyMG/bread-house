@@ -40,6 +40,7 @@ const MobileBreadHeader = ({
     //   }`}
     // >
     <div className={`fixed flex sm:hidden flex-col w-full top-0`}>
+      {/* 네비게이션 */}
       <div className="right-[24px] z-[999] absolute">
         {/* <button
           onClick={toggleNav}
@@ -147,6 +148,7 @@ const MobileBreadHeader = ({
             style={{ backgroundColor: color.circleColor }}
           />
         </div>
+        {/* 메인 콘텐츠 */}
         <div className="relative z-[1]">
           {/* <div
             className={`flex items-start gap-0 sm:gap-[10px] transition-all duration-300 ease-in-out
@@ -210,6 +212,7 @@ const MobileBreadHeader = ({
           </h1>
         </div>
       </div>
+      {/* 오양에서만 사용하는 영역 */}
       <div className="px-[27px] py-[20px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative bg-white">
         <button
           className={`${
