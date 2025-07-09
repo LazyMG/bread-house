@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 type Verse = {
   index: string;
@@ -16,8 +16,17 @@ const VerseContainer = ({
   keyVerse: Verse;
   setSelectedVerse: Dispatch<SetStateAction<Verse>>;
 }) => {
+  const [highlightVerse, setHighlightVerse] = useState<Verse | null>(null);
   const onVerseClick = (verse: Verse) => {
     setSelectedVerse(verse);
+    setHighlightVerse((prev) => {
+      if (!prev) return verse;
+      if (prev.index === verse.index) {
+        return null;
+      } else {
+        return verse;
+      }
+    });
   };
   return (
     <>
@@ -32,22 +41,35 @@ const VerseContainer = ({
             onClick={() => onVerseClick(verse)}
           >
             <span
-              className={`font-alte sm:text-[17px] text-[14px] text-[#333333] pt-0 ${
+              className={`font-alte sm:text-[17px] text-[14px] text-[#333333] ${
                 verse.index === keyVerse.index && "font-bold"
               }`}
             >
               {verse.index}
             </span>
-            <span
-              className={`font-wanted sm:text-[16px] text-black leading-[24px] text-[13px] sm:pt-[1px] ${
+            {/* <span
+              className={`inline font-wanted sm:text-[16px] text-black leading-[24px] text-[13px] sm:pt-[1px] ${
                 verse.index === keyVerse.index && "font-bold"
-              }`}
+              } ${verse.index === highlightVerse?.index && "bg-blue-200"}`}
               style={{
                 wordBreak: "keep-all",
                 overflowWrap: "break-word",
               }}
             >
               {verse.content}
+            </span> */}
+            <span
+              className="font-wanted sm:text-[16px] text-[13px] leading-[24px] text-black pt-[2px]"
+              style={{
+                wordBreak: "keep-all",
+                overflowWrap: "break-word",
+              }}
+            >
+              {verse.index === highlightVerse?.index ? (
+                <mark className="bg-blue-200 p-0 m-0">{verse.content}</mark>
+              ) : (
+                verse.content
+              )}
             </span>
           </div>
         ))}
