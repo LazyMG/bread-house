@@ -288,46 +288,40 @@ const MobileBreadHeader = ({
       className={`
         fixed top-0 left-0 w-full sm:hidden z-[999] flex flex-col
         transition-all duration-300 ease-in-out
+        ${isNavHiddenByScroll ? "pt-0" : "pt-[48px]"}
       `}
       style={{ backgroundColor: color.bgColor }}
     >
-      {/* circle 배경 - 항상 보임 */}
-      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
+      {/* circle - 항상 보임 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
         <div
           id="circle"
           key={color.circleColor}
           className="w-[250px] h-[250px] rounded-full blur-lg transition-colors ease-in-out block sm:hidden"
           style={{ backgroundColor: color.circleColor }}
         />
-      </div> */}
+      </div>
 
-      {/* 버튼 + 날짜 + 요일 - 스크롤 시 사라짐 */}
-      <div
-        className={`
-    relative z-10
-    transform-gpu will-change-transform
-    ${isNavHiddenByScroll ? "-translate-y-full" : "translate-y-0"}
-  `}
-      >
-        <button
-          onClick={toggleNav}
-          className="absolute top-[18px] right-[24px] z-[10] w-6 h-6 rounded-full bg-black"
-        />
-
-        <div className="pt-[4px] px-[25px] flex items-start gap-1">
+      {/* 사라지는 요소 - 버튼 + 날짜 + 요일 */}
+      {!isNavHiddenByScroll && (
+        <div className="absolute top-0 left-0 w-full px-[25px] pt-[4px] flex items-start gap-1 z-10">
+          <button
+            onClick={toggleNav}
+            className="absolute top-[18px] right-[24px] w-6 h-6 rounded-full bg-black"
+          />
           <h2 className="font-alte font-bold text-[33px]">{date}</h2>
           <p className="font-alte font-bold pt-2 text-[14px]">MON</p>
         </div>
-      </div>
+      )}
 
-      {/* 제목 - 항상 보임 */}
+      {/* 제목 */}
       <div className="relative z-10 px-[25px] py-[8px]">
         <h1 className="font-wanted font-extrabold text-[20px] leading-[28px]">
           {title}
         </h1>
       </div>
 
-      {/* 본문 / 해설 토글 영역 */}
+      {/* 본문 / 해설 토글 */}
       <div className="bg-white px-[24px] py-[16px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative z-10">
         <button
           className={view === "VERSE" ? "text-black" : "text-[rgba(0,0,0,0.5)]"}
@@ -360,11 +354,11 @@ const MobileBreadHeader = ({
       ></div>
 
       <div
-        className={`fixed top-0 left-0 w-full bg-white z-[11000] transform transition-transform duration-300 ease-in-out
-          ${isNavOpen ? "translate-y-0 shadow-md" : "-translate-y-full"}
-        `}
+        className={`fixed top-0 left-0 w-full bg-white z-[11000] transform transition-transform duration-300 ease-in-out ${
+          isNavOpen ? "translate-y-0 shadow-md" : "-translate-y-full"
+        }`}
       >
-        {/* 메뉴 항목들 */}
+        {/* 메뉴 항목 */}
         <Link
           href="/ui"
           onClick={closeNav}
