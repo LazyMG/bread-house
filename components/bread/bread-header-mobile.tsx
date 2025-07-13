@@ -304,24 +304,16 @@ const MobileBreadHeader = ({
       {/* 버튼 + 날짜 + 요일 - 스크롤 시 사라짐 */}
       <div
         className={`
-          relative z-10
-          transform-gpu will-change-transform
-          transition-all duration-300 ease-in-out
-          ${
-            isNavHiddenByScroll
-              ? "scale-y-0 opacity-0 h-0"
-              : "scale-y-100 opacity-100 h-[48px]"
-          }
-          origin-top overflow-hidden
-        `}
+    relative z-10
+    transform-gpu will-change-transform
+    ${isNavHiddenByScroll ? "-translate-y-full" : "translate-y-0"}
+  `}
       >
         <button
           onClick={toggleNav}
-          className={`
-            absolute top-[18px] right-[24px] z-[10]
-            w-6 h-6 rounded-full bg-black
-          `}
+          className="absolute top-[18px] right-[24px] z-[10] w-6 h-6 rounded-full bg-black"
         />
+
         <div className="pt-[4px] px-[25px] flex items-start gap-1">
           <h2 className="font-alte font-bold text-[33px]">{date}</h2>
           <p className="font-alte font-bold pt-2 text-[14px]">MON</p>
