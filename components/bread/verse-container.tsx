@@ -14,11 +14,11 @@ const VerseContainer = ({
 }: {
   verses: Verse[];
   keyVerse: Verse;
-  setSelectedVerse: Dispatch<SetStateAction<Verse>>;
+  setSelectedVerse?: Dispatch<SetStateAction<Verse>>;
 }) => {
   const [highlightVerse, setHighlightVerse] = useState<Verse | null>(null);
   const onVerseClick = (verse: Verse) => {
-    setSelectedVerse(verse);
+    if (setSelectedVerse) setSelectedVerse(verse);
     setHighlightVerse((prev) => {
       if (!prev) return verse;
       if (prev.index === verse.index) {

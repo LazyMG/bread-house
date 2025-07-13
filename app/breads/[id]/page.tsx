@@ -1,3 +1,4 @@
+import BreadDetailContainer from "@/components/bread/bread-detail-container";
 import QtContainer from "@/components/qt/qt-container";
 import React from "react";
 
@@ -99,9 +100,9 @@ const BreadPage = () => {
     >
       <main
         id="main"
-        className="w-full flex justify-between mt-[64px] sm:mt-[50px] gap-10"
+        className="w-full flex justify-between mt-[64px] sm:mt-[20px] gap-10"
       >
-        <QtContainer bread={bread} />
+        <BreadDetailContainer bread={bread} />
       </main>
     </div>
   );
