@@ -292,14 +292,14 @@ const MobileBreadHeader = ({
       style={{ backgroundColor: color.bgColor }}
     >
       {/* circle 배경 - 항상 보임 */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
         <div
           id="circle"
           key={color.circleColor}
           className="w-[250px] h-[250px] rounded-full blur-lg transition-colors ease-in-out block sm:hidden"
           style={{ backgroundColor: color.circleColor }}
         />
-      </div>
+      </div> */}
 
       {/* 버튼 + 날짜 + 요일 - 스크롤 시 사라짐 */}
       <div
