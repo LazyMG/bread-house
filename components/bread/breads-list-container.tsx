@@ -118,10 +118,10 @@ const BreadsListContainer = () => {
         <span className="font-alte text-[48px] font-bold">2025/05</span>
         <p>{">"}</p>
       </div>
-      <div className="w-full h-full sm:h-[1000px] overflow-y-scroll scrollbar-hide mt-[20px] sm:mt-0 ">
+      <div className="w-full h-full sm:h-[600px] overflow-y-scroll scrollbar-hide mt-[20px] sm:mt-0 ">
         {Array.from({ length: 30 }).map((_, idx) => (
           <div
-            className="w-full h-[50px] sm:h-[70px] px-[18px] sm:px-[14px] border-b-[1px] border-[#E2F4FF] flex items-center justify-between"
+            className="w-full h-[50px] sm:h-[70px] px-[18px] sm:px-[14px] border-b-[1px] border-[#E2F4FF] flex items-center justify-between last:border-b-0"
             key={idx}
           >
             <div className="flex gap-[12px] sm:gap-[60px] items-center">
