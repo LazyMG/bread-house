@@ -32,8 +32,12 @@ const VerseContainer = ({
     <>
       <div
         id="left-section__content"
-        className="mt-[16px] w-full sm:h-[480px] flex flex-col gap-[12px] sm:scrollbar-hide sm:overflow-y-scroll cursor-pointer mb-[50px] sm:mb-0"
+        className="mt-[16px] w-full sm:h-[480px] flex flex-col gap-[12px]  sm:overflow-y-scroll cursor-pointer mb-[50px] sm:mb-0"
       >
+        {/* <div
+        id="left-section__content"
+        className="mt-[16px] w-full sm:h-[480px] flex flex-col gap-[12px] sm:scrollbar-hide sm:overflow-y-scroll cursor-pointer mb-[50px] sm:mb-0"
+      > */}
         {verses.map((verse, index) => (
           <div
             className="w-full flex gap-[10px] items-start"
