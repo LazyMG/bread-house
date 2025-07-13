@@ -286,27 +286,35 @@ const MobileBreadHeader = ({
   return (
     <div
       className={`
-        fixed top-0 left-0 w-full sm:hidden z-[11000] flex flex-col
-        bg-white
+        fixed top-0 left-0 w-full sm:hidden z-[999] flex flex-col
         transition-all duration-300 ease-in-out
       `}
       style={{ backgroundColor: color.bgColor }}
     >
-      {/* ✅ 버튼 + 날짜/요일 영역 (사라지는 영역) */}
+      {/* circle 배경 - 항상 보임 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
+        <div
+          id="circle"
+          key={color.circleColor}
+          className="w-[250px] h-[250px] rounded-full blur-lg transition-colors ease-in-out block sm:hidden"
+          style={{ backgroundColor: color.circleColor }}
+        />
+      </div>
+
+      {/* 버튼 + 날짜 + 요일 - 스크롤 시 사라짐 */}
       <div
         className={`
-          relative
+          relative z-10
           transform-gpu will-change-transform
           transition-all duration-300 ease-in-out
           ${
             isNavHiddenByScroll
               ? "scale-y-0 opacity-0 h-0"
-              : "scale-y-100 opacity-100 h-[64px]"
+              : "scale-y-100 opacity-100 h-[48px]"
           }
           origin-top overflow-hidden
         `}
       >
-        {/* 📌 버튼은 absolute 고정 위치 */}
         <button
           onClick={toggleNav}
           className={`
@@ -314,22 +322,21 @@ const MobileBreadHeader = ({
             w-6 h-6 rounded-full bg-black
           `}
         />
-
-        <div className="pt-[16px] pl-[25px] pr-[48px] flex items-start gap-1">
+        <div className="pt-[4px] px-[25px] flex items-start gap-1">
           <h2 className="font-alte font-bold text-[33px]">{date}</h2>
           <p className="font-alte font-bold pt-2 text-[14px]">MON</p>
         </div>
       </div>
 
-      {/* ✅ 제목은 항상 보임 */}
-      <div className="pl-[25px] pr-[24px] pb-[8px]">
+      {/* 제목 - 항상 보임 */}
+      <div className="relative z-10 px-[25px] py-[8px]">
         <h1 className="font-wanted font-extrabold text-[20px] leading-[28px]">
           {title}
         </h1>
       </div>
 
-      {/* ✅ 본문 / 해설 탭 영역 (항상 보임) */}
-      <div className="bg-white px-[24px] py-[16px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px]">
+      {/* 본문 / 해설 토글 영역 */}
+      <div className="bg-white px-[24px] py-[16px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative z-10">
         <button
           className={view === "VERSE" ? "text-black" : "text-[rgba(0,0,0,0.5)]"}
           onClick={() => setView?.("VERSE")}
@@ -350,7 +357,7 @@ const MobileBreadHeader = ({
         </div>
       </div>
 
-      {/* ✅ 오버레이 메뉴 (기존 유지) */}
+      {/* 오버레이 & 메뉴 */}
       <div
         className={`fixed inset-0 bg-black/50 z-[10999] transition-opacity duration-300 ${
           isNavOpen
@@ -362,8 +369,8 @@ const MobileBreadHeader = ({
 
       <div
         className={`fixed top-0 left-0 w-full bg-white z-[11000] transform transition-transform duration-300 ease-in-out
-        ${isNavOpen ? "translate-y-0 shadow-md" : "-translate-y-full"}
-      `}
+          ${isNavOpen ? "translate-y-0 shadow-md" : "-translate-y-full"}
+        `}
       >
         {/* 메뉴 항목들 */}
         <Link
