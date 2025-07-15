@@ -18,8 +18,8 @@ const MobileNavigation = ({
   setIsNavOpen?: Dispatch<SetStateAction<boolean>>;
   children?: ReactNode;
 }) => {
-  const toggleNav = (event: ChangeEvent<HTMLInputElement>) => {
-    if (setIsNavOpen) setIsNavOpen(event.currentTarget.checked);
+  const toggleNav = () => {
+    if (setIsNavOpen) setIsNavOpen((prev) => !prev);
   };
 
   const closeNav = () => {
@@ -28,26 +28,22 @@ const MobileNavigation = ({
 
   return (
     <>
-      <div className="sm:hidden pr-[24px]">
-        <input
-          type="checkbox"
-          id="menu-toggle"
-          className="hidden peer"
-          onChange={toggleNav}
-        />
-        <label htmlFor="menu-toggle" className="cursor-pointer z-[999]">
-          <div className="w-6 h-6 bg-black rounded-full" />
-        </label>
+      <div className="sm:hidden pr-[64px] relative h-full">
+        <button className="cursor-pointer absolute" onClick={toggleNav}>
+          <div className="w-[32px] h-[32px] bg-black top-0 rounded-es-md rounded-ee-md flex justify-center items-center">
+            <img src="/icons/bottom-arrow.png" />
+          </div>
+        </button>
 
         {/* 오버레이 */}
-        <label
-          htmlFor="menu-toggle"
+        <div
           className={`fixed w-screen h-dvh left-0 bg-black/50 z-[997] transition-opacity duration-300 ease-in-out ${
             isNavOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
           }`}
-        ></label>
+          onClick={toggleNav}
+        ></div>
 
         <div
           className={`fixed top-0 left-0 w-full bg-white z-[998] transform -translate-y-full
@@ -84,8 +80,16 @@ const MobileNavigation = ({
             </span>
             <div className="w-[24px] h-[24px] rounded-full border-[1px] flex items-center justify-center border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] group-hover:bg-black group-hover:text-[#F8FFF6] font-thin"></div>
           </div>
-          <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px]">
+          <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px] relative">
             BREAD HAUS
+            {isNavOpen && (
+              <div
+                className="absolute right-[32px] top-6 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center"
+                onClick={toggleNav}
+              >
+                <img src="/icons/up-arrow.png" />
+              </div>
+            )}
           </div>
         </div>
       </div>
