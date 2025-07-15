@@ -7,6 +7,7 @@ import { useState } from "react";
 import VerseContainer from "./verse-container";
 import MobileBreadHeader from "./bread-header-mobile";
 import DescriptionContainer from "./description-container";
+import { useRouter } from "next/navigation";
 
 type Bread = {
   date: string;
@@ -27,6 +28,7 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
   const { color } = useThemeColor();
   const isNavHiddenByScroll = useIsNavHiddenByScroll();
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const router = useRouter();
 
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
@@ -39,7 +41,7 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
   const [view, setView] = useState<"VERSE" | "DESCRIPTION">("VERSE");
 
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <MobileBreadHeader
         date={bread.date}
         range={bread.range}
@@ -94,6 +96,10 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
           )}
         </>
       </div>
+      <div
+        className="absolute right-0 w-[30px] h-[30px] bg-black rounded-full cursor-pointer bottom-7"
+        onClick={() => router.push("/breads/123/qt")}
+      />
     </div>
   );
 };
