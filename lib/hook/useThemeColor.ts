@@ -34,9 +34,9 @@ export const useThemeColor = () => {
         break;
       default:
         setColor({
-          bgColor: "#E6E6E6",
+          bgColor: "#EEEBE6",
           circleColor: "#FFF6C6",
-          navColor: "#DADADA",
+          navColor: "#E2DED7",
         });
     }
     setIsLoading(false);
