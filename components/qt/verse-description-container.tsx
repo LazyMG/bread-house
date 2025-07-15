@@ -89,7 +89,7 @@ const VerseDescriptionContainer = ({
       />
       <div
         id="present-section__content-container"
-        className="px-[27px] sm:px-0 sm:mt-0 mt-[100px]"
+        className="px-[27px] sm:px-0 sm:mt-0 mt-[100px] "
       >
         <>
           {view === "VERSE" && (

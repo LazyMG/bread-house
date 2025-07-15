@@ -36,12 +36,16 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
     setIsNavOpen(false);
   };
 
+  const [view, setView] = useState<"VERSE" | "DESCRIPTION">("VERSE");
+
   return (
     <div className="w-full">
       <MobileBreadHeader
         date={bread.date}
         range={bread.range}
         title={bread.title}
+        setView={setView}
+        view={view}
       />
       <div className="hidden w-full h-[130px] sm:flex justify-between items-center">
         <p>{"<"}</p>
@@ -63,7 +67,7 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
         </div>
         <p>{">"}</p>
       </div>
-      <div className="px-[14px] sm:grid grid-cols-2 gap-[60px] mt-[60px] sm:mt-[50px] flex">
+      <div className="px-[14px] sm:grid grid-cols-2 gap-[60px] mt-[60px] sm:mt-[50px] hidden">
         <div className="w-full">
           <span className="font-wanted font-extrabold text-[14px] leading-[22px] hidden sm:block">
             본문
@@ -76,6 +80,19 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
           </span>
           <DescriptionContainer description={bread.description} />
         </div>
+      </div>
+      <div
+        id="present-section__content-container"
+        className="px-[27px] sm:px-0 sm:mt-0 mt-[100px] sm:hidden block"
+      >
+        <>
+          {view === "VERSE" && (
+            <VerseContainer verses={bread.verses} keyVerse={bread.key_verse} />
+          )}
+          {view === "DESCRIPTION" && (
+            <DescriptionContainer description={bread.description} />
+          )}
+        </>
       </div>
     </div>
   );
