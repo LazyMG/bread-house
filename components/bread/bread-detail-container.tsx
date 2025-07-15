@@ -101,7 +101,7 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
         </>
       </div>
       <div
-        className="absolute right-0 w-[30px] h-[30px] bg-black rounded-full cursor-pointer bottom-7"
+        className="absolute right-0 w-[30px] h-[30px] bg-black rounded-full cursor-pointer bottom-7 hidden sm:block"
         onClick={() => router.push("/breads/123/qt")}
       />
     </div>
