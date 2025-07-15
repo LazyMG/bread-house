@@ -9,7 +9,7 @@ const WritingContainer = ({
   return (
     <div
       id="right-section__container"
-      className="mt-[55px] w-full rounded-lg bg-[#F7F6F6] px-[34px] h-[650px] pb-[28px]"
+      className="mt-[55px] w-full rounded-lg bg-[#F7F6F6] px-[34px] h-[700px] pb-[28px]"
     >
       <div
         id="right-section__header"
@@ -33,8 +33,8 @@ const WritingContainer = ({
       </div>
       <div className="mt-[15px] w-full h-[1px] bg-black" />
       {/* 입력 부분 - 스크롤 되어야 함 */}
-      <div className="mt-[15px] w-full h-[500px]">
-        <textarea className="resize-none w-full h-full scrollbar-hide bg-transparent" />
+      <div className="mt-[15px] w-full h-[520px]">
+        <textarea className="resize-none w-full h-full scrollbar-hide bg-transparent p-2" />
       </div>
     </div>
   );
