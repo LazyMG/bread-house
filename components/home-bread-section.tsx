@@ -1,9 +1,11 @@
 "use client";
 
 import { useThemeColor } from "@/lib/hook/useThemeColor";
+import { useRouter } from "next/navigation";
 
 export default function BreadSection() {
   const { color, isLoading } = useThemeColor();
+  const router = useRouter();
 
   return isLoading ? (
     <div
@@ -12,7 +14,8 @@ export default function BreadSection() {
   ) : (
     <div
       style={{ backgroundColor: `${color.bgColor}` }}
-      className={`mt-[64px] sm:mt-0 w-full h-[313px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)] mx-auto sm:px-[30px]`}
+      className={`mt-[64px] sm:mt-0 w-full h-[313px] pl-[24px] relative overflow-hidden sm:h-[calc(100vh-320px)] mx-auto sm:px-[30px] cursor-pointer`}
+      onClick={() => router.push("/breads/123")}
     >
       <div
         id="circle"
