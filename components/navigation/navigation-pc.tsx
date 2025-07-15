@@ -11,9 +11,12 @@ const PCNavigation = () => {
         <span>페이지</span>
         <span>페이지</span>
       </div>
-      <div className="w-[72px] h-[36px] bg-black text-white font-alte text-[16px] flex items-center justify-center rounded-[8px]">
+      <Link
+        href="/login"
+        className="w-[72px] h-[36px] bg-black text-white font-alte text-[16px] flex items-center justify-center rounded-[8px]"
+      >
         LOGIN
-      </div>
+      </Link>
     </div>
   );
 };

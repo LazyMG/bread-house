@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import Navigation from "@/components/navigation/navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -8,20 +8,19 @@ export const metadata: Metadata = {
 };
 
 const localWanted = localFont({
-  src: "./fonts/WantedSans-Bold.woff2",
+  src: "../fonts/WantedSans-Bold.woff2",
   variable: "--wanted-bold-text",
 });
 
-export default function RootLayout({
+export default function NavLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scrollbar-hide h-dvh">
-      <body className={`h-full ${localWanted.variable}`}>
-        <div className="h-full mx-auto w-full">{children}</div>
-      </body>
-    </html>
+    <>
+      <Navigation />
+      <div className="h-full mx-auto w-full">{children}</div>
+    </>
   );
 }
