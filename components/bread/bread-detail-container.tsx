@@ -50,7 +50,9 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
         view={view}
       />
       <div className="hidden w-full h-[130px] sm:flex justify-between items-center">
-        <p>{"<"}</p>
+        <div className="cursor-pointer">
+          <img src="/icons/left-arrow.png" />
+        </div>
         <div className="flex flex-col items-center gap-[10px]">
           <Link href={`/breads`} className="flex items-start gap-[5px]">
             <span className="font-alte font-bold text-[24px]">06/30</span>
@@ -67,7 +69,9 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
             </span>
           </div>
         </div>
-        <p>{">"}</p>
+        <div className="cursor-pointer">
+          <img src="/icons/right-arrow.png" />
+        </div>
       </div>
       <div className="px-[14px] sm:grid grid-cols-2 gap-[60px] mt-[60px] sm:mt-[50px] hidden">
         <div className="w-full">

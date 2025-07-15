@@ -114,9 +114,13 @@ const BreadsListContainer = () => {
         </div>
       </div>
       <div className="hidden w-full h-[130px] sm:flex justify-between items-center">
-        <p>{"<"}</p>
+        <div className="cursor-pointer">
+          <img src="/icons/left-arrow.png" />
+        </div>
         <span className="font-alte text-[48px] font-bold">2025/05</span>
-        <p>{">"}</p>
+        <div className="cursor-pointer">
+          <img src="/icons/right-arrow.png" />
+        </div>
       </div>
       <div className="w-full h-full sm:h-[600px] overflow-y-scroll scrollbar-hide mt-[20px] sm:mt-0 ">
         {Array.from({ length: 30 }).map((_, idx) => (
