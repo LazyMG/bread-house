@@ -1,6 +1,7 @@
 "use client";
 
-import { makeCalendar } from "@/lib/makeCalendar";
+import { makeCalendar } from "@/lib/newMakeCalendar";
+// import { makeCalendar } from "@/lib/makeCalendar";
 import { useEffect, useState } from "react";
 
 interface DateInfo {
@@ -30,8 +31,8 @@ const CalendarSection = () => {
       return makeCalendar({
         year: dateObj.getFullYear(),
         month: dateObj.getMonth() + 1,
-        date: dateObj.getDate(),
-        day: dateObj.getDay(),
+        // date: dateObj.getDate(),
+        // day: dateObj.getDay(),
       });
     });
   }, []);
