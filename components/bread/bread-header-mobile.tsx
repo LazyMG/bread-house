@@ -3,6 +3,7 @@
 import { useIsNavHiddenByScroll } from "@/lib/hook/useIsNavHiddenByScroll";
 import { useThemeColor } from "@/lib/hook/useThemeColor";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 
 const MobileBreadHeader = ({
@@ -25,6 +26,8 @@ const MobileBreadHeader = ({
 
   const toggleNav = () => setIsNavOpen((prev) => !prev);
   const closeNav = () => setIsNavOpen(false);
+
+  const router = useRouter();
 
   return (
     <div
@@ -60,7 +63,12 @@ const MobileBreadHeader = ({
               <img src="/icons/bottom-arrow.png" />
             </div>
           </button>
-          <h2 className="font-alte font-bold text-[33px]">05/15</h2>
+          <h2
+            className="font-alte font-bold text-[33px]"
+            onClick={() => router.push("/breads")}
+          >
+            05/15
+          </h2>
           <p className="font-alte font-bold pt-2 text-[14px]">MON</p>
         </div>
       )}
