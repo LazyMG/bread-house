@@ -48,10 +48,18 @@ const MobileBreadHeader = ({
       {/* 사라지는 요소 - 버튼 + 날짜 + 요일 */}
       {!isNavHiddenByScroll && (
         <div className="absolute top-0 left-0 w-full px-[25px] pt-[4px] flex items-start gap-1 z-10">
-          <button
+          {/* <button
             onClick={toggleNav}
             className="absolute top-[18px] right-[24px] w-6 h-6 rounded-full bg-black"
-          />
+          /> */}
+          <button
+            className="cursor-pointer absolute top-0 right-[32px]"
+            onClick={toggleNav}
+          >
+            <div className="w-[32px] h-[32px] bg-black top-0 rounded-es-md rounded-ee-md flex justify-center items-center">
+              <img src="/icons/bottom-arrow.png" />
+            </div>
+          </button>
           <h2 className="font-alte font-bold text-[33px]">05/15</h2>
           <p className="font-alte font-bold pt-2 text-[14px]">MON</p>
         </div>
@@ -97,7 +105,7 @@ const MobileBreadHeader = ({
       ></div>
 
       <div
-        className={`fixed top-0 left-0 w-full bg-white z-[11000] transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full bg-white z-[11000] transform transition-transform duration-300 ease-in-out font-wanted font-bold text-[18px] text-[rgba(43,43,43,0.6)] ${
           isNavOpen ? "translate-y-0 shadow-md" : "-translate-y-full"
         }`}
       >
@@ -105,7 +113,7 @@ const MobileBreadHeader = ({
         <Link
           href="/ui"
           onClick={closeNav}
-          className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6]"
+          className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6] "
         >
           <span className="group-hover:text-[rgba(43,43,43,1)]">
             메인 페이지
@@ -128,8 +136,16 @@ const MobileBreadHeader = ({
           <span className="group-hover:text-[rgba(43,43,43,1)]">기도제목</span>
           <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#F8FFF6] font-thin" />
         </div>
-        <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px]">
+        <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px] relative">
           BREAD HAUS
+          {isNavOpen && (
+            <div
+              className="absolute right-[32px] top-6 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center"
+              onClick={toggleNav}
+            >
+              <img src="/icons/up-arrow.png" />
+            </div>
+          )}
         </div>
       </div>
     </div>
