@@ -115,11 +115,11 @@ const BreadsListContainer = () => {
       </div>
       <div className="hidden w-full h-[130px] sm:flex justify-between items-center">
         <div className="cursor-pointer">
-          <img src="/icons/left-arrow.png" />
+          <img src="/icons/left-bracket.png" />
         </div>
         <span className="font-alte text-[48px] font-bold">2025/05</span>
         <div className="cursor-pointer">
-          <img src="/icons/right-arrow.png" />
+          <img src="/icons/right-bracket.png" />
         </div>
       </div>
       <div className="w-full h-full sm:h-[600px] overflow-y-scroll scrollbar-hide mt-[20px] sm:mt-0 ">

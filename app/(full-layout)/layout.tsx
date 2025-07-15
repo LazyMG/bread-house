@@ -3,7 +3,7 @@ const FullLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <div className="h-full mx-auto w-full">{children}</div>;
+  return <>{children}</>;
 };
 
 export default FullLayout;

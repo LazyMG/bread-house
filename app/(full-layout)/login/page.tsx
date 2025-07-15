@@ -1,5 +1,7 @@
+import LoginContainer from "@/components/login/login-container";
+
 const LoingPage = () => {
-  return <div>LoingPage</div>;
+  return <LoginContainer />;
 };
 
 export default LoingPage;

@@ -51,7 +51,7 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
       />
       <div className="hidden w-full h-[130px] sm:flex justify-between items-center">
         <div className="cursor-pointer">
-          <img src="/icons/left-arrow.png" />
+          <img src="/icons/left-bracket.png" />
         </div>
         <div className="flex flex-col items-center gap-[10px]">
           <Link href={`/breads`} className="flex items-start gap-[5px]">
@@ -70,7 +70,7 @@ const BreadDetailContainer = ({ bread }: { bread: Bread }) => {
           </div>
         </div>
         <div className="cursor-pointer">
-          <img src="/icons/right-arrow.png" />
+          <img src="/icons/right-bracket.png" />
         </div>
       </div>
       <div className="px-[14px] sm:grid grid-cols-2 gap-[60px] mt-[60px] sm:mt-[50px] hidden">
