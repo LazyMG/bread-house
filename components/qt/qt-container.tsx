@@ -16,6 +16,7 @@ type Bread = {
     index: string;
     content: string;
   };
+  description: string;
 };
 
 const QtContainer = ({ bread }: { bread: Bread }) => {

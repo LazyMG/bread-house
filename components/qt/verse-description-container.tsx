@@ -3,6 +3,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import VerseContainer from "../bread/verse-container";
 import MobileBreadHeader from "../bread/bread-header-mobile";
+import DescriptionContainer from "../bread/description-container";
 
 type Bread = {
   date: string;
@@ -16,6 +17,7 @@ type Bread = {
     index: string;
     content: string;
   };
+  description: string;
 };
 
 interface IVerseDescriptionContainer {
@@ -98,6 +100,9 @@ const VerseDescriptionContainer = ({
               keyVerse={bread.key_verse}
               setSelectedVerse={setSelectedVerse}
             />
+          )}
+          {view === "DESCRIPTION" && (
+            <DescriptionContainer description={bread.description} />
           )}
         </>
       </div>

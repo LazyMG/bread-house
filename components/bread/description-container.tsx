@@ -3,7 +3,13 @@
 const DescriptionContainer = ({ description }: { description: string }) => {
   return (
     <div className="flex flex-col gap-[30px] sm:mt-[12px] mt-0 mb-[24px]">
-      <span className="font-wanted text-[14px] sm:text-[16px] leading-[32px]">
+      <span
+        className="font-wanted text-[14px] sm:text-[16px] leading-[32px]"
+        style={{
+          wordBreak: "keep-all",
+          overflowWrap: "break-word",
+        }}
+      >
         {description}
       </span>
       <div className="flex flex-col gap-[8px] text-[14px] sm:text-[16px] leading-[24px]">
