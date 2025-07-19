@@ -77,7 +77,10 @@ const LoginContainer = () => {
                 </div>
               </div>
               <div className="w-full">
-                <div className="bg-[#E2F4FF] h-[56px] w-full flex justify-center items-center rounded-lg font-wanted text-[16px] leading-[32px]">
+                <div
+                  className="bg-[#E2F4FF] h-[56px] w-full flex justify-center items-center rounded-lg font-wanted text-[16px] leading-[32px] cursor-pointer"
+                  onClick={() => router.push("/ui")}
+                >
                   시작하기
                 </div>
               </div>
@@ -85,7 +88,10 @@ const LoginContainer = () => {
           </div>
 
           <div className="w-full mb-[35px] px-5 sm:hidden sm:mb-0">
-            <div className="bg-white h-[56px] w-full flex justify-center items-center rounded-lg font-wanted text-[16px] leading-[32px]">
+            <div
+              className="bg-white h-[56px] w-full flex justify-center items-center rounded-lg font-wanted text-[16px] leading-[32px] cursor-pointer"
+              onClick={() => router.push("/ui")}
+            >
               시작하기
             </div>
           </div>
