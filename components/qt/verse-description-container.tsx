@@ -2,8 +2,9 @@
 
 import { Dispatch, SetStateAction, useState } from "react";
 import VerseContainer from "../bread/verse-container";
-import MobileBreadHeader from "../bread/bread-header-mobile";
 import DescriptionContainer from "../bread/description-container";
+import MobileHeaderLayout from "../mobile-header/mobile-header-layout";
+import { useRouter } from "next/navigation";
 
 type Bread = {
   date: string;
@@ -35,6 +36,7 @@ const VerseDescriptionContainer = ({
   setSelectedVerse,
 }: IVerseDescriptionContainer) => {
   const [view, setView] = useState<"VERSE" | "DESCRIPTION">("VERSE");
+  const router = useRouter();
 
   const [first, ...rest] = bread.range.split(" ");
 
@@ -82,12 +84,47 @@ const VerseDescriptionContainer = ({
           </div>
         </div>
       </div>
-      <MobileBreadHeader
-        title={bread.title}
-        date={bread.date}
-        range={bread.range}
-        view={view}
-        setView={setView}
+      <MobileHeaderLayout
+        disapperEl={
+          <>
+            <h2
+              className="font-alte font-bold text-[33px]"
+              onClick={() => router.push("/breads")}
+            >
+              05/15
+            </h2>
+            <p className="font-alte font-bold pt-2 text-[14px]">MON</p>
+          </>
+        }
+        customEl={
+          <div className="bg-white px-[24px] py-[16px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative z-10">
+            <button
+              className={
+                view === "VERSE" ? "text-black" : "text-[rgba(0,0,0,0.5)]"
+              }
+              onClick={() => setView?.("VERSE")}
+            >
+              본문
+            </button>
+            <div className="w-[1px] h-[15px] bg-black" />
+            <button
+              className={
+                view === "DESCRIPTION" ? "text-black" : "text-[rgba(0,0,0,0.5)]"
+              }
+              onClick={() => setView?.("DESCRIPTION")}
+            >
+              해설
+            </button>
+            <div className="ml-auto text-[12px] font-normal">
+              {first} {rest.join(" ")}
+            </div>
+          </div>
+        }
+        mainEl={
+          <h1 className="font-wanted font-extrabold text-[20px] leading-[28px]">
+            {bread.title}
+          </h1>
+        }
       />
       <div
         id="present-section__content-container"

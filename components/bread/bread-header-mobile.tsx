@@ -2,9 +2,9 @@
 
 import { useIsNavHiddenByScroll } from "@/lib/hook/useIsNavHiddenByScroll";
 import { useThemeColor } from "@/lib/hook/useThemeColor";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
+import NavigationMobileMenu from "../mobile-header/navigation-mobile-menu";
 
 const MobileBreadHeader = ({
   date,
@@ -29,6 +29,9 @@ const MobileBreadHeader = ({
 
   const router = useRouter();
 
+  const pathname = usePathname();
+  console.log(pathname);
+
   return (
     <div
       className={`
@@ -38,7 +41,7 @@ const MobileBreadHeader = ({
       `}
       style={{ backgroundColor: color.bgColor }}
     >
-      {/* circle - 항상 보임 */}
+      {/* <고정> circle 영역 */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 top-[-70px] left-[-100px]">
         <div
           id="circle"
@@ -51,10 +54,6 @@ const MobileBreadHeader = ({
       {/* 사라지는 요소 - 버튼 + 날짜 + 요일 */}
       {!isNavHiddenByScroll && (
         <div className="absolute top-0 left-0 w-full px-[25px] pt-[4px] flex items-start gap-1 z-10">
-          {/* <button
-            onClick={toggleNav}
-            className="absolute top-[18px] right-[24px] w-6 h-6 rounded-full bg-black"
-          /> */}
           <button
             className="cursor-pointer absolute top-0 right-[32px]"
             onClick={toggleNav}
@@ -63,6 +62,7 @@ const MobileBreadHeader = ({
               <img src="/icons/bottom-arrow.png" />
             </div>
           </button>
+          {/* 커스텀 영역 시작 */}
           <h2
             className="font-alte font-bold text-[33px]"
             onClick={() => router.push("/breads")}
@@ -70,16 +70,18 @@ const MobileBreadHeader = ({
             05/15
           </h2>
           <p className="font-alte font-bold pt-2 text-[14px]">MON</p>
+          {/* 커스텀 영역 끝 */}
         </div>
       )}
 
-      {/* 제목 */}
-      <div className="relative z-10 px-[25px] py-[8px]">
+      {/* 유지되는 영역 */}
+      <div className="relative px-[25px] py-[8px]">
         <h1 className="font-wanted font-extrabold text-[20px] leading-[28px]">
           {title}
         </h1>
       </div>
 
+      {/* 기타 영역 시작 */}
       {/* 본문 / 해설 토글 */}
       <div className="bg-white px-[24px] py-[16px] flex items-center gap-[10px] font-wanted font-extrabold text-[14px] relative z-10">
         <button
@@ -101,8 +103,9 @@ const MobileBreadHeader = ({
           {first} {rest.join(" ")}
         </div>
       </div>
+      {/* 기타 영역 끝 */}
 
-      {/* 오버레이 & 메뉴 */}
+      {/* <고정> 오버레이 영역*/}
       <div
         className={`fixed inset-0 bg-black/50 z-[10999] transition-opacity duration-300 ${
           isNavOpen
@@ -112,50 +115,12 @@ const MobileBreadHeader = ({
         onClick={closeNav}
       ></div>
 
-      <div
-        className={`fixed top-0 left-0 w-full bg-white z-[11000] transform transition-transform duration-300 ease-in-out font-wanted font-bold text-[18px] text-[rgba(43,43,43,0.6)] ${
-          isNavOpen ? "translate-y-0 shadow-md" : "-translate-y-full"
-        }`}
-      >
-        {/* 메뉴 항목 */}
-        <Link
-          href="/ui"
-          onClick={closeNav}
-          className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6] "
-        >
-          <span className="group-hover:text-[rgba(43,43,43,1)]">
-            메인 페이지
-          </span>
-          <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-white font-thin" />
-        </Link>
-        <div className="group h-[62px] w-full flex items-center px-[26px] justify-between">
-          <span className="group-hover:text-[rgba(43,43,43,1)]">
-            마이페이지
-          </span>
-          <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#FFFBE6] font-thin" />
-        </div>
-        <div className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#E2F4FF]">
-          <span className="group-hover:text-[rgba(43,43,43,1)]">
-            일주일의 기록
-          </span>
-          <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#E2F4FF] font-thin" />
-        </div>
-        <div className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#F8FFF6]">
-          <span className="group-hover:text-[rgba(43,43,43,1)]">기도제목</span>
-          <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#F8FFF6] font-thin" />
-        </div>
-        <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px] relative">
-          BREAD HAUS
-          {isNavOpen && (
-            <div
-              className="absolute right-[32px] top-6 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center"
-              onClick={toggleNav}
-            >
-              <img src="/icons/up-arrow.png" />
-            </div>
-          )}
-        </div>
-      </div>
+      {/* <고정> 메뉴 영역 */}
+      <NavigationMobileMenu
+        isNavOpen={isNavOpen}
+        closeNav={closeNav}
+        toggleNav={toggleNav}
+      />
     </div>
   );
 };

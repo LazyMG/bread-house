@@ -2,7 +2,23 @@ import BreadSection from "@/components/home-bread-section";
 import CalendarSection from "@/components/home-calendar-section";
 import PraySection from "@/components/home-pray-section";
 
-export default function NewPage() {
+// const getBread = async () => {
+//   const response = await fetch(
+//     "http://172.30.1.65:8080/quiet-time/form/date/2025-08-30"
+//   );
+
+//   if (!response.ok) {
+//     console.log("error");
+//     return;
+//   }
+
+//   const data = await response.json();
+//   console.log(data);
+//   return data;
+// };
+
+export default async function NewPage() {
+  // const bread = await getBread();
   return (
     <div className="flex flex-col box-border bg-white h-full">
       <div id="main" className="flex flex-col flex-1 ">
