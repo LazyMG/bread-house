@@ -14,15 +14,18 @@ const LoginContainer = () => {
       className="w-full h-full flex flex-col justify-normal sm:justify-between relative overflow-hidden"
       style={{ backgroundColor: color.bgColor }}
     >
-      <div className="lg:max-w-[1240px] w-full mx-auto relative top-0">
+      <div className="lg:max-w-[1240px] w-full mx-auto relative top-0 z-10">
         <div
           className="hidden absolute left-0 top-0 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md sm:flex justify-center items-center cursor-pointer"
-          onClick={() => router.push("/ui")}
+          onClick={() => router.back()}
         >
           <img src="/icons/left-arrow.png" />
         </div>
-        <div className="absolute sm:hidden right-[32px] top-0 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center cursor-pointer">
-          <img src="/icons/bottom-arrow.png" />
+        <div
+          className="absolute sm:hidden left-[32px] top-0 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center cursor-pointer"
+          onClick={() => router.back()}
+        >
+          <img src="/icons/left-arrow.png" />
         </div>
       </div>
 
@@ -39,7 +42,7 @@ const LoginContainer = () => {
                 backgroundColor: color.circleColor,
               }}
             />
-            <div className="z-10 sm:hidden flex flex-col items-center mb-[20px] gap-[25px]">
+            <div className="z-10 sm:hidden flex flex-col items-center gap-[25px]">
               <h4 className="font-wanted font-bold text-[24px] leading-[32px] text-center">
                 심마리아님 <br /> 환영해요!
               </h4>
