@@ -9,6 +9,11 @@ const LoginContainer = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const kakaoLogin = () => {
+    const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=${process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URL}&response_type=code`;
+    router.push(kakaoAuthUrl);
+  };
+
   return (
     <div
       className="w-full h-full flex flex-col justify-normal sm:justify-between relative overflow-hidden"
@@ -150,7 +155,7 @@ const LoginContainer = () => {
 
               <div className="pt-[80px] sm:pt-0 w-full flex flex-col gap-[10px] px-[50px] font-wanted font-medium text-[16px] leading-[32px]">
                 <div
-                  onClick={() => setIsLoggedIn(true)}
+                  onClick={kakaoLogin}
                   className="w-full h-[44px] bg-[#FFE812] rounded-md flex items-center justify-center relative cursor-pointer"
                 >
                   카카오로 계속하기

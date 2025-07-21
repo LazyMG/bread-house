@@ -4,7 +4,7 @@ import PraySection from "@/components/home-pray-section";
 
 // const getBread = async () => {
 //   const response = await fetch(
-//     "http://172.30.1.65:8080/quiet-time/form/date/2025-08-30"
+//     "http://59.10.241.68:8080/quiet-time/form/date/2025-08-30"
 //   );
 
 //   if (!response.ok) {
