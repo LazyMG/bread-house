@@ -133,7 +133,7 @@ const LoginContainer = () => {
             </div>
           </div>
 
-          <div className="w-full sm:w-[400px] h-1/2 sm:h-[600px] absolute sm:top-0 bottom-0 sm:right-0 sm:left-0 sm:mx-auto sm:my-auto z-10 flex flex-col gap-[45px] justify-end sm:justify-normal">
+          <div className="w-full sm:w-[400px] h-1/2 sm:h-[600px] absolute sm:top-16 bottom-0 sm:right-0 sm:left-0 sm:mx-auto sm:my-auto z-10 flex flex-col gap-[45px] justify-end sm:justify-normal">
             <div
               id="login-header"
               className="hidden sm:flex flex-col items-center"
