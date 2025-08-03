@@ -133,7 +133,7 @@ const LoginContainer = () => {
             </div>
           </div>
 
-          <div className="w-full sm:w-[400px] h-1/2 sm:h-[720px] absolute sm:top-0 bottom-0 sm:right-0 sm:left-0 sm:mx-auto sm:my-auto z-10 flex flex-col gap-[45px] justify-end sm:justify-normal">
+          <div className="w-full sm:w-[400px] h-1/2 sm:h-[600px] absolute sm:top-0 bottom-0 sm:right-0 sm:left-0 sm:mx-auto sm:my-auto z-10 flex flex-col gap-[45px] justify-end sm:justify-normal">
             <div
               id="login-header"
               className="hidden sm:flex flex-col items-center"
@@ -147,10 +147,10 @@ const LoginContainer = () => {
             </div>
             <div
               id="login-container"
-              className="w-full h-full sm:h-[460px] sm:rounded-xl sm:shadow-xl bg-white flex flex-col sm:py-[40px] items-center sm:gap-[96px] gap-[100px]"
+              className="w-full h-full sm:h-[205px] sm:rounded-xl sm:shadow-xl bg-white flex flex-col items-center gap-[100px] sm:gap-[20px] sm:py-[28px]"
             >
               <h4 className="hidden sm:block font-wanted font-bold text-[24px] leading-[32px]">
-                로그인..하실래용?
+                로그인
               </h4>
 
               <div className="pt-[80px] sm:pt-0 w-full flex flex-col gap-[10px] px-[50px] font-wanted font-medium text-[16px] leading-[32px]">
@@ -164,7 +164,7 @@ const LoginContainer = () => {
                     src="/icons/kakao_logo.png"
                   />
                 </div>
-                <div
+                {/* <div
                   onClick={() => setIsLoggedIn(true)}
                   className="w-full h-[44px] bg-[#EEEBE6] rounded-md flex items-center justify-center relative cursor-pointer"
                 >
@@ -173,7 +173,7 @@ const LoginContainer = () => {
                     className="absolute left-5"
                     src="/icons/email_logo.png"
                   />
-                </div>
+                </div> */}
               </div>
 
               <span className="border-b border-[#A8A5A1] text-[#A8A5A1] text-[12px] leading-[20px] font-wanted font-medium">
