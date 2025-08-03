@@ -12,10 +12,12 @@ const Navigation = () => {
 
   const pathname = usePathname();
 
+  const pathArr = ["ui", "meditation", "calendar"];
+
   return (
     <nav
       className={`w-full h-[64px] sm:h-[72px] absolute top-0 left-0 right-0 z-[990] flex items-center justify-center
-      ${pathname !== "/ui" ? "hidden sm:block" : ""}`}
+      ${!pathArr.includes(pathname.split("/")[1]) ? "hidden sm:block" : ""}`}
     >
       <NavigationStylingContainer>
         <div className="static w-full h-full lg:max-w-[1240px] flex items-center justify-between sm:px-[30px] xl:px-0 z-10">

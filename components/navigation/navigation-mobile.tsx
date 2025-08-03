@@ -22,9 +22,9 @@ const MobileNavigation = ({
 
   return (
     <>
-      <div className="sm:hidden pr-[64px] relative h-full">
-        <button className="cursor-pointer absolute" onClick={toggleNav}>
-          <div className="w-[32px] h-[32px] bg-black top-0 rounded-es-md rounded-ee-md flex justify-center items-center">
+      <div className="sm:hidden pr-[48px] relative h-full">
+        <button className="cursor-pointer absolute top-4" onClick={toggleNav}>
+          <div className="w-[26px] h-[26px] bg-black rounded-full flex justify-center items-center">
             <img src="/icons/bottom-arrow.png" />
           </div>
         </button>

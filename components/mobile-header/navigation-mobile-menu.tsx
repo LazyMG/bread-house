@@ -48,7 +48,7 @@ const NavigationMobileMenu = ({
         BREAD HAUS
         {isNavOpen && (
           <div
-            className="absolute right-[32px] top-6 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center"
+            className="absolute right-[18px] top-6 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center"
             onClick={toggleNav}
           >
             <img src="/icons/up-arrow.png" />

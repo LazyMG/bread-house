@@ -8,7 +8,9 @@ const PCNavigation = () => {
         <span>
           <Link href={`/breads/123`}>오늘의 양식</Link>
         </span>
-        <span>페이지</span>
+        <span>
+          <Link href={`/calendar`}>달력</Link>
+        </span>
         <span>페이지</span>
       </div>
       <Link
