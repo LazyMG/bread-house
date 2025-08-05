@@ -1,5 +1,6 @@
 "use client";
 
+import { useThemeColor } from "@/lib/hook/useThemeColor";
 import { useState } from "react";
 
 const CalendarContainer = () => {
@@ -7,11 +8,14 @@ const CalendarContainer = () => {
   const toggleSelect = () => {
     setIsYearSelectOpen((prev) => !prev);
   };
+  const { color } = useThemeColor();
 
   const overlayClick = (event: MouseEvent) => {
     event.stopPropagation();
     //toggleSelect();
   };
+
+  const tempNumberArr = [2, 6, 8, 9, 11, 19, 20, 24, 28, 30];
 
   return (
     <div className="flex flex-col w-full px-[16px]">
@@ -30,7 +34,9 @@ const CalendarContainer = () => {
             onClick={() => overlayClick}
           />
           {isYearSelectOpen && (
-            <div className="absolute top-[-4px] left-[-6px] w-[112px] h-[280px] bg-[#E2F4FF] z-[999] rounded-lg flex flex-col px-[6px] pt-[4px] gap-[8px] pb-[8px]">
+            <div
+              className={`absolute top-[-4px] left-[-6px] w-[112px] h-[280px] bg-[${color.bgColor}] z-[999] rounded-lg flex flex-col px-[6px] pt-[4px] gap-[8px] pb-[8px]`}
+            >
               <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
                 2025
               </span>
@@ -60,7 +66,9 @@ const CalendarContainer = () => {
         </span>
         <span className="font-bold text-[48px] font-alte">06</span>
       </div>
-      <div className="bg-[#E2F4FF] w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between">
+      <div
+        className={`bg-[${color.bgColor}] w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between`}
+      >
         <span className="font-wanted font-bold text-[18px]">
           심마리아님이 하나님께 드린 마음
         </span>
@@ -71,10 +79,14 @@ const CalendarContainer = () => {
           <span className="font-alte font-bold text-[24px]">{"%"}</span>
         </div>
         <div className="w-full relative h-[12px] bg-white rounded-xl">
-          <div className="bg-[#7ECEFF] h-[12px] rounded-xl absolute left-0 top-0 bottom-0 w-[105px]"></div>
+          <div
+            className={`bg-[${color.accentColor}] h-[12px] rounded-xl absolute left-0 top-0 bottom-0 w-[105px] z-10`}
+          />
         </div>
       </div>
-      <div className="bg-[#E2F4FF] w-full h-[320px]  h-2/3 rounded-xl px-[16px] flex flex-col gap-[20px] mt-[15px]">
+      <div
+        className={`bg-[${color.bgColor}] w-full h-[320px]  h-2/3 rounded-xl px-[16px] flex flex-col gap-[20px] mt-[15px]`}
+      >
         <div className="w-full grid grid-cols-7 pt-[15px]">
           {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day, idx) => (
             <span
@@ -88,52 +100,117 @@ const CalendarContainer = () => {
         <div className="w-full flex flex-col gap-[30px]">
           <div className="w-full grid grid-cols-7">
             {[1, 2, 3, 4, 5, 6, 7].map((date, idx) => (
-              <span
-                className="flex justify-center items-center text-[#333333] font-alte text-[16px] font-bold opacity-50"
+              <div
+                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
                 key={idx}
               >
-                {date.toString().padStart(2, "0")}
-              </span>
+                {tempNumberArr.includes(date) && (
+                  <div
+                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                  />
+                )}
+                <span
+                  className={`flex justify-center items-center z-10 ${
+                    tempNumberArr.includes(date)
+                      ? `text-white`
+                      : "text-[#333333]"
+                  }`}
+                >
+                  {date.toString().padStart(2, "0")}
+                </span>
+              </div>
             ))}
           </div>
           <div className="w-full grid grid-cols-7">
             {[8, 9, 10, 11, 12, 13, 14].map((date, idx) => (
-              <span
-                className="flex justify-center items-center text-[#333333] font-alte text-[16px] font-bold opacity-50"
+              <div
+                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
                 key={idx}
               >
-                {date.toString().padStart(2, "0")}
-              </span>
+                {tempNumberArr.includes(date) && (
+                  <div
+                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                  />
+                )}
+                <span
+                  className={`flex justify-center items-center z-10 ${
+                    tempNumberArr.includes(date)
+                      ? `text-white`
+                      : "text-[#333333]"
+                  }`}
+                >
+                  {date.toString().padStart(2, "0")}
+                </span>
+              </div>
             ))}
           </div>
           <div className="w-full grid grid-cols-7">
             {[15, 16, 17, 18, 19, 20, 21].map((date, idx) => (
-              <span
-                className="flex justify-center items-center text-[#333333] font-alte text-[16px] font-bold opacity-50"
+              <div
+                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
                 key={idx}
               >
-                {date.toString().padStart(2, "0")}
-              </span>
+                {tempNumberArr.includes(date) && (
+                  <div
+                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                  />
+                )}
+                <span
+                  className={`flex justify-center items-center z-10 ${
+                    tempNumberArr.includes(date)
+                      ? `text-white`
+                      : "text-[#333333]"
+                  }`}
+                >
+                  {date.toString().padStart(2, "0")}
+                </span>
+              </div>
             ))}
           </div>
           <div className="w-full grid grid-cols-7">
             {[22, 23, 24, 25, 26, 27, 28].map((date, idx) => (
-              <span
-                className="flex justify-center items-center text-[#333333] font-alte text-[16px] font-bold opacity-50"
+              <div
+                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
                 key={idx}
               >
-                {date.toString().padStart(2, "0")}
-              </span>
+                {tempNumberArr.includes(date) && (
+                  <div
+                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                  />
+                )}
+                <span
+                  className={`flex justify-center items-center z-10 ${
+                    tempNumberArr.includes(date)
+                      ? `text-white`
+                      : "text-[#333333]"
+                  }`}
+                >
+                  {date.toString().padStart(2, "0")}
+                </span>
+              </div>
             ))}
           </div>
           <div className="w-full grid grid-cols-7">
             {[29, 30, 1, 2, 3, 4, 5].map((date, idx) => (
-              <span
-                className="flex justify-center items-center text-[#333333] font-alte text-[16px] font-bold opacity-50"
+              <div
+                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
                 key={idx}
               >
-                {date.toString().padStart(2, "0")}
-              </span>
+                {tempNumberArr.includes(date) && (
+                  <div
+                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                  />
+                )}
+                <span
+                  className={`flex justify-center items-center z-10 ${
+                    tempNumberArr.includes(date)
+                      ? `text-white`
+                      : "text-[#333333]"
+                  }`}
+                >
+                  {date.toString().padStart(2, "0")}
+                </span>
+              </div>
             ))}
           </div>
         </div>
