@@ -35,7 +35,8 @@ const CalendarContainer = () => {
           />
           {isYearSelectOpen && (
             <div
-              className={`absolute top-[-4px] left-[-6px] w-[112px] h-[280px] bg-[${color.bgColor}] z-[999] rounded-lg flex flex-col px-[6px] pt-[4px] gap-[8px] pb-[8px]`}
+              className="absolute top-[-4px] left-[-6px] w-[112px] h-[280px] z-[999] rounded-lg flex flex-col px-[6px] pt-[4px] gap-[8px] pb-[8px]"
+              style={{ backgroundColor: `${color.bgColor}` }}
             >
               <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
                 2025
@@ -67,7 +68,8 @@ const CalendarContainer = () => {
         <span className="font-bold text-[48px] font-alte">06</span>
       </div>
       <div
-        className={`bg-[${color.bgColor}] w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between`}
+        className="w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between"
+        style={{ backgroundColor: `${color.bgColor}` }}
       >
         <span className="font-wanted font-bold text-[18px]">
           심마리아님이 하나님께 드린 마음
@@ -80,12 +82,14 @@ const CalendarContainer = () => {
         </div>
         <div className="w-full relative h-[12px] bg-white rounded-xl">
           <div
-            className={`bg-[${color.accentColor}] h-[12px] rounded-xl absolute left-0 top-0 bottom-0 w-[105px] z-10`}
+            className="h-[12px] rounded-xl absolute left-0 top-0 bottom-0 w-[105px]"
+            style={{ backgroundColor: `${color.accentColor}` }}
           />
         </div>
       </div>
       <div
-        className={`bg-[${color.bgColor}] w-full h-[320px]  h-2/3 rounded-xl px-[16px] flex flex-col gap-[20px] mt-[15px]`}
+        className="w-full h-[320px]  h-2/3 rounded-xl px-[16px] flex flex-col gap-[20px] mt-[15px]"
+        style={{ backgroundColor: `${color.bgColor}` }}
       >
         <div className="w-full grid grid-cols-7 pt-[15px]">
           {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day, idx) => (
@@ -101,12 +105,13 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[1, 2, 3, 4, 5, 6, 7].map((date, idx) => (
               <div
-                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
+                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
                   <div
-                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                    className="absolute w-[36px] h-[36px] rounded-full"
+                    style={{ backgroundColor: `${color.accentColor}` }}
                   />
                 )}
                 <span
@@ -124,12 +129,13 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[8, 9, 10, 11, 12, 13, 14].map((date, idx) => (
               <div
-                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
+                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
                   <div
-                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                    className="absolute w-[36px] h-[36px] rounded-full"
+                    style={{ backgroundColor: `${color.accentColor}` }}
                   />
                 )}
                 <span
@@ -147,12 +153,13 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[15, 16, 17, 18, 19, 20, 21].map((date, idx) => (
               <div
-                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
+                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
                   <div
-                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                    className="absolute w-[36px] h-[36px] rounded-full"
+                    style={{ backgroundColor: `${color.accentColor}` }}
                   />
                 )}
                 <span
@@ -170,12 +177,13 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[22, 23, 24, 25, 26, 27, 28].map((date, idx) => (
               <div
-                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
+                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
                   <div
-                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                    className="absolute w-[36px] h-[36px] rounded-full"
+                    style={{ backgroundColor: `${color.accentColor}` }}
                   />
                 )}
                 <span
@@ -193,12 +201,13 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[29, 30, 1, 2, 3, 4, 5].map((date, idx) => (
               <div
-                className={`flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative`}
+                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
                   <div
-                    className={`absolute bg-[${color.accentColor}] w-[36px] h-[36px] rounded-full`}
+                    className="absolute w-[36px] h-[36px] rounded-full"
+                    style={{ backgroundColor: `${color.accentColor}` }}
                   />
                 )}
                 <span
