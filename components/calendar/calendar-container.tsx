@@ -105,7 +105,7 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[1, 2, 3, 4, 5, 6, 7].map((date, idx) => (
               <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
+                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
@@ -118,7 +118,7 @@ const CalendarContainer = () => {
                   className={`flex justify-center items-center z-10 ${
                     tempNumberArr.includes(date)
                       ? `text-white`
-                      : "text-[#333333]"
+                      : "text-[#333333] opacity-50"
                   }`}
                 >
                   {date.toString().padStart(2, "0")}
@@ -129,20 +129,20 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[8, 9, 10, 11, 12, 13, 14].map((date, idx) => (
               <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
+                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
                   <div
-                    className="absolute w-[36px] h-[36px] rounded-full"
+                    className="absolute w-[36px] h-[36px] rounded-full z-10"
                     style={{ backgroundColor: `${color.accentColor}` }}
                   />
                 )}
                 <span
-                  className={`flex justify-center items-center z-10 ${
+                  className={`flex justify-center items-center z-50 ${
                     tempNumberArr.includes(date)
                       ? `text-white`
-                      : "text-[#333333]"
+                      : "text-[#333333] opacity-50"
                   }`}
                 >
                   {date.toString().padStart(2, "0")}
@@ -153,7 +153,7 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[15, 16, 17, 18, 19, 20, 21].map((date, idx) => (
               <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
+                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
@@ -166,7 +166,7 @@ const CalendarContainer = () => {
                   className={`flex justify-center items-center z-10 ${
                     tempNumberArr.includes(date)
                       ? `text-white`
-                      : "text-[#333333]"
+                      : "text-[#333333] opacity-50"
                   }`}
                 >
                   {date.toString().padStart(2, "0")}
@@ -177,7 +177,7 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[22, 23, 24, 25, 26, 27, 28].map((date, idx) => (
               <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
+                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
@@ -190,7 +190,7 @@ const CalendarContainer = () => {
                   className={`flex justify-center items-center z-10 ${
                     tempNumberArr.includes(date)
                       ? `text-white`
-                      : "text-[#333333]"
+                      : "text-[#333333] opacity-50"
                   }`}
                 >
                   {date.toString().padStart(2, "0")}
@@ -201,7 +201,7 @@ const CalendarContainer = () => {
           <div className="w-full grid grid-cols-7">
             {[29, 30, 1, 2, 3, 4, 5].map((date, idx) => (
               <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold opacity-50 relative"
+                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
                 key={idx}
               >
                 {tempNumberArr.includes(date) && (
@@ -214,7 +214,7 @@ const CalendarContainer = () => {
                   className={`flex justify-center items-center z-10 ${
                     tempNumberArr.includes(date)
                       ? `text-white`
-                      : "text-[#333333]"
+                      : "text-[#333333] opacity-50"
                   }`}
                 >
                   {date.toString().padStart(2, "0")}
