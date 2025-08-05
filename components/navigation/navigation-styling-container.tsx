@@ -13,7 +13,7 @@ const NavigationStylingContainer = ({ children }: Props) => {
 
   const { color } = useThemeColor();
 
-  const pathArr = ["ui", "meditation", "calendar"];
+  const pathArr = ["ui", "meditation"];
 
   return (
     <div
@@ -21,7 +21,7 @@ const NavigationStylingContainer = ({ children }: Props) => {
       style={{
         backgroundColor: pathArr.includes(pathname.split("/")[1])
           ? color.navColor
-          : color.bgColor,
+          : pathname === "/calendar" ? "white" : color.bgColor,
       }}
     >
       {/* <div className="absolute w-full max-w-[1240px] h-full">
