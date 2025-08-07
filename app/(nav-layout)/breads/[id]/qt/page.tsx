@@ -96,7 +96,7 @@ const QtPage = () => {
   return (
     <div
       id="bread-page__container"
-      className="flex flex-col box-border bg-white sm:pt-[72px] text-black lg:max-w-[1240px] w-full mx-auto "
+      className="flex flex-col box-border bg-white sm:pt-[72px] text-black lg:max-w-[1240px] w-full mx-auto sm:px-[30px] xl:px-0"
     >
       <main id="main" className="w-full flex justify-between mt-[30px] gap-10">
         <QtContainer bread={bread} />
