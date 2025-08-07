@@ -30,7 +30,7 @@ export default async function NewPage() {
           // className="sm:h-[320px] sm:px-[5%] lg:px-[10%] 2xl:px-[20%] "
           className="sm:h-[320px] w-full h-full flex-1 flex"
         >
-          <div className="w-full h-full flex flex-col sm:flex-row sm:justify-between sm:items-center lg:max-w-[1240px] mx-auto sm:px-[30px] xl:px-0 lg:gap-0 sm:gap-[10px]">
+          <div className="w-full h-full flex flex-col sm:flex-row sm:justify-between sm:pt-[50px] lg:max-w-[1240px] mx-auto sm:px-[30px] xl:px-0 lg:gap-0 sm:gap-[10px]">
             <CalendarSection />
             <PraySection />
           </div>
