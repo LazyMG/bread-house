@@ -32,7 +32,7 @@ export const useThemeColor = () => {
           bgColor: "#E2F4FF",
           circleColor: "#FFF5C5",
           navColor: "#C9EAFF",
-          accentColor: "#FF9E69",
+          accentColor: "#7ECEFF",
         });
         break;
       default:
@@ -40,7 +40,7 @@ export const useThemeColor = () => {
           bgColor: "#EEEBE6",
           circleColor: "#FFF6C6",
           navColor: "#E2DED7",
-          accentColor: "#7ECEFF",
+          accentColor: "#FF9E69",
         });
     }
     setIsLoading(false);
