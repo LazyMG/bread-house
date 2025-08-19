@@ -1,4 +1,8 @@
+"use client"
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import MobileMenuLink from "./mobile-menu-link";
 
 interface NavMenuProps {
   isNavOpen: boolean;
@@ -11,17 +15,62 @@ const NavigationMobileMenu = ({
   toggleNav,
   closeNav,
 }: NavMenuProps) => {
+  const pathname = usePathname();
+
+  const menuConfig = [
+    {
+      href:"/ui",
+      title:"메인 페이지"
+    },
+    {
+      href:"/login",
+      title:"로그인"
+    },
+    {
+      href:"/breads/123",
+      title:"오늘의 양식"
+    },
+    {
+      href:"/calendar",
+      title:"일주일의 기록"
+    },
+    {
+      href:"/pray",
+      title:"기도제목"
+    }
+  ]
+
+  const colorConfig = [
+    "#FFFBE6","white","#E2F4FF","#F8FFF6"
+  ]
+
+  const currentMenu = menuConfig.filter((menu) => {
+  // 현재 경로와 메뉴의 href가 일치하는 경우 (정적 경로)
+  if (pathname === menu.href) {
+    return false;
+  }
+  // '/breads/123' 메뉴가 현재 경로가 '/breads'로 시작하는 동적 경로일 때
+  if (menu.href === '/breads/123' && pathname.startsWith('/breads')) {
+    return false;
+  }
+  return true;
+});
+
   return (
     <div
       className={`fixed top-0 left-0 w-full bg-white z-[11000] transform transition-transform duration-300 ease-in-out font-wanted font-bold text-[18px] text-[rgba(43,43,43,0.6)] ${
         isNavOpen ? "translate-y-0 shadow-md" : "-translate-y-full"
       }`}
     >
-      {/* 메뉴 항목 */}
-      <Link
+      {
+        currentMenu.map((menu,index) => (
+          <MobileMenuLink key={menu.href} closeNav={closeNav} href={menu.href} title={menu.title} color={colorConfig[index]}/>
+        ))
+      }
+      {/* <Link
         href="/ui"
         onClick={closeNav}
-        className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6] "
+        className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6]"
       >
         <span className="group-hover:text-[rgba(43,43,43,1)]">메인 페이지</span>
         <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-white font-thin" />
@@ -29,7 +78,7 @@ const NavigationMobileMenu = ({
       <Link
         href="/breads/123"
         onClick={closeNav}
-        className="group h-[62px] w-full flex items-center px-[26px] justify-between"
+        className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-white"
       >
         <span className="group-hover:text-[rgba(43,43,43,1)]">오늘의 양식</span>
         <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#FFFBE6] font-thin" />
@@ -44,10 +93,11 @@ const NavigationMobileMenu = ({
         </span>
         <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#E2F4FF] font-thin" />
       </Link>
-      <div className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#F8FFF6]">
+      <Link href="/pray" onClick={closeNav} className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#F8FFF6]">
         <span className="group-hover:text-[rgba(43,43,43,1)]">기도제목</span>
         <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#F8FFF6] font-thin" />
-      </div>
+      </Link> */}
+
       <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px] relative">
         BREAD HAUS
         {isNavOpen && (
