@@ -18,15 +18,18 @@ export const useThemeColor = () => {
     const hour = new Date().getHours();
 
     switch (true) {
+      // 새벽, 저녁
       case hour >= 5 && hour < 7:
       case hour >= 17 && hour < 19:
         setColor({
           bgColor: "#FFE2E2",
           circleColor: "#FF9D69",
           navColor: "#FFD3D3",
-          accentColor: "#FFDA16",
+          accentColor: "#FF9E69",
+
         });
         break;
+      // 낮
       case hour >= 7 && hour < 17:
         setColor({
           bgColor: "#E2F4FF",
@@ -35,12 +38,14 @@ export const useThemeColor = () => {
           accentColor: "#7ECEFF",
         });
         break;
+      // 밤
       default:
         setColor({
           bgColor: "#EEEBE6",
           circleColor: "#FFF6C6",
           navColor: "#E2DED7",
-          accentColor: "#FF9E69",
+          accentColor: "#FFDA16",
+
         });
     }
     setIsLoading(false);
