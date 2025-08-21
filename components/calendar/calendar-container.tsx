@@ -441,14 +441,14 @@ const CalendarContainer = () => {
                             />
                             {isModalDateSelectOpen && (
                               <div
-                                className={`absolute top-[-4px] left-[-6px] h-[280px] z-[999] rounded-lg flex px-[6px] pt-[4px] gap-[28px] pb-[8px] w-[255px]`}
+                                className={`absolute top-[-4px] left-[-6px] h-[280px] z-[999] rounded-lg flex px-[6px] pt-[4px] gap-[28px] pb-[8px] w-[255px] touch-pan-y`}
                                 style={{ backgroundColor: `${color.bgColor}` }}
                               >
                                 <div className="flex flex-col gap-[2px]">
                                   <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
                                     2025
                                   </span>
-                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
+                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
                                     <span>2025</span>
                                     <span className="text-black hover:opacity-100 opacity-50">
                                       2024
@@ -474,7 +474,7 @@ const CalendarContainer = () => {
                                   <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
                                     06
                                   </span>
-                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
+                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
                                     {
                                       dateArr.slice(0,12).map(date => (
                                         <span key={date} className="text-black hover:opacity-100 opacity-50">
@@ -488,7 +488,7 @@ const CalendarContainer = () => {
                                   <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
                                     30
                                   </span>
-                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
+                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
                                     {
                                       dateArr.map(date => (
                                         <span key={date} className="text-black hover:opacity-100 opacity-50">
