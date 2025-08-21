@@ -3,6 +3,21 @@
 import { useThemeColor } from "@/lib/hook/useThemeColor";
 import { useState } from "react";
 
+const monthsData = [
+  { index: "01", month: "JANUARY", percentage: 70 },
+  { index: "02", month: "FEBRUARY", percentage: 20 },
+  { index: "03", month: "MARCH", percentage: 90 },
+  { index: "04", month: "APRIL", percentage: 30 },
+  { index: "05", month: "MAY", percentage: 60 },
+  { index: "06", month: "JUNE", percentage: 100 },
+  { index: "07", month: "JULY", percentage: 10 },
+  { index: "08", month: "AUGUST", percentage: 80 },
+  { index: "09", month: "SEPTEMBER", percentage: 40 },
+  { index: "10", month: "OCTOBER", percentage: 50 },
+  { index: "11", month: "NOVEMBER", percentage: 100 },
+  { index: "12", month: "DECEMBER", percentage: 30 }
+];
+
 const CalendarContainer = () => {
   const [isYearSelectOpen, setIsYearSelectOpen] = useState(false);
   const toggleSelect = () => {
@@ -44,7 +59,7 @@ const CalendarContainer = () => {
             />
             {isYearSelectOpen && (
               <div
-                className="absolute top-[-4px] left-[-6px] w-[188px] h-[280px] z-[999] rounded-lg flex justify-between px-[6px] pt-[4px] gap-[8px] pb-[8px]"
+                className={`absolute top-[-4px] left-[-6px] h-[280px] z-[999] rounded-lg flex justify-between px-[6px] pt-[4px] gap-[8px] pb-[8px] ${isMonth ? "w-[188px]" : "w-[108px]"}`}
                 style={{ backgroundColor: `${color.bgColor}` }}
               >
                 <div className="flex flex-col gap-[2px]">
@@ -73,7 +88,7 @@ const CalendarContainer = () => {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col gap-[2px] pr-[4px]">
+                {isMonth && <div className="flex flex-col gap-[2px] pr-[4px]">
                   <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
                     06
                   </span>
@@ -98,11 +113,11 @@ const CalendarContainer = () => {
                       07
                     </span>
                   </div>
-                </div>
+                </div>}
               </div>
             )}
           </span>
-          <span className="font-bold text-[48px] font-alte leading-none pt-[4px] pb-[8px]">06</span>
+          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px]">06</span>}
         </div>
         <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px]">
           <div onClick={() => setIsMonth(true)} className={`text-center ${isMonth ? "text-[#7ECEFF]" :"text-[rgba(0,0,0,0.3)]"} cursor-pointer z-10`}>MONTH</div>
@@ -111,7 +126,7 @@ const CalendarContainer = () => {
         </div>
       </div>
       <div
-        className="w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between"
+        className="mt-[10px] w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
         <span className="font-wanted font-bold text-[18px]">
@@ -130,7 +145,7 @@ const CalendarContainer = () => {
           />
         </div>
       </div>
-      <div
+      {isMonth && <div
         className="w-full h-[320px] h-2/3 rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px]"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
@@ -252,7 +267,25 @@ const CalendarContainer = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div>}
+      {
+        !isMonth && <div
+          className="w-full h-[400px] h-2/3 rounded-xl grid grid-cols-3 grid-rows-4 mt-[15px]"
+          style={{ backgroundColor: `${color.bgColor}` }}
+        >
+          {
+            monthsData.map((data) => (
+              <div className="flex flex-col justify-center items-center px-[10px]" key={data.index}>
+                <span className="font-alte font-bold text-[48px] leading-none">{data.index}</span>
+                <span className="font-alte font-bold text-[12px] leading-none">{data.month}</span>
+                <div className="mt-[10px] h-[6px] w-full bg-white rounded-lg relative">
+                  <div className={`absolute h-full w-[${data.percentage}%] rounded-lg`} style={{backgroundColor:`${color.accentColor}`}}/>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      }
     </div>
   );
 };
