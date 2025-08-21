@@ -45,11 +45,9 @@ const NavigationMobileMenu = ({
   ]
 
   const currentMenu = menuConfig.filter((menu) => {
-  // 현재 경로와 메뉴의 href가 일치하는 경우 (정적 경로)
   if (pathname === menu.href) {
     return false;
   }
-  // '/breads/123' 메뉴가 현재 경로가 '/breads'로 시작하는 동적 경로일 때
   if (menu.href === '/breads/123' && pathname.startsWith('/breads')) {
     return false;
   }
