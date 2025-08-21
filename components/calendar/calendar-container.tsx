@@ -395,9 +395,8 @@ const CalendarContainer = () => {
               <div className="relative h-[90%] w-[95%] rounded-lg bg-white flex flex-col min-h-0 overflow-hidden" 
               onClick={(event) => {
                 event.stopPropagation()
-                console.log("child")
               }}>
-                <div className="absolute top-2 right-3 z-10" onClick={() => setIsBreadModalOpen(false)}>X</div>
+                <div className="absolute top-4 right-3 z-10" onClick={() => setIsBreadModalOpen(false)}><img src="/icons/cross.png"/></div>
                 <div className={`absolute w-full px-5 ${isCompact ? "h-[70px]" : "h-[170px]"}`}>
                   <div className="flex flex-col mt-[18px] w-full">
                     {
