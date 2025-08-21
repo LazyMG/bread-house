@@ -420,7 +420,7 @@ const CalendarContainer = () => {
                     
                   </div>
                 </div>
-                <div ref={scrollRef} className={`w-full flex-1 px-5 py-2 overflow-y-scroll rounded-bl-lg rounded-br-lg ${isCompact ? "mt-[70px]" : "mt-[170px] "}`} style={{backgroundColor:color.bgColor}} 
+                <div ref={scrollRef} className={`w-full flex-1 px-5 py-2 overflow-y-auto overscroll-contain touch-pan-y rounded-bl-lg rounded-br-lg ${isCompact ? "mt-[70px]" : "mt-[170px] "}`} style={{backgroundColor:color.bgColor,WebkitOverflowScrolling: "auto",overscrollBehavior:"none"}} 
                 onScroll={(e) => {
                   const y = e.currentTarget.scrollTop;
                   const delta = y - lastY.current;
