@@ -279,7 +279,7 @@ const CalendarContainer = () => {
                 <span className="font-alte font-bold text-[48px] leading-none">{data.index}</span>
                 <span className="font-alte font-bold text-[12px] leading-none">{data.month}</span>
                 <div className="mt-[10px] h-[6px] w-full bg-white rounded-lg relative">
-                  <div className={`absolute h-full w-[${data.percentage}%] rounded-lg`} style={{backgroundColor:`${color.accentColor}`}}/>
+                  <div className="absolute left-0 top-0 h-full rounded-lg" style={{ width: `${data.percentage}%`, backgroundColor: color.accentColor }}/>
                 </div>
               </div>
             ))
