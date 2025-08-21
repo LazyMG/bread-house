@@ -109,6 +109,8 @@ const monthsData = [
   { index: "12", month: "DECEMBER", percentage: 30 }
 ];
 
+const dateArr = Array.from({ length: 30 }, (_, i) => String(i + 1).padStart(2, "0"));
+
 const CalendarContainer = () => {
   const [isYearSelectOpen, setIsYearSelectOpen] = useState(false);
   const toggleSelect = () => {
@@ -125,6 +127,7 @@ const CalendarContainer = () => {
   const [selectedDate, setSelectedDate] = useState(30);
 
   const [isBreadModalOpen, setIsBreadModalOpen] = useState(false);
+  const [isModalDateSelectOpen, setIsModalDateSelectOpen] = useState(false);
 
   const overlayClick = (event: MouseEvent) => {
     event.stopPropagation();
@@ -389,40 +392,131 @@ const CalendarContainer = () => {
       {
         isBreadModalOpen && (
           <div
-              className={`fixed w-screen h-dvh left-0 top-0 bg-black/50 z-[990] transition-opacity duration-300 ease-in-out flex justify-center items-center`}
-              onClick={() => setIsBreadModalOpen(false)}
+            className={`fixed w-screen h-dvh left-0 top-0 bg-black/50 z-[990] transition-opacity duration-300 ease-in-out flex justify-center items-center`}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) {
+                setIsBreadModalOpen(false); // 배경만 클릭한 경우에만 닫기
+              }
+            }}
+            role="dialog"
+            aria-modal="true"
             >
-              <div className="relative h-[90%] w-[95%] rounded-lg bg-white flex flex-col min-h-0 overflow-hidden" 
-              onClick={(event) => {
-                event.stopPropagation()
-              }}>
-                <div className="absolute top-4 right-3 z-10" onClick={() => setIsBreadModalOpen(false)}><img src="/icons/cross.png"/></div>
-                <div className={`absolute w-full px-5 ${isCompact ? "h-[70px]" : "h-[170px]"}`}>
-                  <div className="flex flex-col mt-[18px] w-full">
-                    {
-                      isCompact ? <>
+            <div className="relative h-[90%] w-[95%] rounded-lg bg-white flex flex-col min-h-0 overflow-hidden">
+              <div className="absolute top-4 right-3 z-10" 
+                onClick={() => {
+                  setIsBreadModalOpen(false)
+                }}
+              >
+                <img src="/icons/cross.png"/>
+              </div>
+              <div className={`absolute w-full px-5 ${isCompact ? "h-[70px]" : "h-[170px]"}`}>
+                <div className="flex flex-col mt-[18px] w-full">
+                  {
+                    isCompact ? (
+                      <>
                         <div className="flex font-alte font-bold text-[12px] gap-1">
                           <span>2025/06/30</span>
                           <span>MON</span>
                         </div>
                         <span className="font-wanted font-extrabold text-[18px]">{DATA.title}</span>
-                      </> : 
-                      <>
-                        <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">2025</span>
-                    <div className="flex items-start gap-2 mt-[4px]">
-                      <span className="font-alte font-bold text-[48px] leading-none">06/30</span>
-                      <span className="font-alte font-bold text-[12px]">MON</span>
-                    </div>
-                    <div className="flex flex-col mt-[15px]">
-                      <span className="font-wanted font-extrabold text-[18px]">{DATA.title}</span>
-                      <span className="font-wanted text-[14px] opacity-50">{DATA.range}</span>
-                    </div>
                       </>
-                    }
-                    
-                  </div>
+                    ) : (
+                      <>
+                        <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative" 
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            setIsModalDateSelectOpen(true)
+                          }}>
+                            2025
+                            <div
+                              className={`fixed w-screen h-dvh left-0 top-0 bg-black/50 z-[990] transition-opacity duration-300 ease-in-out ${
+                                isModalDateSelectOpen
+                                  ? "opacity-100 pointer-events-auto"
+                                  : "opacity-0 pointer-events-none"
+                              }`}
+                              onClick={(event) => {
+                                event.stopPropagation()
+                                setIsModalDateSelectOpen(false)
+                              }}
+                            />
+                            {isModalDateSelectOpen && (
+                              <div
+                                className={`absolute top-[-4px] left-[-6px] h-[280px] z-[999] rounded-lg flex px-[6px] pt-[4px] gap-[28px] pb-[8px] w-[255px]`}
+                                style={{ backgroundColor: `${color.bgColor}` }}
+                              >
+                                <div className="flex flex-col gap-[2px]">
+                                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                                    2025
+                                  </span>
+                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
+                                    <span>2025</span>
+                                    <span className="text-black hover:opacity-100 opacity-50">
+                                      2024
+                                    </span>
+                                    <span className="text-black hover:opacity-100 opacity-50">
+                                      2023
+                                    </span>
+                                    <span className="text-black hover:opacity-100 opacity-50">
+                                      2022
+                                    </span>
+                                    <span className="text-black hover:opacity-100 opacity-50">
+                                      2021
+                                    </span>
+                                    <span className="text-black hover:opacity-100 opacity-50">
+                                      2020
+                                    </span>
+                                    <span className="text-black hover:opacity-100 opacity-50">
+                                      2019
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="flex flex-col gap-[2px]">
+                                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                                    06
+                                  </span>
+                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
+                                    {
+                                      dateArr.slice(0,12).map(date => (
+                                        <span key={date} className="text-black hover:opacity-100 opacity-50">
+                                          {date}
+                                        </span>
+                                      ))
+                                    }
+                                  </div>
+                                </div>
+                                <div className="flex flex-col gap-[2px]">
+                                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                                    30
+                                  </span>
+                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
+                                    {
+                                      dateArr.map(date => (
+                                        <span key={date} className="text-black hover:opacity-100 opacity-50">
+                                          {date}
+                                        </span>
+                                      ))
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </span>
+                        <div className="flex items-start gap-2 mt-[4px]">
+                          <span className="font-alte font-bold text-[48px] leading-none">06/30</span>
+                          <span className="font-alte font-bold text-[12px]">MON</span>
+                        </div>
+                        <div className="flex flex-col mt-[15px]">
+                          <span className="font-wanted font-extrabold text-[18px]">{DATA.title}</span>
+                          <span className="font-wanted text-[14px] opacity-50">{DATA.range}</span>
+                        </div>
+                      </>
+                    )
+                  }
                 </div>
-                <div ref={scrollRef} className={`w-full flex-1 px-5 py-2 overflow-y-auto overscroll-contain touch-pan-y rounded-bl-lg rounded-br-lg ${isCompact ? "mt-[70px]" : "mt-[170px] "}`} style={{backgroundColor:color.bgColor,WebkitOverflowScrolling: "auto",overscrollBehavior:"none"}} 
+              </div>
+              <div ref={scrollRef} 
+                className={`w-full flex-1 px-5 py-2 overflow-y-auto overscroll-contain touch-pan-y rounded-bl-lg rounded-br-lg ${isCompact ? "mt-[70px]" : "mt-[170px] "}`} 
+                style={{backgroundColor:color.bgColor,WebkitOverflowScrolling: "auto",overscrollBehavior:"none"}} 
                 onScroll={(e) => {
                   const y = e.currentTarget.scrollTop;
                   const delta = y - lastY.current;
@@ -430,13 +524,11 @@ const CalendarContainer = () => {
                   else if (delta < -THRESHOLD) setIsCompact(false); // 위로 스크롤 → 원복
                   lastY.current = y;
                 }}>
-                  <p className="font-wanted text-[16px] leading-[28px]" style={{
-              // wordBreak: "keep-all",
-              // overflowWrap: "break-word",
-            }}>사도들이 놓여 그 동료에게 가서 제사장들과 장로들의 말을 다 알리고 한 마음으로 합심하여 기도했습니다. 천지와 바다와 그 가운데 만물을 지으신 대주재 하나님의 이름을 부르며 기도했습니다. 그들은 다윗에게 하신 말씀을 붙들고 그 말씀대로 세상의 군왕들과 관리들이 함께 모여 주와 그리스도를 대적하고 있다고 아뢰었습니다. 권세자들의 위협함을 보시고 종들로 하여금 담대히 하나님의 말씀을 전하게 해달라고 기도했습니다. 복음의 종들인 그들은 권세자들의 위협 앞에 뒤로 물러서지 않았습니다. 목숨을 구하기 위해 도망치지도 않았습니다. 오히려 기도하고 담대히 말씀을 전하고자 했습니다. 빌기를 다하자 모인 곳이 진동하였고 무리가 다 성령이 충만하여 담대히 하나님의 말씀을 전했습니다. 대주재이신 하나님은 그들의 기도에 응답하셨습니다. 사도들은 성령충만함을 덧입고 위협 앞에서도 담대히 하나님의 말씀을 전하였습니다. 큰 권능으로 주 예수의 부활을 증언했습니다. 무리가 큰 은혜를 받았습니다. 믿는 무리는 한 마음과 한 뜻이 되어 물건을 서로 통용하였습니다. 복음의 종들인 그들은 권세자들의 위협 앞에 뒤로 물러서지 않았습니다. 목숨을 구하기 위해 도망치지도 않았습니다. 오히려 기도하고 담대히 말씀을 전하고자 했습니다. 빌기를 다하자 모인 곳이 진동하였고 무리가 다 성령이 충만하여 담대히 하나님의 말씀을 전했습니다. 대주재이신 하나님은 그들의 기도에 응답하셨습니다. 사도들은 성령충만함을 덧입고 위협 앞에서도 담대히 하나님의 말씀을 전하였습니다. 큰 권능으로 주 예수의 부활을 증언했습니다. 무리가 큰 은혜를 받았습니다. 믿는 무리는 한 마음과 한 뜻이 되어 물건을 서로 통용하였습니다.</p>
-                  {/* <div className="h-[170px] shrink-0" aria-hidden /> */}
-                </div>
+                  <p className="font-wanted text-[16px] leading-[28px]" style={{ // wordBreak: "keep-all", // overflowWrap: "break-word",
+          }}>사도들이 놓여 그 동료에게 가서 제사장들과 장로들의 말을 다 알리고 한 마음으로 합심하여 기도했습니다. 천지와 바다와 그 가운데 만물을 지으신 대주재 하나님의 이름을 부르며 기도했습니다. 그들은 다윗에게 하신 말씀을 붙들고 그 말씀대로 세상의 군왕들과 관리들이 함께 모여 주와 그리스도를 대적하고 있다고 아뢰었습니다. 권세자들의 위협함을 보시고 종들로 하여금 담대히 하나님의 말씀을 전하게 해달라고 기도했습니다. 복음의 종들인 그들은 권세자들의 위협 앞에 뒤로 물러서지 않았습니다. 목숨을 구하기 위해 도망치지도 않았습니다. 오히려 기도하고 담대히 말씀을 전하고자 했습니다. 빌기를 다하자 모인 곳이 진동하였고 무리가 다 성령이 충만하여 담대히 하나님의 말씀을 전했습니다. 대주재이신 하나님은 그들의 기도에 응답하셨습니다. 사도들은 성령충만함을 덧입고 위협 앞에서도 담대히 하나님의 말씀을 전하였습니다. 큰 권능으로 주 예수의 부활을 증언했습니다. 무리가 큰 은혜를 받았습니다. 믿는 무리는 한 마음과 한 뜻이 되어 물건을 서로 통용하였습니다. 복음의 종들인 그들은 권세자들의 위협 앞에 뒤로 물러서지 않았습니다. 목숨을 구하기 위해 도망치지도 않았습니다. 오히려 기도하고 담대히 말씀을 전하고자 했습니다. 빌기를 다하자 모인 곳이 진동하였고 무리가 다 성령이 충만하여 담대히 하나님의 말씀을 전했습니다. 대주재이신 하나님은 그들의 기도에 응답하셨습니다. 사도들은 성령충만함을 덧입고 위협 앞에서도 담대히 하나님의 말씀을 전하였습니다. 큰 권능으로 주 예수의 부활을 증언했습니다. 무리가 큰 은혜를 받았습니다. 믿는 무리는 한 마음과 한 뜻이 되어 물건을 서로 통용하였습니다.</p>
+                {/* <div className="h-[170px] shrink-0" aria-hidden /> */}
               </div>
+            </div>
           </div>
         )
       }
