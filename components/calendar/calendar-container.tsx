@@ -124,7 +124,7 @@ const CalendarContainer = () => {
   // new Date().getDate()
   const [selectedDate, setSelectedDate] = useState(30);
 
-  const [isBreadModalOpen, setIsBreadModalOpen] = useState(true);
+  const [isBreadModalOpen, setIsBreadModalOpen] = useState(false);
 
   const overlayClick = (event: MouseEvent) => {
     event.stopPropagation();
@@ -242,7 +242,8 @@ const CalendarContainer = () => {
           />
         </div>
       </div>
-      {isMonth && <div
+      {isMonth && 
+      <div
         className="w-full h-[320px] h-2/3 rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px]"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
@@ -357,6 +358,7 @@ const CalendarContainer = () => {
                 <span
                   className={`flex justify-center items-center z-10`}
                   style={{color:`${tempNumberArr.includes(date) ? `${selectedDate === date ?`white` : `${color.accentColor}`}` : "rgba(51,51,51,0.5)"}`}}
+                  onClick={() => setIsBreadModalOpen(true)}
                 >
                   {date.toString().padStart(2, "0")}
                 </span>
@@ -366,7 +368,8 @@ const CalendarContainer = () => {
         </div>
       </div>}
       {
-        !isMonth && <div
+        !isMonth && 
+        <div
           className="w-full h-[400px] h-2/3 rounded-xl grid grid-cols-3 grid-rows-4 mt-[15px]"
           style={{ backgroundColor: `${color.bgColor}` }}
         >
@@ -394,7 +397,7 @@ const CalendarContainer = () => {
                 event.stopPropagation()
                 console.log("child")
               }}>
-                <div className="absolute top-2 right-3">X</div>
+                <div className="absolute top-2 right-3 z-10" onClick={() => setIsBreadModalOpen(false)}>X</div>
                 <div className={`absolute w-full px-5 ${isCompact ? "h-[70px]" : "h-[170px]"}`}>
                   <div className="flex flex-col mt-[18px] w-full">
                     {
