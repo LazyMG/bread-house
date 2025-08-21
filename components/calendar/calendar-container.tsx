@@ -167,25 +167,15 @@ const CalendarContainer = () => {
                     2025
                   </span>
                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
-                    <span>2025</span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      2024
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      2023
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      2022
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      2021
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      2020
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      2019
-                    </span>
+                    {
+                      [2025,2024,2023,2022,2021,2020,2019].map(year => (
+                        <span key={year} className="hover:opacity-100 hover:text-black opacity-50"
+                          style={{color:color.accentColor}}
+                        >
+                          {year}
+                        </span>
+                      ))
+                    }
                   </div>
                 </div>
                 {isMonth && <div className="flex flex-col gap-[2px] pr-[4px]">
@@ -193,25 +183,14 @@ const CalendarContainer = () => {
                     06
                   </span>
                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
-                    <span>01</span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      02
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      03
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      04
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      05
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      06
-                    </span>
-                    <span className="text-black hover:opacity-100 opacity-50">
-                      07
-                    </span>
+                    {
+                      dateArr.slice(0,12).map(date => (
+                        <span key={date} className="hover:opacity-100 hover:text-black opacity-50"
+                          style={{color:color.accentColor}}>
+                          {date}
+                        </span>
+                      ))
+                    }
                   </div>
                 </div>}
               </div>
@@ -449,25 +428,15 @@ const CalendarContainer = () => {
                                     2025
                                   </span>
                                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
-                                    <span>2025</span>
-                                    <span className="text-black hover:opacity-100 opacity-50">
-                                      2024
-                                    </span>
-                                    <span className="text-black hover:opacity-100 opacity-50">
-                                      2023
-                                    </span>
-                                    <span className="text-black hover:opacity-100 opacity-50">
-                                      2022
-                                    </span>
-                                    <span className="text-black hover:opacity-100 opacity-50">
-                                      2021
-                                    </span>
-                                    <span className="text-black hover:opacity-100 opacity-50">
-                                      2020
-                                    </span>
-                                    <span className="text-black hover:opacity-100 opacity-50">
-                                      2019
-                                    </span>
+                                    {
+                                      [2025,2024,2023,2022,2021,2020,2019].map(year => (
+                                        <span key={year} className="hover:opacity-100 hover:text-black opacity-50"
+                                          style={{color:color.accentColor}}
+                                        >
+                                          {year}
+                                        </span>
+                                      ))
+                                    }
                                   </div>
                                 </div>
                                 <div className="flex flex-col gap-[2px]">
@@ -477,7 +446,8 @@ const CalendarContainer = () => {
                                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
                                     {
                                       dateArr.slice(0,12).map(date => (
-                                        <span key={date} className="text-black hover:opacity-100 opacity-50">
+                                        <span key={date} className="hover:opacity-100 hover:text-black opacity-50"
+                                          style={{color:color.accentColor}}>
                                           {date}
                                         </span>
                                       ))
@@ -491,7 +461,8 @@ const CalendarContainer = () => {
                                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
                                     {
                                       dateArr.map(date => (
-                                        <span key={date} className="text-black hover:opacity-100 opacity-50">
+                                        <span key={date} className="hover:opacity-100 hover:text-black opacity-50"
+                                          style={{color:color.accentColor}}>
                                           {date}
                                         </span>
                                       ))
