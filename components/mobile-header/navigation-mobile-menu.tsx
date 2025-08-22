@@ -65,37 +65,6 @@ const NavigationMobileMenu = ({
           <MobileMenuLink key={menu.href} closeNav={closeNav} href={menu.href} title={menu.title} color={colorConfig[index]}/>
         ))
       }
-      {/* <Link
-        href="/ui"
-        onClick={closeNav}
-        className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#FFFBE6]"
-      >
-        <span className="group-hover:text-[rgba(43,43,43,1)]">메인 페이지</span>
-        <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-white font-thin" />
-      </Link>
-      <Link
-        href="/breads/123"
-        onClick={closeNav}
-        className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-white"
-      >
-        <span className="group-hover:text-[rgba(43,43,43,1)]">오늘의 양식</span>
-        <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#FFFBE6] font-thin" />
-      </Link>
-      <Link
-        href="/calendar"
-        onClick={closeNav}
-        className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#E2F4FF]"
-      >
-        <span className="group-hover:text-[rgba(43,43,43,1)]">
-          일주일의 기록
-        </span>
-        <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#E2F4FF] font-thin" />
-      </Link>
-      <Link href="/pray" onClick={closeNav} className="group h-[62px] w-full flex items-center px-[26px] justify-between bg-[#F8FFF6]">
-        <span className="group-hover:text-[rgba(43,43,43,1)]">기도제목</span>
-        <div className="w-[24px] h-[24px] rounded-full border border-[rgba(43,43,43,0.6)] text-[rgba(43,43,43,0.6)] flex items-center justify-center group-hover:bg-black group-hover:text-[#F8FFF6] font-thin" />
-      </Link> */}
-
       <div className="w-full h-[26px] bg-black text-[rgba(255,255,255,0.8)] font-alte font-bold text-[12px] flex items-center pl-[26px] relative">
         BREAD HAUS
         {isNavOpen && (
