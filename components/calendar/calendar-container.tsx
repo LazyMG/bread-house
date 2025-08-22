@@ -1,6 +1,7 @@
 "use client";
 
 import { useThemeColor } from "@/lib/hook/useThemeColor";
+import { buildMonthGrid } from "@/lib/newMakeCalendar";
 import { useRef, useState } from "react";
 
 const DATA = {
@@ -116,6 +117,9 @@ const CalendarContainer = () => {
   const toggleSelect = () => {
     setIsYearSelectOpen((prev) => !prev);
   };
+  const thisMonth = new Date().getMonth()+1
+  // const thisMonth = 8
+  const monthGrid = buildMonthGrid(2025,thisMonth)
 
   const { color } = useThemeColor();
 
@@ -196,7 +200,7 @@ const CalendarContainer = () => {
               </div>
             )}
           </span>
-          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px]">06</span>}
+          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px]">{thisMonth.toString().padStart(2,"0")}</span>}
         </div>
         <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px]">
           <div onClick={() => setIsMonth(true)} className={`text-center ${isMonth ? "text-[#7ECEFF]" :"text-[rgba(0,0,0,0.3)]"} cursor-pointer z-10`}>MONTH</div>
@@ -226,10 +230,10 @@ const CalendarContainer = () => {
       </div>
       {isMonth && 
       <div
-        className="w-full h-[320px] h-2/3 rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px]"
+        className="w-full h-2/3 h-[370px] rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px]"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
-        <div className="w-full grid grid-cols-7 pt-[15px] gap-1">
+        <div className="w-full grid grid-cols-7 pt-[15px] gap-1 shrink-0">
           {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day, idx) => (
             <span
               className="flex justify-center items-center font-alte text-[12px] font-bold rounded-lg"
@@ -240,115 +244,87 @@ const CalendarContainer = () => {
             </span>
           ))}
         </div>
-        <div className="w-full flex flex-col gap-[30px]">
-          <div className="w-full grid grid-cols-7 gap-1">
-            {[1, 2, 3, 4, 5, 6, 7].map((date, idx) => (
-              <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
-                key={idx}
-              >
-                {tempNumberArr.includes(date) && (
-                  <div
-                    className="absolute w-[36px] h-[36px] rounded-full"
-                    style={{ backgroundColor: `white` }}
-                  />
-                )}
-                <span
-                  className={`flex justify-center items-center z-10`}
-                  style={{color:`${tempNumberArr.includes(date) ? `${color.accentColor}` : "rgba(51,51,51,0.5)"}`}}
-                >
-                  {date.toString().padStart(2, "0")}
-                </span>
+        {/* <div className="w-full flex flex-col gap-[30px] pb-[15px]">
+        {
+          monthGrid.map((monthRow,idx) => (
+              <div key={idx} className="w-full grid grid-cols-7 gap-1">
+                {
+                  monthRow.map((row,idx) => (
+                    <div
+                      className="flex justify-center items-center font-alte text-[16px] font-bold relative"
+                      key={idx}
+                    >
+                      {tempNumberArr.includes(row.date) && row.month === thisMonth && (
+                        <div
+                          className="absolute w-[36px] h-[36px] rounded-full"
+                          style={{ backgroundColor: `white` }}
+                        />
+                      )}
+                      <span
+                        className={`flex justify-center items-center z-10`}
+                        style={{color:`${row.month !== thisMonth ? "rgb(44, 44, 44,0.2)" : tempNumberArr.includes(row.date) ? `${color.accentColor}` : "rgba(51,51,51,0.5)"}`}}
+                      >
+                        {row.date.toString().padStart(2, "0")}
+                      </span>
+                    </div>
+                        ))
+                }
               </div>
-            ))}
+            
+          ))
+        }
+        </div> */}
+        {(() => {
+    const weeks = monthGrid.length; // 4~6
+    // 주가 많을수록 세로 간격(gap-y)을 조금 줄이기
+    const gy =
+      weeks === 6 ? "6px" :
+      weeks === 5 ? "10px" : "14px";
+
+    return (
+      <div
+        className={`
+          w-full flex-1 grid grid-cols-7
+          gap-x-1 [row-gap:var(--gy)]
+          pb-[10px]
+          [grid-template-rows:repeat(var(--weeks),minmax(0,1fr))]
+        `}
+        style={{
+          // CSS 변수로 주 수와 gap 값을 전달
+          ["--weeks" as any]: String(weeks),
+          ["--gy" as any]: gy,
+        }}
+      >
+        {/* 한 장의 7열 그리드로 모두 찍기 (평탄화) */}
+        {monthGrid.flat().map((cell, i) => (
+          <div
+            key={i}
+            className="flex justify-center items-center font-alte text-[16px] font-bold relative"
+          >
+            {tempNumberArr.includes(cell.date) && cell.month === thisMonth && (
+              <div className="absolute w-[36px] h-[36px] rounded-full" style={{ backgroundColor: "white" }} />
+            )}
+            <span
+              className="z-10"
+              style={{
+                color:
+                  cell.month !== thisMonth
+                    ? "rgba(44,44,44,0.2)"
+                    : tempNumberArr.includes(cell.date)
+                    ? color.accentColor
+                    : "rgba(51,51,51,0.5)",
+              }}
+            >
+              {String(cell.date).padStart(2, "0")}
+            </span>
           </div>
-          <div className="w-full grid grid-cols-7 gap-1">
-            {[8, 9, 10, 11, 12, 13, 14].map((date, idx) => (
-              <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
-                key={idx}
-              >
-                {tempNumberArr.includes(date) && (
-                  <div
-                    className="absolute w-[36px] h-[36px] rounded-full"
-                    style={{ backgroundColor: `white` }}
-                  />
-                )}
-                <span
-                  className={`flex justify-center items-center z-10`}
-                  style={{color:`${tempNumberArr.includes(date) ? `${color.accentColor}` : "rgba(51,51,51,0.5)"}`}}
-                >
-                  {date.toString().padStart(2, "0")}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="w-full grid grid-cols-7 gap-1">
-            {[15, 16, 17, 18, 19, 20, 21].map((date, idx) => (
-              <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
-                key={idx}
-              >
-                {tempNumberArr.includes(date) && (
-                  <div
-                    className="absolute w-[36px] h-[36px] rounded-full"
-                    style={{ backgroundColor: `white` }}
-                  />
-                )}
-                <span
-                  className={`flex justify-center items-center z-10`}
-                  style={{color:`${tempNumberArr.includes(date) ? `${color.accentColor}` : "rgba(51,51,51,0.5)"}`}}
-                >
-                  {date.toString().padStart(2, "0")}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="w-full grid grid-cols-7 gap-1">
-            {[22, 23, 24, 25, 26, 27, 28].map((date, idx) => (
-              <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
-                key={idx}
-              >
-                {tempNumberArr.includes(date) && (
-                  <div
-                    className="absolute w-[36px] h-[36px] rounded-full"
-                    style={{ backgroundColor: `white` }}
-                  />
-                )}
-                <span
-                  className={`flex justify-center items-center z-10`}
-                  style={{color:`${tempNumberArr.includes(date) ? `${color.accentColor}` : "rgba(51,51,51,0.5)"}`}}
-                >
-                  {date.toString().padStart(2, "0")}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="w-full grid grid-cols-7 gap-1">
-            {[29, 30, 1, 2, 3, 4, 5].map((date, idx) => (
-              <div
-                className="flex justify-center items-center font-alte text-[16px] font-bold relative"
-                key={idx}
-              >
-                {tempNumberArr.includes(date) && (
-                  <div
-                    className="absolute w-[36px] h-[36px] rounded-full"
-                    style={{ backgroundColor: `${selectedDate === date ? `${color.accentColor}` : `white`}` }}
-                  />
-                )}
-                <span
-                  className={`flex justify-center items-center z-10`}
-                  style={{color:`${tempNumberArr.includes(date) ? `${selectedDate === date ?`white` : `${color.accentColor}`}` : "rgba(51,51,51,0.5)"}`}}
-                  onClick={() => setIsBreadModalOpen(true)}
-                >
-                  {date.toString().padStart(2, "0")}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>}
+        ))}
+      </div>
+    );
+  })()}
+      </div>
+      
+      }
       {
         !isMonth && 
         <div
