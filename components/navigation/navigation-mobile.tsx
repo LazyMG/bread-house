@@ -4,11 +4,33 @@ import { Dispatch, ReactNode, SetStateAction } from "react";
 import NavigationMobileMenu from "../mobile-header/navigation-mobile-menu";
 import { useThemeColor } from "@/lib/hook/useThemeColor";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const MenuItem = ({color,title,href}:{color:string,title:string,href:string}) => (
-  <Link href={href} className="group w-full flex items-center justify-between ">
-    <span className="font-wanted font-bold text-[20px] group-hover:text-black" style={{color:color,opacity:0.5}}>{title}</span>
-    <span className="w-[12px] h-[12px] rounded-full group-hover:bg-black" style={{backgroundColor:color,opacity:0.5}}/>
+interface MenuItemProp{
+  color:string;
+  title:string;
+  href:string;
+  currentPath:string;
+}
+
+const MenuItem = ({color, title, href, currentPath}:MenuItemProp) => (
+  <Link href={href} className="group w-full flex items-center justify-between">
+    <span className="font-wanted font-bold text-[20px] group-hover:text-black" 
+      style={
+        {
+          color:currentPath === href.split("/")[1] ? "black" : color,
+          opacity:currentPath === href.split("/")[1] ? 1 : 0.5
+        }
+      }>
+      {title}
+    </span>
+    <span className="w-[12px] h-[12px] rounded-full group-hover:bg-black" 
+      style={
+        { 
+          backgroundColor:currentPath === href.split("/")[1] ? "black" : color,
+          opacity:currentPath === href.split("/")[1] ? 1 : 0.5
+        }
+    }/>
   </Link>
 )
 
@@ -29,7 +51,9 @@ const MobileNavigation = ({
     if (setIsNavOpen) setIsNavOpen(false);
   };
 
-  const {color} = useThemeColor()
+  const {color} = useThemeColor();
+
+  const pathname = usePathname()
 
   return (
     <>
@@ -62,10 +86,10 @@ const MobileNavigation = ({
               <span className="w-[12px] h-[12px] rounded-full" style={{backgroundColor:color.accentColor,opacity:0.5}}/>
             </div>
             <div className="px-3 w-full h-3/4 grid grid-rows-4 rounded-b-lg hover:text-black" style={{backgroundColor:color.bgColor}}>
-              <MenuItem color={color.accentColor} title="메인페이지" href="/ui"/>
-              <MenuItem color={color.accentColor} title="오늘의 말씀" href="/breads/123"/>
-              <MenuItem color={color.accentColor} title="기도 노트" href="/pray"/>
-              <MenuItem color={color.accentColor} title="묵상 기록" href="/calendar"/>
+              <MenuItem color={color.accentColor} title="메인페이지" href="/ui" currentPath={pathname.split("/")[1]}/>
+              <MenuItem color={color.accentColor} title="오늘의 말씀" href="/breads/123" currentPath={pathname.split("/")[1]}/>
+              <MenuItem color={color.accentColor} title="기도 노트" href="/pray" currentPath={pathname.split("/")[1]}/>
+              <MenuItem color={color.accentColor} title="묵상 기록" href="/calendar" currentPath={pathname.split("/")[1]}/>
             </div>
           </div>
         }
