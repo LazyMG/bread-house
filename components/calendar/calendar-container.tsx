@@ -374,7 +374,10 @@ const CalendarContainer = () => {
             className="flex justify-center items-center font-alte text-[16px] font-bold relative "
           >
             <div className="absolute w-[36px] h-[36px] md:w-[54px] md:h-[54px] rounded-full cursor-pointer" style={{ backgroundColor: tempNumberArr.includes(cell.date) && cell.month === currentMonth ? "white" : "transparent" }} onClick={() => {
-              setSelectedBread(DATA2)
+              setSelectedBread((prev) => {
+                if(prev === DATA2) return DATA;
+                else return DATA2
+              })
               setIsBreadModalOpen(true)
             }}/>
             <span
@@ -388,7 +391,10 @@ const CalendarContainer = () => {
                     : "rgba(51,51,51,0.5)",
               }}
               onClick={() => {
-              setSelectedBread(DATA2)
+              setSelectedBread((prev) => {
+                if(prev === DATA2) return DATA;
+                else return DATA2
+              })
                 setIsBreadModalOpen(true)
               }}
             >
