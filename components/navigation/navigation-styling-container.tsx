@@ -15,6 +15,8 @@ const NavigationStylingContainer = ({ children }: Props) => {
 
   const pathArr = ["ui", "meditation"];
 
+  const noNavStyle = ["/ui", "/calendar"]
+
   return (
     <div className="relative w-full h-full">
       {/* 모바일 배경 */}
@@ -30,17 +32,17 @@ const NavigationStylingContainer = ({ children }: Props) => {
       />
 
       {/* PC 배경 */}
-      <div
+      {pathname !== "/calendar" && <div
         className="hidden sm:block absolute inset-0 transition-colors ease-in-out"
         style={{
           backgroundColor: pathArr.includes(pathname.split("/")[1])
             ? color.navColor
             : color.bgColor,
         }}
-      />
+      />}
 
       {/* 원은 중복 없이 한 번만 렌더링 */}
-      {pathname !== "/ui" && (
+      {!noNavStyle.includes(pathname)  && (
         <div className="absolute pointer-events-none z-0 inset-0 top-[-120px] left-[-50px] overflow-hidden">
           <div
             id="circle"
