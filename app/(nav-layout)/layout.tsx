@@ -14,7 +14,7 @@ export default function NavLayout({
   return (
     <>
       <Navigation />
-      <div className="h-full mx-auto w-full">{children}</div>
+      <div className="h-full mx-auto w-full md:bg-[#F7F6F6]">{children}</div>
     </>
   );
 }

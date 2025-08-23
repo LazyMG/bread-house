@@ -53,7 +53,7 @@ const NavigationStylingContainer = ({ children }: Props) => {
       )}
 
       {/* children은 동일하게 유지 */}
-      <div className="relative w-full h-full flex items-center justify-center">
+      <div className={`relative w-full h-full flex items-center justify-center ${pathname === "/calendar" ? "bg-white" : ""}`}>
         {children}
       </div>
     </div>

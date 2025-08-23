@@ -4,7 +4,7 @@ const CalendarPage = () => {
   return (
     <div
       id=""
-      className="flex flex-col box-border bg-white sm:pt-[72px] text-black lg:max-w-[1240px] w-full mx-auto "
+      className="flex flex-col box-border sm:pt-[72px] text-black lg:max-w-[1240px] w-full mx-auto "
     >
       <main
         id="main"
