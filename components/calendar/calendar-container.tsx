@@ -117,9 +117,11 @@ const CalendarContainer = () => {
   const toggleSelect = () => {
     setIsYearSelectOpen((prev) => !prev);
   };
-  const thisMonth = new Date().getMonth()+1
-  // const thisMonth = 8
-  const monthGrid = buildMonthGrid(2025,thisMonth)
+
+  const [currentYear,setCurrentYear] = useState(new Date().getFullYear());
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
+  
+  const monthGrid = buildMonthGrid(currentYear,currentMonth)
 
   const { color } = useThemeColor();
 
@@ -152,7 +154,7 @@ const CalendarContainer = () => {
           <span
             className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative"
           >
-            2025
+            {currentYear}
             <div
               className={`fixed w-screen h-dvh left-0 top-0 bg-black/50 z-[990] transition-opacity duration-300 ease-in-out ${
                 isYearSelectOpen
@@ -168,13 +170,14 @@ const CalendarContainer = () => {
               >
                 <div className="flex flex-col gap-[2px]">
                   <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
-                    2025
+                    {currentYear}
                   </span>
                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
                     {
                       [2025,2024,2023,2022,2021,2020,2019].map(year => (
-                        <span key={year} className="hover:opacity-100 hover:text-black opacity-50"
-                          style={{color:color.accentColor}}
+                        <span key={year} className="hover:opacity-100 hover:text-black"
+                          style={{color:year === currentYear ? "black" : color.accentColor, opacity: year === currentYear ? 1 : 0.5}}
+                          onClick={() => setCurrentYear(year)}
                         >
                           {year}
                         </span>
@@ -184,13 +187,14 @@ const CalendarContainer = () => {
                 </div>
                 {isMonth && <div className="flex flex-col gap-[2px] pr-[4px]">
                   <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
-                    06
+                    {currentMonth.toString().padStart(2,"0")}
                   </span>
                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
                     {
                       dateArr.slice(0,12).map(date => (
-                        <span key={date} className="hover:opacity-100 hover:text-black opacity-50"
-                          style={{color:color.accentColor}}>
+                        <span key={date} className="hover:opacity-100 hover:text-black"
+                          style={{color:date === currentMonth.toString().padStart(2,"0") ? "black" : color.accentColor, opacity: date === currentMonth.toString().padStart(2,"0") ? 1 : 0.5}}
+                        >
                           {date}
                         </span>
                       ))
@@ -200,7 +204,7 @@ const CalendarContainer = () => {
               </div>
             )}
           </span>
-          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px]">{thisMonth.toString().padStart(2,"0")}</span>}
+          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px]">{currentMonth.toString().padStart(2,"0")}</span>}
         </div>
         <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px]">
           <div onClick={() => setIsMonth(true)} className={`text-center ${isMonth ? "text-[#7ECEFF]" :"text-[rgba(0,0,0,0.3)]"} cursor-pointer z-10`}>MONTH</div>
@@ -244,36 +248,6 @@ const CalendarContainer = () => {
             </span>
           ))}
         </div>
-        {/* <div className="w-full flex flex-col gap-[30px] pb-[15px]">
-        {
-          monthGrid.map((monthRow,idx) => (
-              <div key={idx} className="w-full grid grid-cols-7 gap-1">
-                {
-                  monthRow.map((row,idx) => (
-                    <div
-                      className="flex justify-center items-center font-alte text-[16px] font-bold relative"
-                      key={idx}
-                    >
-                      {tempNumberArr.includes(row.date) && row.month === thisMonth && (
-                        <div
-                          className="absolute w-[36px] h-[36px] rounded-full"
-                          style={{ backgroundColor: `white` }}
-                        />
-                      )}
-                      <span
-                        className={`flex justify-center items-center z-10`}
-                        style={{color:`${row.month !== thisMonth ? "rgb(44, 44, 44,0.2)" : tempNumberArr.includes(row.date) ? `${color.accentColor}` : "rgba(51,51,51,0.5)"}`}}
-                      >
-                        {row.date.toString().padStart(2, "0")}
-                      </span>
-                    </div>
-                        ))
-                }
-              </div>
-            
-          ))
-        }
-        </div> */}
         {(() => {
     const weeks = monthGrid.length; // 4~6
     // 주가 많을수록 세로 간격(gap-y)을 조금 줄이기
@@ -301,14 +275,14 @@ const CalendarContainer = () => {
             key={i}
             className="flex justify-center items-center font-alte text-[16px] font-bold relative"
           >
-            {tempNumberArr.includes(cell.date) && cell.month === thisMonth && (
+            {tempNumberArr.includes(cell.date) && cell.month === currentMonth && (
               <div className="absolute w-[36px] h-[36px] rounded-full" style={{ backgroundColor: "white" }} />
             )}
             <span
               className="z-10"
               style={{
                 color:
-                  cell.month !== thisMonth
+                  cell.month !== currentMonth
                     ? "rgba(44,44,44,0.2)"
                     : tempNumberArr.includes(cell.date)
                     ? color.accentColor
