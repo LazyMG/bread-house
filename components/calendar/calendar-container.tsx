@@ -314,6 +314,7 @@ const CalendarContainer = () => {
                     ? color.accentColor
                     : "rgba(51,51,51,0.5)",
               }}
+              onClick={() => setIsBreadModalOpen(true)}
             >
               {String(cell.date).padStart(2, "0")}
             </span>
@@ -462,7 +463,7 @@ const CalendarContainer = () => {
                 </div>
               </div>
               <div ref={scrollRef} 
-                className={`w-full flex-1 px-5 py-2 overflow-y-auto overscroll-contain touch-pan-y rounded-bl-lg rounded-br-lg ${isCompact ? "mt-[70px]" : "mt-[170px] "}`} 
+                className={`w-full flex-1 px-5 py-2 overflow-y-auto overscroll-contain touch-pan-y rounded-bl-lg rounded-br-lg scrollbar-hide ${isCompact ? "mt-[70px]" : "mt-[170px] "}`} 
                 style={{backgroundColor:color.bgColor,WebkitOverflowScrolling: "auto",overscrollBehavior:"none"}} 
                 onScroll={(e) => {
                   const y = e.currentTarget.scrollTop;
