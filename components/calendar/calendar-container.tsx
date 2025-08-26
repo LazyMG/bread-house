@@ -211,6 +211,7 @@ const CalendarContainer = () => {
 
   const [currentYear,setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
+  const [currentDate, setCurrentDate] = useState(new Date().getDate());
   
   const monthGrid = buildMonthGrid(currentYear,currentMonth)
 
@@ -287,6 +288,7 @@ const CalendarContainer = () => {
                       dateArr.slice(0,12).map(date => (
                         <span key={date} className="hover:opacity-100 hover:text-black"
                           style={{color:date === currentMonth.toString().padStart(2,"0") ? "black" : color.accentColor, opacity: date === currentMonth.toString().padStart(2,"0") ? 1 : 0.5}}
+                          onClick={() => setCurrentMonth(parseInt(date))}
                         >
                           {date}
                         </span>
@@ -301,9 +303,9 @@ const CalendarContainer = () => {
           {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px] md:pt-0 md:border-b-2 border-black cursor-pointer">{currentMonth.toString().padStart(2,"0")}</span>}
         </div>
         <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px]">
-          <div onClick={() => setIsMonth(true)} className={`text-center ${isMonth ? "text-[#7ECEFF]" :"text-[rgba(0,0,0,0.3)]"} cursor-pointer z-10`}>MONTH</div>
-          <div onClick={() => setIsMonth(false)} className={`text-center ${isMonth ? "text-[rgba(0,0,0,0.3)]" : "text-[#7ECEFF]"} cursor-pointer z-10`}>YEAR</div>
-          <div className={`absolute bg-[#E2F4FF] w-1/2 h-full rounded-md ${isMonth ? "left-0" : "right-0"}`}/>
+          <div onClick={() => setIsMonth(true)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? color.accentColor :"rgba(0,0,0,0.3)"}}>MONTH</div>
+          <div onClick={() => setIsMonth(false)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? "rgba(0,0,0,0.3)": color.accentColor}}>YEAR</div>
+          <div className={`absolute w-1/2 h-full rounded-md ${isMonth ? "left-0" : "right-0"}`} style={{backgroundColor:color.bgColor}}/>
         </div>
       </div>
       {/**/}
