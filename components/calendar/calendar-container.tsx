@@ -246,7 +246,7 @@ const CalendarContainer = () => {
       <div className="flex justify-between">
         <div className="flex flex-col md:flex-row pl-[6px]" onClick={toggleSelect}>
           <span
-            className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative md:text-[48px]"
+            className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative md:text-[48px] text-[#2c2c2c]"
           >
             {currentYear}
             <div
@@ -263,14 +263,14 @@ const CalendarContainer = () => {
                 style={{ backgroundColor: `${color.bgColor}` }}
               >
                 <div className="flex flex-col gap-[2px]">
-                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                  <span className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative text-[#2c2c2c]">
                     {currentYear}
                   </span>
                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
                     {
                       [2025,2024,2023,2022,2021,2020,2019].map(year => (
-                        <span key={year} className="hover:opacity-100 hover:text-black"
-                          style={{color:year === currentYear ? "black" : color.accentColor, opacity: year === currentYear ? 1 : 0.5}}
+                        <span key={year} className="hover:opacity-100 hover:text-[#2c2c2c]"
+                          style={{color:year === currentYear ? "#2c2c2c" : color.accentColor, opacity: year === currentYear ? 1 : 0.5}}
                           onClick={() => setCurrentYear(year)}
                         >
                           {year}
@@ -279,15 +279,15 @@ const CalendarContainer = () => {
                     }
                   </div>
                 </div>
-                {isMonth && <div className="flex flex-col gap-[2px] pr-[4px]">
-                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                {isMonth && <div className="flex flex-col gap-[2px] pr-[4px] text-[#2c2c2c]">
+                  <span className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative">
                     {currentMonth.toString().padStart(2,"0")}
                   </span>
                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide">
                     {
                       dateArr.slice(0,12).map(date => (
-                        <span key={date} className="hover:opacity-100 hover:text-black"
-                          style={{color:date === currentMonth.toString().padStart(2,"0") ? "black" : color.accentColor, opacity: date === currentMonth.toString().padStart(2,"0") ? 1 : 0.5}}
+                        <span key={date} className="hover:opacity-100 hover:text-[#2c2c2c]"
+                          style={{color:date === currentMonth.toString().padStart(2,"0") ? "#2c2c2c" : color.accentColor, opacity: date === currentMonth.toString().padStart(2,"0") ? 1 : 0.5}}
                           onClick={() => setCurrentMonth(parseInt(date))}
                         >
                           {date}
@@ -299,8 +299,8 @@ const CalendarContainer = () => {
               </div>
             )}
           </span>
-          {isMonth && <span className="hidden md:block font-bold text-[48px] font-alte leading-none border-b-2 border-black">{"/"}</span>}
-          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px] md:pt-0 md:border-b-2 border-black cursor-pointer">{currentMonth.toString().padStart(2,"0")}</span>}
+          {isMonth && <span className="hidden md:block font-bold text-[48px] font-alte leading-none border-b-2 border-[#2c2c2c] text-[#2c2c2c]">{"/"}</span>}
+          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px] md:pt-0 md:border-b-2 border-[#2c2c2c] cursor-pointer text-[#2c2c2c]">{currentMonth.toString().padStart(2,"0")}</span>}
         </div>
         <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px]">
           <div onClick={() => setIsMonth(true)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? color.accentColor :"rgba(0,0,0,0.3)"}}>MONTH</div>
@@ -315,14 +315,14 @@ const CalendarContainer = () => {
         className="mt-[10px] w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
-        <span className="font-wanted font-bold text-[18px]">
+        <span className="font-wanted font-bold text-[18px] text-[#2c2c2c]">
           심마리아님이 하나님께 드린 마음
         </span>
-        <div className="flex items-end">
-          <span className="font-alte font-bold text-[56px] leading-none">
+        <div className="flex items-end text-[#2c2c2c]">
+          <span className="font-alte font-bold text-[56px] leading-none tracking-tighter">
             32
           </span>
-          <span className="font-alte font-bold text-[24px]">{"%"}</span>
+          <span className="font-alte font-bold text-[24px] [-webkit-text-stroke:1px_#2c2c2c]">{"%"}</span>
         </div>
         <div className="w-full relative h-[12px] bg-white rounded-xl">
           <div
@@ -454,7 +454,7 @@ const CalendarContainer = () => {
                   {
                     isCompact ? (
                       <>
-                        <div className="flex font-alte font-bold text-[12px] gap-1">
+                        <div className="flex font-alte font-bold text-[12px] gap-1 text-[#2c2c2c]">
                           <span>2025/06/30</span>
                           <span>MON</span>
                         </div>
@@ -462,7 +462,7 @@ const CalendarContainer = () => {
                       </>
                     ) : (
                       <>
-                        <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative" 
+                        <span className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative text-[#2c2c2c]" 
                           onClick={(event) => {
                             event.stopPropagation();
                             setIsModalDateSelectOpen(true)
@@ -481,17 +481,17 @@ const CalendarContainer = () => {
                             />
                             {isModalDateSelectOpen && (
                               <div
-                                className={`absolute top-[-4px] left-[-6px] h-[280px] z-[999] rounded-lg flex px-[6px] pt-[4px] gap-[28px] pb-[8px] w-[255px] touch-pan-y`}
+                                className={`absolute top-[-4px] left-[-6px] h-[280px] z-[999] rounded-lg flex px-[6px] pt-[4px] gap-[28px] pb-[8px] w-[255px] touch-pan-y text-[#2c2c2c]`}
                                 style={{ backgroundColor: `${color.bgColor}` }}
                               >
                                 <div className="flex flex-col gap-[2px]">
-                                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                                  <span className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative">
                                     2025
                                   </span>
-                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
+                                  <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y text-[#2c2c2c]">
                                     {
                                       [2025,2024,2023,2022,2021,2020,2019].map(year => (
-                                        <span key={year} className="hover:opacity-100 hover:text-black opacity-50"
+                                        <span key={year} className="hover:opacity-100 hover:text-[#2c2c2c] opacity-50"
                                           style={{color:color.accentColor}}
                                         >
                                           {year}
@@ -500,14 +500,14 @@ const CalendarContainer = () => {
                                     }
                                   </div>
                                 </div>
-                                <div className="flex flex-col gap-[2px]">
-                                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                                <div className="flex flex-col gap-[2px] text-[#2c2c2c]">
+                                  <span className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative">
                                     06
                                   </span>
                                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
                                     {
                                       dateArr.slice(0,12).map(date => (
-                                        <span key={date} className="hover:opacity-100 hover:text-black opacity-50"
+                                        <span key={date} className="hover:opacity-100 hover:text-[#2c2c2c] opacity-50"
                                           style={{color:color.accentColor}}>
                                           {date}
                                         </span>
@@ -515,14 +515,14 @@ const CalendarContainer = () => {
                                     }
                                   </div>
                                 </div>
-                                <div className="flex flex-col gap-[2px]">
-                                  <span className="font-bold text-[20px] font-alte border-b-2 border-black w-fit leading-none pb-[2px] cursor-pointer relative">
+                                <div className="flex flex-col gap-[2px] text-[#2c2c2c]">
+                                  <span className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative">
                                     30
                                   </span>
                                   <div className="flex-1 flex flex-col font-alte font-bold text-[40px] gap-[8px] overflow-y-scroll scrollbar-hide touch-pan-y">
                                     {
                                       dateArr.map(date => (
-                                        <span key={date} className="hover:opacity-100 hover:text-black opacity-50"
+                                        <span key={date} className="hover:opacity-100 hover:text-[#2c2c2c] opacity-50"
                                           style={{color:color.accentColor}}>
                                           {date}
                                         </span>
@@ -533,11 +533,11 @@ const CalendarContainer = () => {
                               </div>
                             )}
                           </span>
-                        <div className="flex items-start gap-2 mt-[4px]">
+                        <div className="flex items-start gap-2 mt-[4px] text-[#2c2c2c]">
                           <span className="font-alte font-bold text-[48px] leading-none">06/30</span>
                           <span className="font-alte font-bold text-[12px]">MON</span>
                         </div>
-                        <div className="flex flex-col mt-[15px]">
+                        <div className="flex flex-col mt-[15px] text-[#2c2c2c]">
                           <span className="font-wanted font-extrabold text-[18px]">{selectedBread.title}</span>
                           <span className="font-wanted text-[14px] opacity-50">{selectedBread.range}</span>
                         </div>
@@ -556,7 +556,7 @@ const CalendarContainer = () => {
                   else if (delta < -THRESHOLD) setIsCompact(false); // 위로 스크롤 → 원복
                   lastY.current = y;
                 }}>
-                  <p className="font-wanted text-[16px] leading-[28px]" style={{ // wordBreak: "keep-all", // overflowWrap: "break-word",
+                  <p className="font-wanted text-[16px] leading-[28px] text-[#2c2c2c]" style={{ // wordBreak: "keep-all", // overflowWrap: "break-word",
           }}>{selectedBread.meditation === "" ? "내용이 없습니다." : selectedBread.meditation}</p>
                 {/* <div className="h-[170px] shrink-0" aria-hidden /> */}
               </div>
@@ -565,7 +565,7 @@ const CalendarContainer = () => {
         )
       }
         </div>
-        <div className="hidden md:flex md:flex-col md:col-span-2 rounded-lg min-h-0 overflow-hidden md:[contain:size] h-full">
+        <div className="hidden md:flex md:flex-col md:col-span-2 rounded-lg min-h-0 overflow-hidden md:[contain:size] h-full text-[#2c2c2c]">
         <div className="flex flex-col h-full pt-[10px]">
           <div className="flex flex-col justify-center py-[10px] px-8 min-h-[110px] w-full rounded-t-lg" style={{backgroundColor:color.bgColor}}>
             <div className="flex gap-[2px]">
