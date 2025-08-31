@@ -224,7 +224,7 @@ const CalendarContainer = () => {
   // new Date().getDate()
   const [selectedDate, setSelectedDate] = useState(30);
 
-  const [selectedBread,setSelectedBread] = useState(DATA);
+  const [selectedBread,setSelectedBread] = useState(DATA2);
 
   const [isBreadModalOpen, setIsBreadModalOpen] = useState(false);
   const [isModalDateSelectOpen, setIsModalDateSelectOpen] = useState(false);
@@ -326,8 +326,8 @@ const CalendarContainer = () => {
         </div>
         <div className="w-full relative h-[12px] bg-white rounded-xl">
           <div
-            className="h-[12px] rounded-xl absolute left-0 top-0 bottom-0 w-[105px]"
-            style={{ backgroundColor: `${color.accentColor}` }}
+            className="h-[12px] rounded-xl absolute left-0 top-0 bottom-0"
+            style={{ backgroundColor: `${color.accentColor}`,width: `32%` }}
           />
         </div>
       </div>
