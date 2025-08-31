@@ -10,6 +10,7 @@ export const useThemeColor = () => {
     circleColor: "#ffffff",
     navColor: "#ffffff",
     accentColor: "#ffffff",
+    menuColor:"#ffffff"
   });
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const pathname = usePathname();
@@ -26,7 +27,7 @@ export const useThemeColor = () => {
           circleColor: "#FF9D69",
           navColor: "#FFD3D3",
           accentColor: "#FF9E69",
-
+          menuColor:"rgba(255,166,166,0.5)"
         });
         break;
       // 낮
@@ -36,6 +37,7 @@ export const useThemeColor = () => {
           circleColor: "#FFF5C5",
           navColor: "#C9EAFF",
           accentColor: "#7ECEFF",
+          menuColor:"rgba(126,206,255,0.5)"
         });
         break;
       // 밤
@@ -45,6 +47,7 @@ export const useThemeColor = () => {
           circleColor: "#FFF6C6",
           navColor: "#E2DED7",
           accentColor: "#FFDA16",
+          menuColor:"#DAD6D0"
 
         });
     }

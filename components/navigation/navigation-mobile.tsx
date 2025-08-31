@@ -19,7 +19,6 @@ const MenuItem = ({color, title, href, currentPath}:MenuItemProp) => (
       style={
         {
           color:currentPath === href.split("/")[1] ? "black" : color,
-          opacity:currentPath === href.split("/")[1] ? 1 : 0.5
         }
       }>
       {title}
@@ -28,7 +27,6 @@ const MenuItem = ({color, title, href, currentPath}:MenuItemProp) => (
       style={
         { 
           backgroundColor:currentPath === href.split("/")[1] ? "black" : color,
-          opacity:currentPath === href.split("/")[1] ? 1 : 0.5
         }
     }/>
   </Link>
@@ -77,19 +75,19 @@ const MobileNavigation = ({
           isNavOpen && <div className="absolute top-5 right-5 w-[190px] h-[256px] z-[997] flex flex-col">
             <div className="px-3 py-1 bg-white w-full h-1/4 flex justify-between items-center rounded-t-lg">
               <div className="flex gap-2 items-center">
-                <span className="w-[48px] h-[48px] bg-blue-200 rounded-full"/>
+                <span className="w-[48px] h-[48px] rounded-full" style={{backgroundColor:color.bgColor}}/>
                 <div className="flex flex-col gap-1">
                   <span className="font-wanted font-extrabold text-[18px] leading-none">나하경님</span>
                   <span className="font-wanted font-extrabold text-[13px] leading-none">마이페이지</span>
                 </div>
               </div>
-              <span className="w-[12px] h-[12px] rounded-full" style={{backgroundColor:color.accentColor,opacity:0.5}}/>
+              <span className="w-[12px] h-[12px] rounded-full" style={{backgroundColor:color.menuColor}}/>
             </div>
             <div className="px-3 w-full h-3/4 grid grid-rows-4 rounded-b-lg hover:text-black" style={{backgroundColor:color.bgColor}}>
-              <MenuItem color={color.accentColor} title="메인페이지" href="/ui" currentPath={pathname.split("/")[1]}/>
-              <MenuItem color={color.accentColor} title="오늘의 말씀" href="/breads/123" currentPath={pathname.split("/")[1]}/>
-              <MenuItem color={color.accentColor} title="기도 노트" href="/pray" currentPath={pathname.split("/")[1]}/>
-              <MenuItem color={color.accentColor} title="묵상 기록" href="/calendar" currentPath={pathname.split("/")[1]}/>
+              <MenuItem color={color.menuColor} title="메인페이지" href="/ui" currentPath={pathname.split("/")[1]}/>
+              <MenuItem color={color.menuColor} title="오늘의 말씀" href="/breads/123" currentPath={pathname.split("/")[1]}/>
+              <MenuItem color={color.menuColor} title="기도 노트" href="/pray" currentPath={pathname.split("/")[1]}/>
+              <MenuItem color={color.menuColor} title="묵상 기록" href="/calendar" currentPath={pathname.split("/")[1]}/>
             </div>
           </div>
         }

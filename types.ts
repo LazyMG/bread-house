@@ -3,4 +3,11 @@ export type Color = {
   circleColor: string;
   navColor: string;
   accentColor: string;
+  menuColor:string;
 };
+
+// progressColor
+// calendarCellColor
+// calendarCircleColor
+// calendarActiveCellColor
+// calendarTodayColor
