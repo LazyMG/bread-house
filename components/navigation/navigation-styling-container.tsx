@@ -17,6 +17,8 @@ const NavigationStylingContainer = ({ children }: Props) => {
 
   const noNavStyle = ["/ui", "/calendar", "/breads"]
 
+  const noBgStyle = ["/calendar","/breads"]
+
   return (
     <div className="relative w-full h-full">
       {/* 모바일 배경 */}
@@ -25,14 +27,14 @@ const NavigationStylingContainer = ({ children }: Props) => {
         style={{
           backgroundColor: pathArr.includes(pathname.split("/")[1])
             ? color.navColor
-            : pathname === "/calendar" 
+            : (pathname === "/calendar" || pathname === "/breads")
             ? "white"
             : color.bgColor,
         }}
       />
 
       {/* PC 배경 */}
-      {pathname !== "/calendar" && <div
+      {!noBgStyle.includes(pathname.split("/")[1]) && <div
         className="hidden sm:block absolute inset-0 transition-colors ease-in-out"
         style={{
           backgroundColor: pathArr.includes(pathname.split("/")[1])
