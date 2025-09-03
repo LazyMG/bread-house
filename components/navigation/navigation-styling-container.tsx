@@ -15,7 +15,7 @@ const NavigationStylingContainer = ({ children }: Props) => {
 
   const pathArr = ["ui", "meditation"];
 
-  const noNavStyle = ["/ui", "/calendar"]
+  const noNavStyle = ["/ui", "/calendar", "/breads"]
 
   return (
     <div className="relative w-full h-full">
@@ -25,7 +25,7 @@ const NavigationStylingContainer = ({ children }: Props) => {
         style={{
           backgroundColor: pathArr.includes(pathname.split("/")[1])
             ? color.navColor
-            : pathname === "/calendar"
+            : pathname === "/calendar" 
             ? "white"
             : color.bgColor,
         }}
