@@ -31,7 +31,7 @@ export async function GET(request: Request) {
       // 실패
       // 실패면 다른 페이지로 돌리기
       if (!response.ok) {
-        return NextResponse.redirect(`${origin}${next}`);
+        return NextResponse.redirect(`${origin}/ui`);
       }
     } catch (error) {
       console.log("error", error);

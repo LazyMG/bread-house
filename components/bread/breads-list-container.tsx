@@ -36,7 +36,7 @@ const BreadsListContainer = () => {
           <img src="/icons/right-bracket.png" className="w-[8px] h-[16px]"/>
         </div>
       </div>
-      <div className={`w-full h-fit sm:h-[738px] overflow-y-scroll scrollbar-hide sm:mt-[24px] group px-[15px] sm:px-0 flex flex-col gap-[8px] sm:gap-0 ${isNavHiddenByScroll ? "mt-[46px]" : "mt-[78px]"}`}>
+      <div className={`w-full h-fit sm:h-[738px] overflow-y-scroll scrollbar-hide sm:mt-[24px] group px-[15px] sm:px-0 flex flex-col gap-[8px] sm:gap-0 ${isNavHiddenByScroll ? "mt-[46px]" : "mt-[78px]"} pt-[20px] sm:pt-0`}>
         {Array.from({ length: 30 }).map((_, idx) => (
           <div
             className="w-full h-[48px] sm:min-h-[62px] px-[11px] sm:px-[14px] flex items-center justify-between rounded-md cursor-pointer hover:bg-blue-200 group-hover:opacity-50 hover:!opacity-100"
