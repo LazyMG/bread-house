@@ -246,9 +246,10 @@ const CalendarContainer = () => {
       <div className="flex justify-between">
         <div className="flex flex-col md:flex-row pl-[6px]" onClick={toggleSelect}>
           <span
-            className="font-bold text-[20px] font-alte border-b-2 border-[#2c2c2c] w-fit leading-none pb-[2px] cursor-pointer relative md:text-[48px] text-[#2c2c2c]"
+            className="font-bold text-[20px] font-alte w-fit leading-none pb-[2px] cursor-pointer relative md:text-[48px] text-[#2c2c2c]"
           >
             {currentYear}
+            <div className="absolute w-[47px] md:w-[178px] h-[2px] md:h-[3px] bg-black rounded-xl left-[-1px] bottom-[-2px]"></div>
             <div
               className={`fixed w-screen h-dvh left-0 top-0 bg-black/50 z-[990] transition-opacity duration-300 ease-in-out ${
                 isYearSelectOpen
@@ -299,8 +300,8 @@ const CalendarContainer = () => {
               </div>
             )}
           </span>
-          {isMonth && <span className="hidden md:block font-bold text-[48px] font-alte leading-none border-b-2 border-[#2c2c2c] text-[#2c2c2c]">{"/"}</span>}
-          {isMonth && <span className="font-bold text-[48px] font-alte leading-none pt-[4px] md:pt-0 md:border-b-2 border-[#2c2c2c] cursor-pointer text-[#2c2c2c]">{currentMonth.toString().padStart(2,"0")}</span>}
+          {isMonth && <span className="hidden md:block font-bold text-[48px] font-alte leading-none text-[#2c2c2c]">{"/"}</span>}
+          {isMonth && <span className="font-bold text-[44px] md:text-[48px] font-alte leading-none pt-[4px] md:pt-0  cursor-pointer text-[#2c2c2c]">{currentMonth.toString().padStart(2,"0")}</span>}
         </div>
         <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px]">
           <div onClick={() => setIsMonth(true)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? color.accentColor :"rgba(0,0,0,0.3)"}}>MONTH</div>
@@ -309,37 +310,39 @@ const CalendarContainer = () => {
         </div>
       </div>
       {/**/}
-      <div className="flex flex-col md:grid md:grid-cols-5 md:items-stretch min-h-0 md:mt-[20px] md:gap-5">
-        <div className="flex flex-col md:col-span-3">
+      <div className="flex flex-col md:flex md:flex-row md:justify-between md:items-stretch min-h-0 md:mt-[20px]">
+        <div className="flex flex-col md:w-[530px] md:col-span-3">
             <div
-        className="mt-[10px] w-full h-[144px] rounded-xl px-[16px] flex flex-col py-[10px] justify-between"
+        className="mt-[10px] w-full h-[144px] rounded-xl px-[16px] flex flex-col"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
-        <span className="font-wanted font-bold text-[18px] text-[#2c2c2c]">
+        <span className="font-wanted font-bold text-[18px] text-[#2c2c2c] leading-[32px] py-[9px]">
           심마리아님이 하나님께 드린 마음
         </span>
-        <div className="flex items-end text-[#2c2c2c]">
+        <div className="flex items-end text-[#2c2c2c] gap-[6px]">
           <span className="font-alte font-bold text-[56px] leading-none tracking-tighter">
             32
           </span>
           <span className="font-alte font-bold text-[24px] [-webkit-text-stroke:1px_#2c2c2c]">{"%"}</span>
         </div>
-        <div className="w-full relative h-[12px] bg-white rounded-xl">
+        <div className="w-full flex-1 pt-[10px]">
+            <div className="w-full relative h-[12px] bg-white rounded-xl">
           <div
             className="h-[12px] rounded-xl absolute left-0 top-0 bottom-0"
             style={{ backgroundColor: `${color.accentColor}`,width: `32%` }}
           />
         </div>
+        </div>
       </div>
       {isMonth && 
       <div
-        className="w-full h-[370px] md:h-[500px] h-2/3  rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px]"
+        className="w-full h-[370px] md:h-[618px] h-2/3  rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px]"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
-        <div className="w-full grid grid-cols-7 pt-[15px] gap-1 shrink-0">
+        <div className="w-full grid grid-cols-7 pt-[30px] gap-1 shrink-0">
           {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day, idx) => (
             <span
-              className="flex justify-center items-center font-alte text-[12px] font-bold rounded-lg"
+              className="flex justify-center items-center font-alte text-[12px] md:text-[14px] font-bold rounded-lg"
               key={idx}
               style={{backgroundColor:`${selectedDay === idx ? `${color.accentColor}` : ""}`,color:`${selectedDay === idx ? `white` : "rgba(51,51,51,0.5)"}`}}
             >
@@ -360,8 +363,7 @@ const CalendarContainer = () => {
           w-full flex-1 grid grid-cols-7
           gap-x-1 [row-gap:var(--gy)]
           pb-[10px]
-          [grid-template-rows:repeat(var(--weeks),minmax(0,1fr))]
-          
+          [grid-template-rows:repeat(var(--weeks),minmax(0,1fr))] last:pb-[10px]
         `}
         style={{
           // CSS 변수로 주 수와 gap 값을 전달
@@ -373,7 +375,7 @@ const CalendarContainer = () => {
         {monthGrid.flat().map((cell, i) => (
           <div
             key={i}
-            className="flex justify-center items-center font-alte text-[16px] font-bold relative "
+            className="flex justify-center items-center font-alte text-[16px] md:text-[18px] font-bold relative"
           >
             <div className="absolute w-[36px] h-[36px] md:w-[54px] md:h-[54px] rounded-full cursor-pointer" style={{ backgroundColor: tempNumberArr.includes(cell.date) && cell.month === currentMonth ? "white" : "transparent" }} onClick={() => {
               setSelectedBread((prev) => {
@@ -565,12 +567,12 @@ const CalendarContainer = () => {
         )
       }
         </div>
-        <div className="hidden md:flex md:flex-col md:col-span-2 rounded-lg min-h-0 overflow-hidden md:[contain:size] h-full text-[#2c2c2c]">
+        <div className="hidden md:flex md:flex-col md:w-[408px] h-full md:col-span-2 rounded-lg min-h-0 overflow-hidden md:[contain:size] text-[#2c2c2c]">
         <div className="flex flex-col h-full pt-[10px]">
           <div className="flex flex-col justify-center py-[10px] px-8 min-h-[110px] w-full rounded-t-lg" style={{backgroundColor:color.bgColor}}>
-            <div className="flex gap-[2px]">
+            <div className="flex gap-[4px] items-start">
               <span className="font-alte font-bold text-[20px] leading-none">{selectedBread.date.split("-")[2]}</span>
-              <span className="font-alte font-bold text-[12px]">MON</span>
+              <span className="font-alte font-bold text-[12px] leading-none pt-[1px]">MON</span>
             </div>
             <span className="font-wanted font-extrabold text-[20px] py-[4px]">{selectedBread.title}</span>
             <span className="font-wanted text-[14px] text-[#2C2C2C] opacity-50">{selectedBread.range}</span>
