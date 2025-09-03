@@ -20,7 +20,7 @@ const BreadsListContainer = () => {
         )}
         customEl={<div className="bg-white py-[10px]  relative z-10" />}
       /> */}
-      <div className={`fixed sm:static sm:top-0 w-full sm:h-fit flex  px-[26px] sm:px-0 ${isNavHiddenByScroll ? "h-[46px] top-0 justify-center items-center sm:justify-between sm:items-end" : "h-[78px] top-[64px] justify-between items-end"} bg-white`}>
+      <div className={`fixed sm:static sm:top-0 w-full sm:h-fit flex  px-[26px] sm:px-0 ${isNavHiddenByScroll ? "h-[46px] top-0 justify-center items-center sm:justify-between sm:items-end" : "h-[78px] top-[64px] justify-between items-end"} bg-white z-10`}>
         <div className={`cursor-pointer pb-[16px] ${isNavHiddenByScroll ? "hidden sm:block" : "block"}`}>
           <img src="/icons/left-bracket.png" className="w-[8px] h-[16px]"/>
         </div>
