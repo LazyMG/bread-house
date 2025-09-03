@@ -20,7 +20,7 @@ const Navigation = () => {
       ${!pathArr.includes(pathname.split("/")[1]) ? "hidden sm:block" : ""}`}
     >
       <NavigationStylingContainer>
-        <div className="static w-full h-full lg:max-w-[1240px] flex items-center justify-between sm:px-[30px] xl:px-0 z-10">
+        <div className="static w-full h-full lg:max-w-[960px] flex items-center justify-between sm:px-[30px] xl:px-0 z-10">
           <Link href="/ui">
             <span className="pl-[24px] sm:pl-0 font-bold font-alte text-[18px] sm:text-[24px] tracking-tighter">
               BREAD HAUS
