@@ -4,7 +4,7 @@ import MobileHeaderLayout from "../mobile-header/mobile-header-layout";
 
 const BreadsListContainer = () => {
   return (
-    <div className="w-full">
+    <div className="w-full sm:mb-[60px]">
       <MobileHeaderLayout
         mainEl={(isNavHiddenByScroll) => (
           <h2
@@ -21,19 +21,25 @@ const BreadsListContainer = () => {
         <div className="cursor-pointer">
           <img src="/icons/left-bracket.png" />
         </div>
-        <span className="font-alte text-[48px] font-bold">2025/05</span>
+        <div className="flex flex-col justify-center items-center gap-[6px]">
+          <span className="font-alte sm:text-[24px] font-bold text-[#2C2C2C] leading-none">2025</span>
+          <div className="flex w-full px-[1px] h-[2px]">
+            <span className="w-full h-full bg-[#2C2C2C] rounded-lg"/>
+          </div>
+          <span className="font-alte sm:text-[52px] font-bold text-[#2C2C2C] leading-none">05</span>
+        </div>
         <div className="cursor-pointer">
           <img src="/icons/right-bracket.png" />
         </div>
       </div>
-      <div className="w-full h-full sm:h-[600px] overflow-y-scroll scrollbar-hide mt-[24px] sm:mt-0">
+      <div className="w-full h-full sm:h-[738px] overflow-y-scroll scrollbar-hide mt-[24px] sm:mt-0 group">
         {Array.from({ length: 30 }).map((_, idx) => (
           <div
-            className="w-full h-[50px] sm:h-[70px] px-[18px] sm:px-[14px] border-b-[1px] border-[#E2F4FF] flex items-center justify-between last:border-b-0"
+            className="w-full h-[50px] sm:h-[70px] px-[18px] sm:px-[14px] flex items-center justify-between rounded-md cursor-pointer hover:bg-blue-200 group-hover:opacity-50 hover:!opacity-100"
             key={idx}
           >
             <div className="flex gap-[12px] sm:gap-[60px] items-center">
-              <p className="font-alte font-bold text-[16px] sm:text-[24px]">
+              <p className="font-alte font-bold text-[16px] sm:text-[24px] sm:tracking-tight">
                 {(idx + 1).toString().padStart(2, "0")}
               </p>
               <p className="font-wanted font-bold leading-[32px] text-[16px] sm:text-[20px]">
