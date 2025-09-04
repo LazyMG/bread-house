@@ -212,17 +212,13 @@ const CalendarContainer = () => {
   const [currentYear,setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [currentDate, setCurrentDate] = useState(new Date().getDate());
+  const today = new Date();
   
   const monthGrid = buildMonthGrid(currentYear,currentMonth)
 
   const { color } = useThemeColor();
 
   const [isMonth, setIsMonth] = useState(true);
-
-  // new Date().getDay()
-  const [selectedDay,setSelectedDay] = useState(1);
-  // new Date().getDate()
-  const [selectedDate, setSelectedDate] = useState(30);
 
   const [selectedBread,setSelectedBread] = useState(DATA2);
 
@@ -249,7 +245,7 @@ const CalendarContainer = () => {
             className="font-bold text-[20px] font-alte w-fit leading-none pb-[2px] cursor-pointer relative md:text-[48px] text-[#2c2c2c]"
           >
             {currentYear}
-            <div className="absolute w-[47px] md:w-[178px] h-[2px] md:h-[3px] bg-black rounded-xl left-[-1px] bottom-[-2px]"></div>
+            <div className={`absolute ${isMonth ? "w-[47px] sm:w-[178px]" : "w-[47px] sm:w-full"} h-[2px] md:h-[3px] bg-black rounded-xl left-[-1px] bottom-[-2px]`}/>
             <div
               className={`fixed w-screen h-dvh left-0 top-0 bg-black/50 z-[990] transition-opacity duration-300 ease-in-out ${
                 isYearSelectOpen
@@ -271,7 +267,7 @@ const CalendarContainer = () => {
                     {
                       [2025,2024,2023,2022,2021,2020,2019].map(year => (
                         <span key={year} className="hover:opacity-100 hover:text-[#2c2c2c]"
-                          style={{color:year === currentYear ? "#2c2c2c" : color.accentColor, opacity: year === currentYear ? 1 : 0.5}}
+                          style={{color:year === currentYear ? "#2c2c2c" : color.calAccentColor, opacity: year === currentYear ? 1 : 0.5}}
                           onClick={() => setCurrentYear(year)}
                         >
                           {year}
@@ -288,7 +284,7 @@ const CalendarContainer = () => {
                     {
                       dateArr.slice(0,12).map(date => (
                         <span key={date} className="hover:opacity-100 hover:text-[#2c2c2c]"
-                          style={{color:date === currentMonth.toString().padStart(2,"0") ? "#2c2c2c" : color.accentColor, opacity: date === currentMonth.toString().padStart(2,"0") ? 1 : 0.5}}
+                          style={{color:date === currentMonth.toString().padStart(2,"0") ? "#2c2c2c" : color.calAccentColor, opacity: date === currentMonth.toString().padStart(2,"0") ? 1 : 0.5}}
                           onClick={() => setCurrentMonth(parseInt(date))}
                         >
                           {date}
@@ -303,15 +299,15 @@ const CalendarContainer = () => {
           {isMonth && <span className="hidden md:block font-bold text-[48px] font-alte leading-none text-[#2c2c2c]">{"/"}</span>}
           {isMonth && <span className="font-bold text-[44px] md:text-[48px] font-alte leading-none pt-[4px] md:pt-0  cursor-pointer text-[#2c2c2c]">{currentMonth.toString().padStart(2,"0")}</span>}
         </div>
-        <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px]">
-          <div onClick={() => setIsMonth(true)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? color.accentColor :"rgba(0,0,0,0.3)"}}>MONTH</div>
-          <div onClick={() => setIsMonth(false)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? "rgba(0,0,0,0.3)": color.accentColor}}>YEAR</div>
-          <div className={`absolute w-1/2 h-full rounded-md ${isMonth ? "left-0" : "right-0"}`} style={{backgroundColor:color.bgColor}}/>
+        <div className="grid grid-cols-2 min-w-[136px] py-[2px] h-fit font-alte font-bold text-[11px] bg-[rgba(226,222,215,0.5)] rounded-md relative mt-[2px] sm:mt-[6px]">
+          <div onClick={() => setIsMonth(true)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? color.calSelectorSelectedTextColor :"rgba(0,0,0,0.3)"}}>MONTH</div>
+          <div onClick={() => setIsMonth(false)} className={`text-center cursor-pointer z-10`} style={{color:isMonth ? "rgba(0,0,0,0.3)": color.calSelectorSelectedTextColor}}>YEAR</div>
+          <div className={`absolute w-1/2 h-full rounded-md ${isMonth ? "left-0" : "right-0"}`} style={{backgroundColor:color.calSelectorSelectedBgColor}}/>
         </div>
       </div>
       {/**/}
-      <div className="flex flex-col md:flex md:flex-row md:justify-between md:items-stretch min-h-0 md:mt-[20px]">
-        <div className="flex flex-col md:w-[530px] md:col-span-3">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-stretch min-h-0 sm:mt-[20px]">
+        <div className="flex flex-col sm:w-[538px]">
             <div
         className="mt-[10px] w-full h-[144px] rounded-xl px-[16px] flex flex-col"
         style={{ backgroundColor: `${color.bgColor}` }}
@@ -326,17 +322,17 @@ const CalendarContainer = () => {
           <span className="font-alte font-bold text-[24px] [-webkit-text-stroke:1px_#2c2c2c]">{"%"}</span>
         </div>
         <div className="w-full flex-1 pt-[10px]">
-            <div className="w-full relative h-[12px] bg-white rounded-xl">
+            <div className="w-full relative h-[12px] bg-white rounded-xl" style={{backgroundColor:color.calProgressBarColor}}>
           <div
             className="h-[12px] rounded-xl absolute left-0 top-0 bottom-0"
-            style={{ backgroundColor: `${color.accentColor}`,width: `32%` }}
+            style={{ backgroundColor: `${color.calAccentColor}`,width: `32%` }}
           />
         </div>
         </div>
       </div>
       {isMonth && 
       <div
-        className="w-full h-[370px] md:h-[618px] h-2/3  rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px]"
+        className="w-full h-[370px] md:h-[618px] h-2/3  rounded-xl px-[8px] flex flex-col gap-[20px] mt-[15px] sm:mt-[12px]"
         style={{ backgroundColor: `${color.bgColor}` }}
       >
         <div className="w-full grid grid-cols-7 pt-[30px] gap-1 shrink-0">
@@ -344,7 +340,7 @@ const CalendarContainer = () => {
             <span
               className="flex justify-center items-center font-alte text-[12px] md:text-[14px] font-bold rounded-lg"
               key={idx}
-              style={{backgroundColor:`${selectedDay === idx ? `${color.accentColor}` : ""}`,color:`${selectedDay === idx ? `white` : "rgba(51,51,51,0.5)"}`}}
+              style={{backgroundColor:`${currentDate === idx ? `${color.calAccentColor}` : ""}`,color:`${currentDate === idx ? color.calTextColor : "rgba(51,51,51,0.5)"}`}}
             >
               {day}
             </span>
@@ -377,7 +373,7 @@ const CalendarContainer = () => {
             key={i}
             className="flex justify-center items-center font-alte text-[16px] md:text-[18px] font-bold relative"
           >
-            <div className="absolute w-[36px] h-[36px] md:w-[54px] md:h-[54px] rounded-full cursor-pointer" style={{ backgroundColor: tempNumberArr.includes(cell.date) && cell.month === currentMonth ? "white" : "transparent" }} onClick={() => {
+            <div className="absolute w-[36px] h-[36px] md:w-[54px] md:h-[54px] rounded-full cursor-pointer" style={{ backgroundColor: cell.month === currentMonth ? cell.date === today.getDate() ? color.calAccentColor : tempNumberArr.includes(cell.date) ? color.calCircleColor : "transparent" : "transparent" }} onClick={() => {
               setSelectedBread((prev) => {
                 if(prev === DATA2) return DATA;
                 else return DATA2
@@ -390,8 +386,8 @@ const CalendarContainer = () => {
                 color:
                   cell.month !== currentMonth
                     ? "rgba(44,44,44,0.2)"
-                    : tempNumberArr.includes(cell.date)
-                    ? color.accentColor
+                    : currentMonth === today.getMonth() + 1 && cell.date === today.getDate() ? color.calTextColor : tempNumberArr.includes(cell.date)
+                    ? color.calAccentColor
                     : "rgba(51,51,51,0.5)",
               }}
               onClick={() => {
@@ -424,7 +420,7 @@ const CalendarContainer = () => {
                 <span className="font-alte font-bold text-[48px] leading-none">{data.index}</span>
                 <span className="font-alte font-bold text-[12px] leading-none">{data.month}</span>
                 <div className="mt-[10px] h-[6px] w-full bg-white rounded-lg relative">
-                  <div className="absolute left-0 top-0 h-full rounded-lg" style={{ width: `${data.percentage}%`, backgroundColor: color.accentColor }}/>
+                  <div className="absolute left-0 top-0 h-full rounded-lg" style={{ width: `${data.percentage}%`, backgroundColor: color.calAccentColor }}/>
                 </div>
               </div>
             ))
@@ -494,7 +490,7 @@ const CalendarContainer = () => {
                                     {
                                       [2025,2024,2023,2022,2021,2020,2019].map(year => (
                                         <span key={year} className="hover:opacity-100 hover:text-[#2c2c2c] opacity-50"
-                                          style={{color:color.accentColor}}
+                                          style={{color:color.calAccentColor}}
                                         >
                                           {year}
                                         </span>
@@ -510,7 +506,7 @@ const CalendarContainer = () => {
                                     {
                                       dateArr.slice(0,12).map(date => (
                                         <span key={date} className="hover:opacity-100 hover:text-[#2c2c2c] opacity-50"
-                                          style={{color:color.accentColor}}>
+                                          style={{color:color.calAccentColor}}>
                                           {date}
                                         </span>
                                       ))
@@ -574,7 +570,7 @@ const CalendarContainer = () => {
               <span className="font-alte font-bold text-[20px] leading-none">{selectedBread.date.split("-")[2]}</span>
               <span className="font-alte font-bold text-[12px] leading-none pt-[1px]">MON</span>
             </div>
-            <span className="font-wanted font-extrabold text-[20px] py-[4px]">{selectedBread.title}</span>
+            <span className="font-wanted font-extrabold text-[20px] pt-[6px]">{selectedBread.title}</span>
             <span className="font-wanted text-[14px] text-[#2C2C2C] opacity-50">{selectedBread.range}</span>
           </div>
           <div className={`px-8 pt-4 flex-1 min-h-0 overflow-y-auto scrollbar-hide bg-white flex flex-col ${selectedBread.meditation === "" ?"justify-center items-center" :""}`}>
