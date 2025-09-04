@@ -34,14 +34,14 @@ const NavigationStylingContainer = ({ children }: Props) => {
       />
 
       {/* PC 배경 */}
-      {!noBgStyle.includes(pathname.split("/")[1]) && <div
+      {/* {!noBgStyle.includes(pathname.split("/")[1]) && <div
         className="hidden sm:block absolute inset-0 transition-colors ease-in-out"
         style={{
           backgroundColor: pathArr.includes(pathname.split("/")[1])
             ? color.navColor
             : color.bgColor,
         }}
-      />}
+      />} */}
 
       {/* 원은 중복 없이 한 번만 렌더링 */}
       {!noNavStyle.includes(pathname)  && (
