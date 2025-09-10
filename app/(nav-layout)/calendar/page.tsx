@@ -1,4 +1,11 @@
-import CalendarContainer from "@/components/calendar/calendar-container";
+// import CalendarContainer from "@/components/calendar/calendar-container";
+
+import dynamic from "next/dynamic";
+
+const CalendarContainer = dynamic(
+  () => import("@/components/calendar/calendar-container"),
+  { ssr: false }
+);
 
 const CalendarPage = () => {
   return (

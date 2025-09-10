@@ -2,7 +2,7 @@
 
 import { useThemeColor } from "@/lib/hook/useThemeColor";
 import { buildMonthGrid } from "@/lib/newMakeCalendar";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const DATA = {
   date: "2025-06-30",
@@ -209,13 +209,14 @@ const CalendarContainer = () => {
     setIsYearSelectOpen((prev) => !prev);
   };
 
-  const [currentYear,setCurrentYear] = useState(new Date().getFullYear());
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
-  const [currentDate, setCurrentDate] = useState(new Date().getDate());
-  const today = new Date();
-  
-  const monthGrid = buildMonthGrid(currentYear,currentMonth)
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+  const [currentMonth, setCurrentMonth] = useState<number | null>(null);
+  const [currentDate, setCurrentDate] = useState<number | null>(null);
+  const [currentWeekday, setCurrentWeekday] = useState<number | null>(null);
 
+  const today = new Date();
+  const todayWeekday = new Date().getDay();
+  
   const { color } = useThemeColor();
 
   const [isMonth, setIsMonth] = useState(true);
@@ -225,7 +226,7 @@ const CalendarContainer = () => {
   const [isBreadModalOpen, setIsBreadModalOpen] = useState(false);
   const [isModalDateSelectOpen, setIsModalDateSelectOpen] = useState(false);
 
-  const overlayClick = (event: MouseEvent) => {
+  const overlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
     //toggleSelect();
   };
@@ -236,6 +237,20 @@ const CalendarContainer = () => {
   const lastY = useRef(0);
   const [isCompact, setIsCompact] = useState(false);
   const THRESHOLD = 6;
+
+  useEffect(() => {
+    const d = new Date();
+    setCurrentYear(d.getFullYear());
+    setCurrentMonth(d.getMonth() + 1);   // 1~12
+    setCurrentDate(d.getDate());         // 1~31
+    setCurrentWeekday(d.getDay());       // 0(Sun)~6(Sat)
+  }, []);
+
+  if (currentYear == null || currentMonth == null) {
+    return null; // 또는 스켈레톤/로더
+  }
+
+  const monthGrid = buildMonthGrid(currentYear,currentMonth);
 
   return (
     <div className="flex flex-col w-full px-[16px] md:px-0 md:mt-[20px]">
@@ -252,7 +267,7 @@ const CalendarContainer = () => {
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
               }`}
-              onClick={() => overlayClick}
+              onClick={overlayClick}
             />
             {isYearSelectOpen && (
               <div
@@ -340,7 +355,10 @@ const CalendarContainer = () => {
             <span
               className="flex justify-center items-center font-alte text-[12px] md:text-[14px] font-bold rounded-lg"
               key={idx}
-              style={{backgroundColor:`${currentDate === idx ? `${color.calAccentColor}` : ""}`,color:`${currentDate === idx ? color.calTextColor : "rgba(51,51,51,0.5)"}`}}
+              style={{
+                backgroundColor: todayWeekday === idx ? color.calAccentColor : "",
+                color: todayWeekday === idx ? color.calTextColor : "rgba(51,51,51,0.5)"
+              }}
             >
               {day}
             </span>
@@ -374,6 +392,7 @@ const CalendarContainer = () => {
             className="flex justify-center items-center font-alte text-[16px] md:text-[18px] font-bold relative"
           >
             <div className="absolute w-[36px] h-[36px] md:w-[54px] md:h-[54px] rounded-full cursor-pointer" style={{ backgroundColor: cell.month === currentMonth ? cell.date === today.getDate() ? color.calAccentColor : tempNumberArr.includes(cell.date) ? color.calCircleColor : "transparent" : "transparent" }} onClick={() => {
+              //currentDate 바꾸기
               setSelectedBread((prev) => {
                 if(prev === DATA2) return DATA;
                 else return DATA2
@@ -391,6 +410,7 @@ const CalendarContainer = () => {
                     : "rgba(51,51,51,0.5)",
               }}
               onClick={() => {
+                //currentDate 바꾸기
               setSelectedBread((prev) => {
                 if(prev === DATA2) return DATA;
                 else return DATA2
