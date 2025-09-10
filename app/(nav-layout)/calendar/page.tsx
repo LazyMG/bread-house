@@ -23,7 +23,6 @@ const CalendarPage = () => {
       </main>
     </div>
     </>
-    
   );
 };
 

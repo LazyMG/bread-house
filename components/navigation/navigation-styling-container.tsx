@@ -15,7 +15,7 @@ const NavigationStylingContainer = ({ children }: Props) => {
 
   const pathArr = ["ui", "meditation"];
 
-  const noNavStyle = ["/ui", "/calendar", "/breads"]
+  const noNavStyle = ["/ui", "/calendar", "/breads", "/login"]
 
   const noBgStyle = ["/calendar","/breads"]
 
@@ -55,7 +55,7 @@ const NavigationStylingContainer = ({ children }: Props) => {
       )}
 
       {/* children은 동일하게 유지 */}
-      <div className={`relative w-full h-full flex items-center justify-center ${pathname === "/calendar" ? "bg-white" : ""}`}>
+      <div className={`relative w-full h-full flex items-center justify-center ${noNavStyle.includes(pathname) ? "bg-white" : ""}`}>
         {children}
       </div>
     </div>
