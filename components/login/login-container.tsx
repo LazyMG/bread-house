@@ -16,24 +16,7 @@ const LoginContainer = () => {
 
   return (
     <div
-      className="w-full h-full flex flex-col justify-normal sm:justify-between relative overflow-hidden"
-      style={{ backgroundColor: color.bgColor }}
-    >
-      <div className="lg:max-w-[1240px] w-full mx-auto relative top-0 z-10">
-        <div
-          className="hidden absolute left-0 top-0 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md sm:flex justify-center items-center cursor-pointer"
-          onClick={() => router.back()}
-        >
-          <img src="/icons/left-arrow.png" />
-        </div>
-        <div
-          className="absolute sm:hidden left-[32px] top-0 w-[32px] h-[32px] bg-black rounded-es-md rounded-ee-md flex justify-center items-center cursor-pointer"
-          onClick={() => router.back()}
-        >
-          <img src="/icons/left-arrow.png" />
-        </div>
-      </div>
-
+      className="w-full h-full flex flex-1 justify-center items-center">
       {isLoggedIn ? (
         <>
           <div
@@ -106,34 +89,7 @@ const LoginContainer = () => {
         </>
       ) : (
         <>
-          <div
-            id="circle-container"
-            className="w-full h-1/2 sm:h-3/5 flex justify-center relative overflow-hidden items-center sm:items-start pt-[30px] sm:pt-0"
-          >
-            <div
-              id="circle"
-              className="w-[calc(100%-80px)] sm:w-[2400px] aspect-square rounded-full absolute blur-lg"
-              style={{
-                backgroundColor: color.circleColor,
-              }}
-            />
-            <div className="z-10 sm:hidden flex flex-col items-center mb-[20px]">
-              <h4
-                className="font-wanted font-extrabold text-[24px] leading-[32px] w-[178px] text-center"
-                style={{
-                  wordBreak: "keep-all",
-                  overflowWrap: "break-word",
-                }}
-              >
-                오늘 하루를 말씀으로 채우는 곳
-              </h4>
-              <h2 className="font-alte font-bold text-[32px] tracking-tight">
-                BREAD HAUS
-              </h2>
-            </div>
-          </div>
-
-          <div className="w-full sm:w-[400px] h-1/2 sm:h-[600px] absolute sm:top-16 bottom-0 sm:right-0 sm:left-0 sm:mx-auto sm:my-auto z-10 flex flex-col gap-[45px] justify-end sm:justify-normal">
+          {/* <div className="w-full sm:w-[400px] h-1/2 sm:h-[600px] absolute sm:top-16 bottom-0 sm:right-0 sm:left-0 sm:mx-auto sm:my-auto z-10 flex flex-col gap-[45px] justify-end sm:justify-normal">
             <div
               id="login-header"
               className="hidden sm:flex flex-col items-center"
@@ -164,19 +120,45 @@ const LoginContainer = () => {
                     src="/icons/kakao_logo.png"
                   />
                 </div>
-                {/* <div
-                  onClick={() => setIsLoggedIn(true)}
-                  className="w-full h-[44px] bg-[#EEEBE6] rounded-md flex items-center justify-center relative cursor-pointer"
-                >
-                  이메일로 계속하기
-                  <img
-                    className="absolute left-5"
-                    src="/icons/email_logo.png"
-                  />
-                </div> */}
               </div>
 
               <span className="border-b border-[#A8A5A1] text-[#A8A5A1] text-[12px] leading-[20px] font-wanted font-medium">
+                로그인에 문제가 생겼나요?
+              </span>
+            </div>
+          </div> */}
+          <div className="w-[400px] h-[620px] rounded-md flex flex-col text-[#2C2C2C]">
+            <div className="w-full h-[69px] font-wanted text-[28px] font-bold flex justify-center items-center rounded-t-md" style={{backgroundColor:color.bgColor}}>로그인</div>
+            <div className="bg-white flex-1 flex flex-col items-center">
+              <div className="mt-[39px] mb-[30px] w-[192px] h-[192px] rounded-full bg-[#2C2C2C]"/>
+              <div className="w-full flex flex-col items-center gap-[8px]">
+                <span className="font-wanted font-bold text-[18px] leading-none">말씀으로 하루를 살아가다</span>
+                <span className="font-alte font-bold text-[40px] tracking-tighter leading-none">ONE WAY</span>
+              </div>
+              <div className="mt-[32px] w-full flex flex-col items-center gap-[13px] font-wanted font-medium text-[16px] leading-[32px]">
+                <div
+                  onClick={kakaoLogin}
+                  className="w-[310px] h-[44px] bg-[#FFE812] rounded-md flex items-center justify-center relative cursor-pointer"
+                >
+                  카카오로 계속하기
+                  <img
+                    className="absolute left-4"
+                    src="/icons/kakao_logo.png"
+                  />
+                </div>
+                <div
+                  onClick={kakaoLogin}
+                  className="w-[310px] h-[44px] rounded-md flex items-center justify-center relative cursor-pointer"
+                  style={{backgroundColor:color.bgColor}}
+                >
+                  이메일로 계속하기
+                  <img
+                    className="absolute left-4"
+                    src="/icons/email_logo.png"
+                  />
+                </div>
+              </div>
+              <span className="mt-[32px] border-b border-[#A8A5A1] text-[#A8A5A1] text-[12px] leading-[28px] font-wanted font-medium">
                 로그인에 문제가 생겼나요?
               </span>
             </div>
